@@ -1,0 +1,44 @@
+[
+
+  {
+    "title": "The Count of Monte Cristo",
+    "link": "img/cristo.jpg",
+    "description": "Thrown in prison for a crime he has not committed, Edmond Dantes is confined to the grim fortress of If. There he learns of a great hoard of treasure hidden on the Isle of Monte Cristo and he becomes determined not only to escape, but also to unearth the treasure and use it to plot the ",
+    "review": [
+      {}
+    ],
+    "likes": 4
+  }, {
+    "title": "Wise Mans Fear",
+    "link": "img/fear.jpg",
+    "description": "So begins the tale of a hero told from his own point of view—a story unequaled in fantasy literature. Now in The Wise Man’s Fear, Day Two of The Kingkiller Chronicle, Kvothe takes his first steps on the path of the hero and learns how difficult life can be when a man becomes a legend in his own time.",
+    "review": [
+      {}
+    ],
+  "likes": 6
+  }, {
+    "title": "Name of the Wind",
+    "link": "img/wind.jpg",
+    "description": "The riveting first-person narrative of a young man who grows to be the most notorious magician his world has ever seen. From his childhood in a troupe of traveling players, to years spent as a near-feral orphan in a crime- ridden city, to his daringly brazen yet successful bid to enter a legendary school of magic",
+    "review": [
+      {}
+    ],
+  "likes": 1
+  }, {
+    "title": "Surely You're Joking Mr. Feynman",
+    "link": "img/feynman.jpg",
+    "description": "Richard Feynman, winner of the Nobel Prize in physics, thrived on outrageous adventures. Here he recounts in his inimitable voice his experience trading ideas on atomic physics with Einstein and Bohr and ideas on gambling with Nick the Greek;",
+    "review": [
+      {}
+    ],
+  "likes": 14
+  }, {
+    "title": "You Are a Badass",
+    "link": "img/badass.jpg",
+    "description": "You are a badass is the self-help book for people who desperately want to improve their lives but don’twant to get busted doing it. in this refreshingly entertaining how-to guide, bestselling author andworld-traveling success coach, jen sincero.",
+    "review": [
+      {}
+    ],
+  "likes": 9
+  }
+]

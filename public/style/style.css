@@ -1,0 +1,154 @@
+
+.header {
+  padding: 15px 0 30px 0;
+  width: 100%;
+  background: #f1f5f6;
+  border-bottom: 2px solid #bbbbbb;
+}
+
+.header ul li {
+  float: left;
+  margin-left: 10px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom .3s linear;
+}
+
+.header ul li:hover {
+  border-bottom: 2px solid #bbbbbb;
+}
+
+.header ul li a{
+  color: #555555;
+  text-decoration: none;
+}
+
+
+
+
+.book-container {
+  width: 100%;
+  /*background: #f1f5f6;*/
+  padding: 50px 0;
+  float: left;
+}
+
+.inner-book-container, .right-book-container {
+  width: 42.5%;
+  height: 200px;
+  margin-left: 5%;
+  margin-bottom: 50px;
+  float: left;
+  display: inline-block;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.09);
+  position: relative;
+}
+
+.photo-container {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background: #f1f5f6;
+}
+
+.book-image, .right-book-container img {
+  float: left;
+  max-width: 80%;
+  max-height: 160px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.info-container {
+  float: left;
+  width: 70%;
+  height: 100%;
+  background: #ffffff;
+}
+
+.book-title, .right-book-container h2 {
+  margin-top: 20px;
+  margin-left: 5%;
+  font-size: 21px;
+  font-weight: bold;
+  color: #242424;
+}
+
+.book-description {
+  margin-top: 10px;
+  margin-left: 5%;
+  font-size: 12px;
+  width: 70%;
+  text-align: justify;
+}
+
+.user-photo {
+  position: absolute;
+  bottom: 2.5%;
+  right: 2.5%;
+  width: 50px;
+  border-radius: 100%;
+}
+
+.username {
+  position: absolute;
+  bottom: 2.5%;
+  right: calc(4% + 50px);
+  text-align:right;
+  font-size: 12px;
+
+}
+
+.endorsement-container {
+  position: absolute;
+  top: 5%;
+  right: 2.5%;
+  width: 7.5%;
+
+}
+
+.endorsement-container p {
+  position: absolute;
+  z-index: 2;
+  color: #ffffff;
+  line-height: 225%;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+
+}
+
+
+.book-endorsements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+
+.info-container ul {
+  margin-top: 6.5%;
+}
+
+.info-container ul li {
+  margin-top: 1%;
+  margin-left: 5%;
+  font-size: 12px;
+  font-weight: 700;
+}
+.info-container ul li a {
+  text-decoration: none;
+  color: #343434;
+}
+
+
+.info-container ul li a:hover {
+  text-decoration: underline;
+
+}
+
+

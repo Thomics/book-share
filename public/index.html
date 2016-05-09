@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Share</title>
+    <link rel="stylesheet" href="style/reset.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-animate/angular-animate.js"></script>
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+
+<body  ng-app="Gapp">
+
+
+    <section class="header">
+        <ul>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Genre</a>
+            </li>
+            <li>
+                <a href="">Recommendations</a>
+            </li>
+            <li>
+                <a href="">Account</a>
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="book-container" ng-controller="mainCtrl as main">
+        <div class="inner-book-container" ng-repeat="book in books">
+            <div class="photo-container">
+                <img class="book-image" ng-src="{{book.link}}" />
+            </div>
+            <div class="info-container">
+
+                <h2 class="book-title">{{book.title}}</h2>
+                <p class="book-description">
+                    {{book.description}}
+                </p>
+                <ul>
+                    <li>
+                        <a href="">Learn More</a>
+                    </li>
+
+                    <li>
+                        <a href="">Borrow</a>
+                    </li>
+                </ul>
+
+                <div class="endorsement-container">
+                    <img class="book-endorsements" src="img/heart.png" />
+                    <p>{{book.likes}}</p>
+                </div>
+                <p class="username">Thomas Conto</p>
+                <img class="user-photo" src="img/user.jpg" />
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
