@@ -1,35 +1,26 @@
+"use strick";
 
-(function() {
+function MainCtrl ($scope) {
 
-  var app = angular.module("Gapp", ['ngAnimate']);
+  $scope.books = bookJSON;
 
-  app.controller('mainCtrl', function($scope) {
+}
 
-    $scope.books = bookJSON;
-
+//Get the book JSON object.
+var bookJSON = (function() {
+  var bookSon;
+  $.ajax({
+    "async": false,
+    //Links as if from public
+    "url": "scripts/books.json",
+    'success': function (data) {
+      bookSon = data;
+    }
   });
+  shrinkDescription(bookSon, 225);
+  shrinkTitle(bookSon, 20);
 
-
-  var bookJSON = (function() {
-    var bookSon;
-    $.ajax({
-      "async": false,
-      //Links as if from public
-      "url": "scripts/books.json",
-      'success': function (data) {
-        bookSon = data;
-      }
-    });
-    shrinkDescription(bookSon, 225);
-    shrinkTitle(bookSon, 20);
-
-    return bookSon;
-  })();
-
-  console.log(bookJSON);
-
-
-
+  return bookSon;
 })();
 
 
@@ -53,3 +44,5 @@ function shrinkTitle(bookArr, length) {
     }
   }
 }
+
+module.exports = MainCtrl;
