@@ -2,5 +2,6 @@
 
 var angular = require('angular');
 
-var app = angular.module("BookApp", ['ngAnimate']);
+angular.module("bookApp", []);
 
+require('./scripts/controllers');

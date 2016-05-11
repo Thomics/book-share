@@ -1,10 +1,21 @@
-var express = require('express');
+'use strict';
 
+var express = require('express');
 var router = express.Router();
 var Books = require('../models/books.js');
 
-router.get('/todos', function(req, res) {
-  res.json({books:books});
+router.get('/books', function(req, res) {
+  Books.find({}, function(err, books) {
+    if (err) {
+      return res.status(500).json({ message: err.message });
+    }
+    res.json({ books: books });
+  });
 });
 
+
 module.exports = router;
+
+
+
+
