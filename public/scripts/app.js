@@ -1,7 +1,7 @@
 
 (function() {
 
-  var app = angular.module("Gapp", ['ngAnimate']);
+  var app = angular.module("bookApp", ['ngAnimate']);
 
   app.controller('mainCtrl', function($scope) {
 

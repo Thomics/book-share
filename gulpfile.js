@@ -6,19 +6,33 @@ var concat = require('gulp-concat');
 var maps = require('gulp-sourcemaps');
 //var sass = require('gulp-sass');
 
-//Combines multiple files into one file.
+//Combines multiple vendor files into one file.
 gulp.task('concatVendor', function() {
   return gulp.src([
-      "/public/vendor/angular/angular.js",
-      "/public/vendor/angular-animate/angular-animate.js",
-      "/public/vendor/jquery/dist/jquery.js",
-      "/public/vendor/parallax.js/parallax.js"
+      "public/vendor/angular/angular.js",
+      "public/vendor/angular-animate/angular-animate.js",
+      "public/vendor/jquery/dist/jquery.js",
+      "public/vendor/parallax.js/parallax.js"
     ])
     .pipe(maps.init())
     .pipe(concat("vendor.bundle.js"))
     .pipe(maps.write('./'))
     .pipe(gulp.dest('public/scripts'));
 });
+
+//Combines multiple application files into one file.
+gulp.task('concatJS', function() {
+  return gulp.src([
+    "app/app.js",
+    "app/scripts/controllers/main.js",
+
+  ])
+    .pipe(maps.init())
+    .pipe(concat("books.bundle.js"))
+    .pipe(maps.write('./'))
+    .pipe(gulp.dest('public/scripts'));
+});
+
 
 //gulp.task('compileSass', function() {
 //  return gulp.src('styles/style-scss.scss')
@@ -40,7 +54,7 @@ gulp.task('concatVendor', function() {
 
 //Executes when I run gulp
 gulp.task('default', function() {
-  gulp.start('concatVendor');
+  gulp.start('concatVendor', 'concatJS');
 });
 
 
