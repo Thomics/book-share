@@ -3,11 +3,34 @@
 
   var app = angular.module("bookApp", ['ngAnimate']);
 
+
   app.controller('mainCtrl', function($scope) {
 
-    $scope.books = bookJSON;
+    $scope.books = bookJSON;//Working version
+
+    //var shig;
+    //var ss = $.getScript('/scripts/getBooks.js', function(res, status) {
+    //  return arny;
+    //});
+    //console.log(ss);
 
   });
+
+  var bookList = (function() {
+    var bookSon;
+    $.ajax({
+      "async": false,
+      //Links as if from public
+      "url": "scripts/books.json",
+      'success': function (data) {
+        bookSon = data;
+      }
+    });
+    shrinkDescription(bookSon, 225);
+    shrinkTitle(bookSon, 20);
+
+    return bookSon;
+  })();
 
 
   var bookJSON = (function() {
@@ -26,7 +49,7 @@
     return bookSon;
   })();
 
-  console.log(bookJSON);
+  //console.log(bookJSON);
 
 
 
@@ -53,3 +76,8 @@ function shrinkTitle(bookArr, length) {
     }
   }
 }
+
+
+$(document).ready(function() {
+
+});
