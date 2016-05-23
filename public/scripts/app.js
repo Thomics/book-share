@@ -1,3 +1,4 @@
+'use strict';
 
 (function() {
 
@@ -6,78 +7,78 @@
 
   app.controller('mainCtrl', function($scope) {
 
-    $scope.books = bookJSON;//Working version
-
-    //var shig;
-    //var ss = $.getScript('/scripts/getBooks.js', function(res, status) {
-    //  return arny;
-    //});
-    //console.log(ss);
+    //$scope.books = bookJSON;//Working version
+    //$scope.books = bookList;
+    //debugger;
+    $scope.books = addBooksToList(books);
 
   });
 
-  var bookList = (function() {
-    var bookSon;
-    $.ajax({
-      "async": false,
-      //Links as if from public
-      "url": "scripts/books.json",
-      'success': function (data) {
-        bookSon = data;
-      }
+
+  var books= ["The Count of Monte Cristo", "Name of the Wind",
+    "You Are a Badass", "Surely You're Joking Mr. Feynman"];
+
+  var bookList= [];
+
+  //getInfoByTitle("Surely You're Joking Mr. Feynman");
+  //addBooksToList(books);
+
+//Replaces the spaces in a title with + signs.
+//TODO: add input validation for multiple spaces.
+  function replaceSpaces(title) {
+    return title.split(' ').join('+');
+  }
+
+
+  function getInfoByTitle(title) {
+
+    var bookObj = {};
+
+    //Search and get the book by the title of the book.
+    $.getJSON("https://openlibrary.org/search.json?q=" + title, {}, function (data) {
+
+      bookObj["title"] = data.docs[0].title_suggest;
+      bookObj["isbn"] = data.docs[0].isbn[0];
+      bookObj["image"] = "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg";
+      bookObj["reviews"] = [{}];
+      bookObj["description"] = "Write a description? Or check back soon.";
+
+      bookList.push(bookObj);
+      console.log(bookList);
+
+      //return bookList;
     });
-    shrinkDescription(bookSon, 225);
-    shrinkTitle(bookSon, 20);
 
-    return bookSon;
-  })();
+  }
 
 
-  var bookJSON = (function() {
-    var bookSon;
-    $.ajax({
-      "async": false,
-      //Links as if from public
-      "url": "scripts/books.json",
-      'success': function (data) {
-        bookSon = data;
-      }
-    });
-    shrinkDescription(bookSon, 225);
-    shrinkTitle(bookSon, 20);
+  function addBooksToList(list) {
 
-    return bookSon;
-  })();
+    for ( var i = 0; i < list.length; i++ ) {
+      getInfoByTitle(list[i]);
+    }
 
-  //console.log(bookJSON);
+    debugger;
+    return bookList;
 
-
+  }
 
 })();
 
+//Search and get the information about the book using the isbn.
+var title;
+var isbn = "ISBN:9780553213508";
 
-//Checks the description of the books character length. If it is above a set length,
-//the function cuts off the excess length and appends an ellipsis.
-function shrinkDescription(bookArr, length) {
-  for ( var i = 0; i < bookArr.length; i++ ) {
-    if ( bookArr[i].description.length > length ) {
-      bookArr[i].description = bookArr[i].description.slice(0,length) + '...';
-    }
+
+$.ajax({
+  type:"GET"
+  //, url:"https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&callback="
+  //, url:"https://openlibrary.org/api/books?bibkeys=ISBN:9780553213508&jscmd=details&callback="
+  , url:"https://openlibrary.org/api/books?bibkeys=" + isbn + "&jscmd=details&callback="
+  , dataType:"jsonp",
+  success: function(data) {
+    //console.log(data);
+    //title = data[isbn].details.title;
+    //console.log(title);
   }
-}
-
-//Checks the title of the books character length. If it is above a set length,
-//the function cuts off the excess length and appends an ellipsis.
-function shrinkTitle(bookArr, length) {
-
-  for ( var i = 0; i < bookArr.length; i++ ) {
-    if ( bookArr[i].title.length > length ) {
-      bookArr[i].title = bookArr[i].title.slice(0,length) + '...';
-    }
-  }
-}
-
-
-$(document).ready(function() {
-
 });
