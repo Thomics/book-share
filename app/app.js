@@ -1,7 +1,7 @@
 "use strict";
 
-//var angular = require('angular');
+angular.module("bookApp", []);
 
-var app = angular.module("bookApp", []);
-
-//require('./scripts/controllers');
+require('./scripts/services');
+require('./scripts/directives');
+require('./scripts/controllers');
