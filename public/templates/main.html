@@ -1,15 +1,12 @@
 <section class="book-container" ng-controller="mainCtrl as main">
   <div class="inner-book-container" ng-repeat="book in books">
-    <div>{{book.image}}</div>
-
-
 
     <div class="photo-container">
       <img class="book-image" ng-src="{{book.image}}" />
     </div>
     <div class="info-container">
 
-      <h2 class="book-title">{{title}}</h2>
+      <h2 class="book-title">{{book.title}}</h2>
       <p class="book-description">
         {{book.description}}
       </p>
