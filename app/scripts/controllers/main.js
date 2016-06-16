@@ -1,8 +1,11 @@
-//app.controller('mainCtrl', function($scope) {
-//
-//  $scope.books = bookJSON;
-//
-//});
+'use strict';
+
+angular.module('bookApp')
+  .controller('mainCtrl', function($scope) {
+
+});
+
+
 //
 ////Get the book JSON object.
 //var bookJSON = (function() {

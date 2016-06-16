@@ -1,12 +1,10 @@
 'use strict';
 
-function NavigationDirective () {
-  return {
-    templateUrl: 'templates/navigation.html'
-    , replace: true
-    //, controller: 'navigationCtrl'
-  }
-}
-
-module.exports = NavigationDirective;
-
+angular.module('bookApp')
+  .directive('navigation', function(){
+    return {
+      templateUrl: 'templates/navigation.html',
+      replace: true,
+      controller: 'navigationCtrl'
+    }
+});
