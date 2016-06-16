@@ -12,41 +12,42 @@
 
   <navigation></navigation>
 
+  <main></main>
 
-    <section class="book-container" ng-controller="mainCtrl as main">
-        <div class="inner-book-container" ng-repeat="book in books">
-            <div>{{book.image}}</div>
+    <!--<section class="book-container" ng-controller="mainCtrl as main">-->
+        <!--<div class="inner-book-container" ng-repeat="book in books">-->
+            <!--<div>{{book.image}}</div>-->
 
 
 
-            <div class="photo-container">
-                <img class="book-image" ng-src="{{book.image}}" />
-            </div>
-            <div class="info-container">
+            <!--<div class="photo-container">-->
+                <!--<img class="book-image" ng-src="{{book.image}}" />-->
+            <!--</div>-->
+            <!--<div class="info-container">-->
 
-                <h2 class="book-title">{{book.title}}</h2>
-                <p class="book-description">
-                    {{book.description}}
-                </p>
-                <ul>
-                    <li>
-                        <a href="">Learn More</a>
-                    </li>
+                <!--<h2 class="book-title">{{book.title}}</h2>-->
+                <!--<p class="book-description">-->
+                    <!--{{book.description}}-->
+                <!--</p>-->
+                <!--<ul>-->
+                    <!--<li>-->
+                        <!--<a href="">Learn More</a>-->
+                    <!--</li>-->
 
-                    <li>
-                        <a href="">Borrow</a>
-                    </li>
-                </ul>
+                    <!--<li>-->
+                        <!--<a href="">Borrow</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
 
-                <div class="endorsement-container">
-                    <img class="book-endorsements" src="img/heart.png" />
-                    <p>{{book.likes}}</p>
-                </div>
-                <p class="username">Thomas Conto</p>
-                <img class="user-photo" src="img/user.jpg" />
-            </div>
-        </div>
-    </section>
+                <!--<div class="endorsement-container">-->
+                    <!--<img class="book-endorsements" src="img/heart.png" />-->
+                    <!--<p>{{book.likes}}</p>-->
+                <!--</div>-->
+                <!--<p class="username">Thomas Conto</p>-->
+                <!--<img class="user-photo" src="img/user.jpg" />-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
 
 <img src="http://covers.openlibrary.org/b/isbn/9780553213508-M.jpg" />
 <!--I can get the image from the site by using the isbn and this link.-->
@@ -58,6 +59,8 @@
     <script src="../app/scripts/controllers/main.js"></script>
     <script src="../app/scripts/controllers/navigation.js"></script>
     <script src="../app/scripts/directives/navigation.js"></script>
+    <script src="../app/scripts/directives/main.js"></script>
+    <script src="../app/scripts/services/main.js"></script>
 
 </body>
 </html>
