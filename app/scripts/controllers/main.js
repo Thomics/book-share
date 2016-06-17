@@ -3,35 +3,42 @@
 angular.module('bookApp')
   .controller('mainCtrl', function( $scope, MainService ) {
 
-    $scope.books = [];
-    //MainService.getBooks( function( res ) {
+    //$scope.books = [];
     //
-    //  MainService.createBookLibrary( res, function (data) {
-    //    //console.log( data );
-    //    //console.log(data.title);
-    //    //$scope.books = data;
-    //    //$scope.title = data.title;
-    //    $scope.books.push(data);
-    //    console.log($scope.books);
-    //  });
+    //MainService.getBooks( function ( data ) {
+    //
+    //
+    //  var books = {
+    //    title : data.data.docs[0].title_suggest,
+    //    isbn : data.data.docs[0].isbn[0],
+    //    image : "http://covers.openlibrary.org/b/isbn/" + data.data.docs[0].isbn[0] + "-M.jpg",
+    //    reviews : [{}],
+    //    description : "Write a description? Or check back soon."
+    //  };
+    //
+    //  $scope.books.push(books);
     //
     //});
+    $scope.books = [];
 
 
-    MainService.getBooks( function ( data ) {
+    MainService.getBooks()
+      .success(function(data) {
 
+        $scope.bookObj = {
+          title : data.docs[0].title_suggest,
+          isbn : data.docs[0].isbn[0],
+          image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
+          reviews : [{}],
+          description : "Write a description? Or check back soon."
+        };
 
-      var books = {
-        title : data.data.docs[0].title_suggest,
-        isbn : data.data.docs[0].isbn[0],
-        image : "http://covers.openlibrary.org/b/isbn/" + data.data.docs[0].isbn[0] + "-M.jpg",
-        reviews : [{}],
-        description : "Write a description? Or check back soon."
-      };
+        $scope.books.push($scope.bookObj);
 
-      $scope.books.push(books);
-
-    });
+      })
+      .error(function(err) {
+        console.log(err);
+      });
 
 
 });
