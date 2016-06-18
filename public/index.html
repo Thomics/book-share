@@ -14,7 +14,16 @@
 
   <!--<main></main>-->
 
+
+
   <section class="book-container" ng-controller="mainCtrl as main">
+
+    <form ng-submit="getNewBook(newBook)">
+      Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
+      {{newBook}}
+      <input  type="submit" value="Submit">
+    </form>
+
     <div class="inner-book-container" ng-repeat="book in books">
 
       <div class="photo-container">
