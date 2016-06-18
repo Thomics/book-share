@@ -21,24 +21,30 @@ angular.module('bookApp')
     //});
     $scope.books = [];
 
+    var arr = ["The+Count+of+Monte+Cristo", "Name+of+the+Wind",
+      "I+Am+Legend", "Surely+You're+Joking+Mr.+Feynman"];
 
-    MainService.getBooks()
-      .success(function(data) {
+    for ( var i = 0; i < arr.length; i++ ) {
+      MainService.getBooks(arr[i])
+        .success(function(data) {
 
-        $scope.bookObj = {
-          title : data.docs[0].title_suggest,
-          isbn : data.docs[0].isbn[0],
-          image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
-          reviews : [{}],
-          description : "Write a description? Or check back soon."
-        };
+          var bookObj = {
+            title : data.docs[i].title_suggest,
+            isbn : data.docs[i].isbn[0],
+            image : "http://covers.openlibrary.org/b/isbn/" + data.docs[i].isbn[0] + "-M.jpg",
+            reviews : [{}],
+            description : "No description. Write one."
+          };
 
-        $scope.books.push($scope.bookObj);
+          $scope.books.push(bookObj);
+          console.log(bookObj.title);
+          console.log($scope.books);
 
-      })
-      .error(function(err) {
-        console.log(err);
-      });
+        }).error(function(err) {
+          console.log(err);
+        });
+    }
+
 
 
 });

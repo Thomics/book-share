@@ -27,8 +27,8 @@ angular.module('bookApp')
 
 
 
-    this.getBooks = function( ) {
-        return $http.get("https://openlibrary.org/search.json?q=The+Count+of+Monte+Cristo");
+    this.getBooks = function( title ) {
+        return $http.get("https://openlibrary.org/search.json?q=" + title);
     };
 
 
