@@ -5,31 +5,8 @@ angular.module('bookApp')
 
     $scope.books = [];
 
-    //retrieveBooks();
     getUserBooks();
 
-    //function retrieveBooks() {
-    //  $http.get('../mock/user-books.json')
-    //    .success(function(data) {
-    //
-    //      var arr = data[0].books;
-    //      console.log(data[0].books);
-    //
-    //      for ( var i = 0; i < arr.length; i++ ) {
-    //
-    //        BookService.getBook(arr[i].title)
-    //
-    //          .success(function(data) {
-    //            createBookObj(data);
-    //          })
-    //
-    //          .error(function(err) {
-    //            console.log(err);
-    //          });
-    //      }
-    //    });
-    //
-    //}
 
     //Using the usernames object, generate an array of objects representing the users books.
     function getUserBooks() {

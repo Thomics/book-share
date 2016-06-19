@@ -10,6 +10,7 @@ var bookSchema = new mongoose.Schema({
   likes: Number
 });
 
+//This makes mongoose create a model called book, using the bookSchema.
 var model = mongoose.model('Books', bookSchema);
 
 module.exports = model;

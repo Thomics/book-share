@@ -2,9 +2,9 @@ node_modules
 unused.txt
 tempApp.js
 .idea
-src
 bower.json
 package.json
 gulpfile.js
 .bowerrc
 temp
+self-notes.txt
