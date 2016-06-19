@@ -39,6 +39,8 @@ angular.module('bookApp')
         .success(function(data){
           //console.log(data);
 
+          //var title = BookService.replaceSpaces(data.docs[i].title_suggest);
+
           var bookObj = {
             title : data.docs[i].title_suggest,
             isbn : data.docs[i].isbn[0],

@@ -7,5 +7,10 @@ angular.module('bookApp')
         return $http.get("https://openlibrary.org/search.json?q=" + title);
     };
 
-});
+    this.replaceSpaces = function( title ) {
+      return title.split(' ').join('+');
+    }
+
+
+  });
 
