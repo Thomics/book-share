@@ -1,0 +1,26 @@
+[
+  {
+    "userName": "Tommy",
+    "firstName" : "Tom",
+    "lastName" : "Conto",
+    "books" : [
+      { "title" : "Shrek"},
+      { "title" : "The Dark Tower"  },
+      { "title" : "shrek"},
+      { "title" :"To Kill a Mocking Bird"},
+      { "title" : "Pride and Prejudice"}]
+  },
+  {
+    "userName": "Savanthony",
+    "firstName" : "Savannah",
+    "lastName" : "McKenzie",
+    "books" : ["The Wind and the Willows", "You Are a Badass", "Where Women Create", "Alfred Hitchcock", "Garbage", "High"]
+  },
+  {
+    "userName": "Frizzle",
+    "firstName" : "Frankenstien",
+    "lastName" : "McConto",
+    "books" : ["Shrek", "Shrek 2", "The Bible", "One Flew Over the Cuckoos Nest", "Capote"]
+  }
+
+]

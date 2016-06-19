@@ -18,7 +18,7 @@
 
   <section class="book-container" ng-controller="mainCtrl as main">
 
-    <form ng-submit="getNewBook(newBook)">
+    <form ng-submit="searchBook(newBook)">
       Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
       {{newBook}}
       <input  type="submit" value="Submit">
@@ -56,7 +56,7 @@
   </section>
 
 
-<img src="http://covers.openlibrary.org/b/isbn/9780553213508-M.jpg" />
+<!--<img src="http://covers.openlibrary.org/b/isbn/9780553213508-M.jpg" />-->
 <!--I can get the image from the site by using the isbn and this link.-->
 
     <script src="vendor/angular.js"></script>
