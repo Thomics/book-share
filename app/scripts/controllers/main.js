@@ -13,21 +13,14 @@ angular.module('bookApp')
           console.log(data[0].books);
 
           for ( var i = 0; i < arr.length; i++ ) {
-            console.log(arr[i].title);
+
             BookService.getBooks(arr[i].title)
+
               .success(function(data) {
+                createBookObj(data);
+              })
 
-                var bookObj = {
-                  title : data.docs[i].title_suggest,
-                  isbn : data.docs[i].isbn[0],
-                  image : "http://covers.openlibrary.org/b/isbn/" + data.docs[i].isbn[0] + "-M.jpg",
-                  reviews : [{}],
-                  description : "No description. Write one."
-                };
-
-                $scope.books.push(bookObj);
-
-              }).error(function(err) {
+              .error(function(err) {
                 console.log(err);
               });
           }
@@ -38,33 +31,37 @@ angular.module('bookApp')
     retrieveBooks();
 
 
-
-    $scope.newBook = '';
-
     $scope.searchBook = function(book) {
-      console.log('hello');
 
       BookService.getBooks(book)
-        .success(function(data){
 
+        .success(function(data) {
+          createBookObj(data);
+        })
 
-          var bookObj = {
-            title : data.docs[0].title_suggest,
-            isbn : data.docs[0].isbn[0],
-            image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
-            reviews : [{}],
-            description : "No description. Write one."
-          };
-
-          $scope.books.push(bookObj);
-
-        }).error(function(err) {
-
+        .error(function(err) {
+          console.log(err);
         });
+    };
+
+
+    function createBookObj(data) {
+
+      var bookObj = {
+        title : data.docs[0].title_suggest,
+        isbn : data.docs[0].isbn[0],
+        image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
+        reviews : [{}],
+        description : "No description. Write one."
+      };
+
+      console.log(data.docs[0].title_suggest);
+      console.log("http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg");
+
+
+      $scope.books.push(bookObj);
 
     }
-
-
 
 
 });

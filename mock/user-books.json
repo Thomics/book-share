@@ -4,12 +4,37 @@
     "firstName" : "Tom",
     "lastName" : "Conto",
     "books" : [
-      { "title" : "Shrek"},
-      { "title" : "The Dark Tower"  },
-      { "title" : "shrek"},
-      { "title" :"To Kill a Mocking Bird"},
-      { "title" : "Pride and Prejudice"}]
+      {
+        "title" : "Shrek",
+        "isbn" : "087499456X",
+        "image" : "http://covers.openlibrary.org/b/isbn/087499456X-M.jpg",
+        "reviews" : [{}],
+        "description" : "No description. Write one."
+      },
+      {
+        "title" : "The Dark Tower",
+        "isbn" : "0434893110",
+        "image" : "http://covers.openlibrary.org/b/isbn/0434893110-M.jpg",
+        "reviews" : [{}],
+        "description" : "No description. Write one."
+      },
+      {
+        "title" : "shrek",
+        "isbn" : "087499456X",
+        "image" : "http://covers.openlibrary.org/b/isbn/087499456X-M.jpg",
+        "reviews" : [{}],
+        "description" : "No description. Write one."
+      },
+      {
+        "title" : "Pride and Prejudice",
+        "isbn" : "1936594293",
+        "image" : "http://covers.openlibrary.org/b/isbn/1936594293-M.jpg",
+        "reviews" : [{}],
+        "description" : "No description. Write one."
+      }]
   },
+
+
   {
     "userName": "Savanthony",
     "firstName" : "Savannah",
