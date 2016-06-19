@@ -5,46 +5,60 @@ angular.module('bookApp')
 
     $scope.books = [];
 
-    var retrieveBooks = function( ) {
-      $http.get('../mock/user-books.json')
+    //retrieveBooks();
+    getUserBooks();
+
+    //function retrieveBooks() {
+    //  $http.get('../mock/user-books.json')
+    //    .success(function(data) {
+    //
+    //      var arr = data[0].books;
+    //      console.log(data[0].books);
+    //
+    //      for ( var i = 0; i < arr.length; i++ ) {
+    //
+    //        BookService.getBook(arr[i].title)
+    //
+    //          .success(function(data) {
+    //            createBookObj(data);
+    //          })
+    //
+    //          .error(function(err) {
+    //            console.log(err);
+    //          });
+    //      }
+    //    });
+    //
+    //}
+
+    //Using the usernames object, generate an array of objects representing the users books.
+    function getUserBooks() {
+      BookService.getUserBooks('Tommy')
         .success(function(data) {
-
-          var arr = data[0].books;
-          console.log(data[0].books);
-
-          for ( var i = 0; i < arr.length; i++ ) {
-
-            BookService.getBooks(arr[i].title)
-
-              .success(function(data) {
-                createBookObj(data);
-              })
-
-              .error(function(err) {
-                console.log(err);
-              });
-          }
-        });
-
-    };
-
-    retrieveBooks();
-
-
-    $scope.searchBook = function(book) {
-
-      BookService.getBooks(book)
-
-        .success(function(data) {
-          createBookObj(data);
+          $scope.books = data[0].books;
         })
-
         .error(function(err) {
           console.log(err);
         });
+    }
+
+
+
+    //Searches for a book by title by making a call to the open library api.
+    $scope.searchBook = function(book) {
+
+      BookService.getBook(book)
+        .success(function(data) {
+          createBookObj(data);
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+
     };
 
 
+    //Using data returned from openlibrary.org, generates an object for an individual book.
     function createBookObj(data) {
 
       var bookObj = {
@@ -55,13 +69,7 @@ angular.module('bookApp')
         description : "No description. Write one."
       };
 
-      console.log(data.docs[0].title_suggest);
-      console.log("http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg");
-
-
       $scope.books.push(bookObj);
-
     }
-
 
 });
