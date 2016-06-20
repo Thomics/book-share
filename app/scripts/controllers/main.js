@@ -47,22 +47,26 @@ angular.module('bookApp')
         description : "No description. Write one."
       };
 
+
       $scope.books.push(bookObj);
+      console.log($scope.books);
       BookService.saveBooks($scope.books);
 
     }
 
 
 
-    $scope.saveBooks = function() {
-      //var filteredTodos = $scope.books.filter(function(book){
-      //  if(book.edited) {
-      //    return book
-      //  };
-      //});
-      BookService.saveBooks($scope.books);
-        //.finally($scope.resetBookState());
-    };
+    //$scope.saveBooks = function() {
+    //  //var filteredTodos = $scope.books.filter(function(book){
+    //  //  if(book.edited) {
+    //  //    return book
+    //  //  };
+    //  //});
+    //
+    //
+    //  BookService.saveBooks($scope.books);
+    //    //.finally($scope.resetBookState());
+    //};
 
 
     //$scope.restBookState = function() {

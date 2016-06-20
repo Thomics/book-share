@@ -24,17 +24,25 @@ angular.module('bookApp')
 
         //If our book doesn't have an id
         if (!book._id) {
+
           request = $http.post('/api/books', book);
+        } else {
+
+          request = $http.put('/api/books/', + book._id, book).then(function(result){
+            book = result.data.book;
+            return book;
+          });
         }
         queue.push(request);
       });
 
       //Runs all of our requests together. Iterates through all of them and returns a promise.
-      $q.all(queue).then(function(result) {
+      return $q.all(queue).then(function(result) {
         console.log('Saved ' + result.length + ' books');
       });
 
     };
+
 
 
   });

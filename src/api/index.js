@@ -31,11 +31,14 @@ router.post('/books', function(req, res) {
       return res.status(500).json({ err: err.message });
     }
     //Change this to take an updated object.
-    res.json({'userName': "tommy", message: 'Book Created'});
+    res.json({'book' : book});
   });
 
 });
 
+
+
+//update the post and put
 
 router.put('/books/:id', function(req, res) {
   var id = req.params.id;
@@ -57,6 +60,9 @@ router.put('/books/:id', function(req, res) {
   });
 
 });
+
+
+
 
 
 router.delete('/books/:id', function(req, res) {
