@@ -1,3 +1,4 @@
+//This connects our mongodb database using mongoose.
 "use strict";
 
 var mongoose = require('mongoose');
