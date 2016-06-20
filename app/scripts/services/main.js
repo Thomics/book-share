@@ -8,8 +8,33 @@ angular.module('bookApp')
     };
 
     this.getUserBooks = function( username ) {
-      return $http.get('../mock/user-books.json');
-    }
+      //return $http.get('../mock/user-books.json');
+      return $http.get('/api/books');
+    };
+
+
+
+
+    this.saveBooks = function( books ) {
+      var queue = [];
+
+      //We want to loop through each book, and push a request to the queue to post the data to the server.
+      books.forEach(function(book) {
+        var request;
+
+        //If our book doesn't have an id
+        if (!book._id) {
+          request = $http.post('/api/books', book);
+        }
+        queue.push(request);
+      });
+
+      //Runs all of our requests together. Iterates through all of them and returns a promise.
+      $q.all(queue).then(function(result) {
+        console.log('Saved ' + result.length + ' books');
+      });
+
+    };
 
 
   });

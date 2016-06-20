@@ -10,9 +10,10 @@ angular.module('bookApp')
 
     //Using the usernames object, generate an array of objects representing the users books.
     function getUserBooks() {
-      BookService.getUserBooks('Tommy')
+      BookService.getUserBooks()
         .success(function(data) {
-          $scope.books = data[0].books;
+          console.log(data.books);
+          $scope.books = data.books;
         })
         .error(function(err) {
           console.log(err);
@@ -47,6 +48,33 @@ angular.module('bookApp')
       };
 
       $scope.books.push(bookObj);
+      BookService.saveBooks($scope.books);
+
     }
 
-});
+
+
+    $scope.saveBooks = function() {
+      //var filteredTodos = $scope.books.filter(function(book){
+      //  if(book.edited) {
+      //    return book
+      //  };
+      //});
+      BookService.saveBooks($scope.books);
+        //.finally($scope.resetBookState());
+    };
+
+
+    //$scope.restBookState = function() {
+    //  $scope.books.forEach(function(book) {
+    //    book.edited = false;
+    //  });
+    //}
+
+
+
+
+
+
+
+  });
