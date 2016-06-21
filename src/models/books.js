@@ -8,7 +8,7 @@ var bookSchema = new mongoose.Schema({
   //lastName: String,
   //books: [{
     title: String,
-    //isbn: String,
+    isbn: String,
     image: String,
     //reviews: [Object],
     //description: String

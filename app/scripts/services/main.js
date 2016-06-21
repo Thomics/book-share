@@ -22,14 +22,14 @@ angular.module('bookApp')
       books.forEach(function(book) {
         var request;
 
-        
+
         //If our book doesn't have an id
         if (!book._id) {
 
           request = $http.post('/api/books', book);
         } else {
 
-          request = $http.put('/api/books/', + book._id, book).then(function(result){
+          request = $http.put('/api/books', book).then(function(result){
             book = result.data.book;
             return book;
           });
@@ -44,6 +44,26 @@ angular.module('bookApp')
 
     };
 
+
+
+    this.saveTodos = function(todos) {
+      var queue = [];
+      todos.forEach(function(todo) {
+        var request;
+        if(!todo._id) {
+          request = $http.post('/api/todos', todo);
+        } else {
+          request = $http.put('/api/todos/' + todo._id, todo).then(function(result) {
+            todo = result.data.todo;
+            return todo;
+          });
+        }
+        queue.push(request);
+      });
+      return $q.all(queue).then(function(results) {
+        console.log("I saved " + todos.length + " todos!");
+      });
+    };
 
 
   });

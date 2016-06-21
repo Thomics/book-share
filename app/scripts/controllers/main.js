@@ -41,7 +41,7 @@ angular.module('bookApp')
 
       var bookObj = {
         title : data.docs[0].title_suggest,
-        //isbn : data.docs[0].isbn[0],
+        isbn : data.docs[0].isbn[0],
         image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
         //reviews : [{}],
         //description : "No description. Write one."

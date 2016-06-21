@@ -1,11 +1,10 @@
 'use strict';
 
 var express = require('express');
-var router = express.Router();
-
 //Mongoose Schema
-var Books = require('../models/books.js');
+var Books = require('../models/books');
 
+var router = express.Router();
 
 router.get('/books', function(req, res) {
 
@@ -31,22 +30,19 @@ router.post('/books', function(req, res) {
       return res.status(500).json({ err: err.message });
     }
     //Change this to take an updated object.
-    res.json({'book' : book});
+    res.json({'book' : book, message: 'Book Created'});
   });
 
 });
 
 
-
-//update the post and put
-
-router.put('/books/:id', function(req, res) {
-  var id = req.params.id;
+router.put('/books', function(req, res) {
+  var id = req.params._id;
   var book = req.body;
 
   //Verify the book exists, and that the id matches the id of the request.
-  if ( book && book.id != id ) {
-    return res.status(500).json({err: "Ids do not match"});
+  if ( book && book.id !== id ) {
+    return res.status(500).json({err: "Ids aren't a match"});
   }
 
   //To change a post in the database, use the findByIdAndUpdate method.
@@ -56,12 +52,9 @@ router.put('/books/:id', function(req, res) {
     }
 
     //Change this to take an updated object.
-    res.json({'userName': "tommy", message: 'Book Updated'});
+    res.json({'book': book, message: 'Book Updated'});
   });
-
 });
-
-
 
 
 
