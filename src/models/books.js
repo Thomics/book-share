@@ -3,16 +3,16 @@
 var mongoose = require('mongoose');
 
 var bookSchema = new mongoose.Schema({
-  userName: String,
-  firstName: String,
-  lastName: String,
-  books: [{
+  //userName: String,
+  //firstName: String,
+  //lastName: String,
+  //books: [{
     title: String,
-    isbn: String,
+    //isbn: String,
     image: String,
-    reviews: [Object],
-    description: String
-  }]
+    //reviews: [Object],
+    //description: String
+  //}]
 });
 
 //This makes mongoose create a model called book, using the bookSchema.

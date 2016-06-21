@@ -22,6 +22,7 @@ angular.module('bookApp')
       books.forEach(function(book) {
         var request;
 
+        
         //If our book doesn't have an id
         if (!book._id) {
 
