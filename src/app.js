@@ -5,6 +5,9 @@ var app = express();
 var parser = require('body-parser');
 var router = require('./api');
 
+//Sets the port to whatever Heroku is using, and if local to 3000.
+var port = process.env.PORT || 3000;
+
 //This requires the database set up in database.js file.
 require('./database');
 
@@ -21,6 +24,6 @@ app.use(parser.json());
 app.use('/api', router);
 
 //Sets our server up on port 3000.
-app.listen(3000, function() {
-  console.log('Server on port 3000');
+app.listen(port, function() {
+  console.log('Server on port:' + port);
 });

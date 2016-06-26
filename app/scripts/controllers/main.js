@@ -7,6 +7,7 @@ angular.module('bookApp')
 
     getUserBooks();
 
+    //Implement functionality to be specific to the logged in user.
     //Using the usernames object, generate an array of objects representing the users books.
     function getUserBooks() {
 
@@ -52,9 +53,8 @@ angular.module('bookApp')
 
 
       $scope.books.push(bookObj);
-      console.log($scope.books);
       BookService.saveBooks($scope.books);
+
     }
 
-
-  }]);
+}]);
