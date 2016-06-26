@@ -37,7 +37,7 @@ router.post('/books', function(req, res) {
 
 
 router.put('/books', function(req, res) {
-  var id = req.params._id;
+  var id = req.params.id;
   var book = req.body;
 
   //Verify the book exists, and that the id matches the id of the request.

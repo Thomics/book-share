@@ -1,10 +1,10 @@
 node_modules
 unused.txt
-tempApp.js
 .idea
 bower.json
-package.json
 gulpfile.js
 .bowerrc
-temp
 self-notes.txt
+public/vendor/angular
+public/vendor/angular-animate
+public/vendor/jquery

@@ -7,16 +7,15 @@ angular.module('bookApp')
         return $http.get("https://openlibrary.org/search.json?&jscmd=details&q=" + title);
     };
 
-    this.getUserBooks = function( username ) {
-      //return $http.get('../mock/user-books.json');
+    //Implement user accounts, then revisit functionality for getting specific users books.
+    this.getUserBooks = function( ) {
       return $http.get('/api/books');
     };
 
 
-
-
     this.saveBooks = function( books ) {
       var queue = [];
+
 
       //We want to loop through each book, and push a request to the queue to post the data to the server.
       books.forEach(function(book) {
@@ -41,30 +40,7 @@ angular.module('bookApp')
       return $q.all(queue).then(function(result) {
         console.log('Saved ' + result.length + ' books');
       });
-
-    };
-
-
-
-    this.saveTodos = function(todos) {
-      var queue = [];
-      todos.forEach(function(todo) {
-        var request;
-        if(!todo._id) {
-          request = $http.post('/api/todos', todo);
-        } else {
-          request = $http.put('/api/todos/' + todo._id, todo).then(function(result) {
-            todo = result.data.todo;
-            return todo;
-          });
-        }
-        queue.push(request);
-      });
-      return $q.all(queue).then(function(results) {
-        console.log("I saved " + todos.length + " todos!");
-      });
     };
 
 
   });
-

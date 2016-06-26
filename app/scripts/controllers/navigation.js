@@ -1,6 +1,6 @@
 angular.module('bookApp')
-  .controller('navigationCtrl', function($scope) {
+  .controller('navigationCtrl',['$scope', function($scope) {
 
     $scope.tab = 1;
 
-  });
+  }]);
