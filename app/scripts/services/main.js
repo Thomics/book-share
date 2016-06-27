@@ -31,4 +31,19 @@ angular.module('bookApp')
     };
 
 
+    this.deleteBook = function( book ) {
+
+      console.log(book);
+      if (!book._id) {
+        return $q.resolve();
+      }
+
+      return $http.delete('/api/books/' + book._id).then(function() {
+        console.log("I deleted the " + book.name + " book!");
+      });
+
+    };
+
+
+
   }]);

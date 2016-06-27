@@ -4,6 +4,8 @@ var express = require('express');
 //Mongoose Schema
 var Books = require('../models/books');
 
+var console = require('console');
+
 var router = express.Router();
 
 router.get('/books', function(req, res) {
@@ -24,19 +26,21 @@ router.post('/books', function(req, res) {
 
   var book = req.body;
 
-  //To store a post in the database, use the create method.
   Books.create(book, function(err, book) {
+
     if (err) {
       return res.status(500).json({ err: err.message });
     }
-    //Change this to take an updated object.
+
     res.json({'book' : book, message: 'Book Created'});
+
   });
 
 });
 
 
 router.put('/books', function(req, res) {
+
   var id = req.params.id;
   var book = req.body;
 
@@ -47,13 +51,16 @@ router.put('/books', function(req, res) {
 
   //To change a post in the database, use the findByIdAndUpdate method.
   Books.findByIdAndUpdate(id, book, {new: true}, function(err, book) {
+
     if (err) {
       return res.status(500).json({ err: err.message });
     }
 
     //Change this to take an updated object.
     res.json({'book': book, message: 'Book Updated'});
+
   });
+
 });
 
 

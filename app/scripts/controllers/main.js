@@ -57,4 +57,14 @@ angular.module('bookApp')
 
     }
 
+
+    $scope.deleteBook = function( book ) {
+
+      BookService.deleteBook( book ).then(function() {
+        //$scope.books.splice( index, 1 );
+        console.log('book deleted');
+      });
+    };
+
+
 }]);
