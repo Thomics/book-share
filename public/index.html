@@ -10,66 +10,19 @@
 
 <body ng-app="bookApp">
 
-  <navigation></navigation>
+  <bs-navigation></bs-navigation>
 
-  <!--<main></main>-->
+  <bs-display-books></bs-display-books>
 
-
-  <section class="book-container" ng-controller="mainCtrl as main">
-
-    <form ng-submit="searchBook(newBook)">
-      Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
-      {{newBook}}
-      <input  type="submit" value="Submit">
-    </form>
-
-    <div class="inner-book-container" ng-repeat="book in books">
-
-      <div class="photo-container">
-        <img class="book-image" ng-src="{{book.image}}" />
-      </div>
-      <div class="info-container">
-
-        <h2 class="book-title">{{book.title}}</h2>
-        <p class="book-description">
-          {{book.description}}
-        </p>
-        <ul>
-          <li>
-            <a href="">Learn More</a>
-          </li>
-
-          <li>
-            <a href="">Borrow</a>
-          </li>
-        </ul>
-
-        <div class="endorsement-container">
-          <img class="book-endorsements" src="img/heart.png" />
-          <p>{{book.likes}}</p>
-        </div>
-        <p class="username">Thomas Conto</p>
-        <img class="user-photo" src="img/user.jpg" />
-
-        <form ng-submit="deleteBook(book)">
-          Delete:
-          <input  type="submit" value="Submit">
-        </form>
-
-      </div>
-    </div>
-  </section>
-
-
-    <script src="vendor/angular.min.js"></script>
-    <script src="vendor/angular-animate.js"></script>
-    <script src="vendor/jquery.js"></script>
-    <script src="../app/app.js"></script>
-    <script src="../app/scripts/controllers/main.js"></script>
-    <script src="../app/scripts/controllers/navigation.js"></script>
-    <script src="../app/scripts/directives/navigation.js"></script>
-    <script src="../app/scripts/directives/main.js"></script>
-    <script src="../app/scripts/services/dataService.js"></script>
+  <script src="vendor/angular.min.js"></script>
+  <script src="vendor/angular-animate.js"></script>
+  <script src="vendor/jquery.js"></script>
+  <script src="../app/app.js"></script>
+  <script src="../app/scripts/controllers/displayBooks.controller.js"></script>
+  <script src="../app/scripts/controllers/navigation.js"></script>
+  <script src="../app/scripts/directives/bsNavigation.js"></script>
+  <script src="../app/scripts/directives/bsDisplayBooks.js"></script>
+  <script src="../app/scripts/services/dataService.js"></script>
 
 </body>
 </html>

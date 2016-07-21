@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('bookApp')
-  .directive('navigation', function(){
+  .directive('bsNavigation', function(){
     return {
-      templateUrl: 'templates/navigation.html',
+      templateUrl: 'templates/bsNavigation.html',
       replace: true,
       controller: 'navigationCtrl'
     }

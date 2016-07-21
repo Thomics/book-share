@@ -1,5 +1,13 @@
-<section class="book-container" ng-controller="mainCtrl as main">
-  <div class="inner-book-container" ng-repeat="book in books">
+<section class="book-container">
+
+  <form ng-submit="display.searchBook(newBook)" style="margin-left: 5%;">
+    Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
+    {{newBook}}
+    <input  type="submit" value="Submit">
+  </form>
+
+  <br />
+  <div class="inner-book-container" ng-repeat="book in display.books">
 
     <div class="photo-container">
       <img class="book-image" ng-src="{{book.image}}" />
@@ -26,6 +34,11 @@
       </div>
       <p class="username">Thomas Conto</p>
       <img class="user-photo" src="img/user.jpg" />
+
+      <form ng-submit="display.deleteBook(book)">
+      Delete:
+      <input  type="submit" value="Submit">
+      </form>
     </div>
   </div>
 </section>
