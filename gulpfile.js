@@ -24,7 +24,7 @@ gulp.task('concatVendor', function() {
 gulp.task('concatJS', function() {
   return gulp.src([
     "app/app.js",
-    "app/scripts/controllers/main.js",
+    "app/scripts/controllers/dataService.js",
 
   ])
     .pipe(maps.init())

@@ -42,7 +42,7 @@ angular.module('bookApp')
 
     //Using data returned from openlibrary.org, generates an object for an individual book.
     function createBookObj(data) {
-
+      console.log(data);
       var bookObj = {
         title : data.docs[0].title_suggest,
         isbn : data.docs[0].isbn[0],
@@ -61,8 +61,9 @@ angular.module('bookApp')
     $scope.deleteBook = function( book ) {
 
       BookService.deleteBook( book ).then(function() {
-        //$scope.books.splice( index, 1 );
+        $scope.books.splice( book, 1 );
         console.log('book deleted');
+
       });
     };
 
