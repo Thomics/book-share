@@ -5,9 +5,9 @@
     .module('bookApp')
     .controller('DisplayBooksController', DisplayBooksController);
 
-  DisplayBooksController.$inject = ['BookService'];
+  DisplayBooksController.$inject = ['DataService'];
 
-  function DisplayBooksController(BookService) {
+  function DisplayBooksController(DataService) {
 
     var vm = this;
 
@@ -39,17 +39,16 @@
       };
 
       vm.books.push(bookObj);
-      BookService.saveBooks(vm.books);
+      DataService.saveBook(bookObj);
 
     }
 
 
     function deleteBook(book) {
 
-      BookService.deleteBook(book)
+      DataService.deleteBook(book)
         .then(function() {
           vm.books.splice(book, 1);
-          console.log('book deleted');
         });
 
     }
@@ -58,7 +57,7 @@
     //Implement functionality to be specific to the logged in user.
     //Using the usernames object, generate an array of objects representing the users books.
     function getUserBooks() {
-      BookService.getUserBooks()
+      DataService.getUserBooks()
         .success(function(data) {
           vm.books = data.books;
         })
@@ -72,7 +71,7 @@
     function searchBook(book) {
 
       console.log(book);
-      BookService.getBook(book)
+      DataService.getBook(book)
 
         .success(function(data) {
           createBookObj(data);

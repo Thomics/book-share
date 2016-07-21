@@ -3,18 +3,18 @@
 
   angular
     .module('bookApp')
-    .service('BookService', BookService);
+    .service('DataService', DataService);
 
-  BookService.$inject = ['$http', '$q'];
+  DataService.$inject = ['$http', '$q'];
 
-  function BookService($http, $q) {
+  function DataService($http, $q) {
 
     var vm = this;
 
     vm.deleteBook = deleteBook;
     vm.getBook = getBook;
     vm.getUserBooks = getUserBooks;
-    vm.saveBooks = saveBooks;
+    vm.saveBook = saveBook;
 
 
     function getBook(title) {
@@ -27,25 +27,21 @@
     }
 
 
-    function saveBooks(books) {
-      var queue = [];
-      books.forEach(function(book) {
-        var request;
-        if (!book._id) {
-          request = $http.post('/api/books', book);
-          queue.push(request);
-        }
-      });
-      return queue;
+    function saveBook(book) {
+      if (!book._id) {
+        console.log('save successful');
+        $http.post('/api/books', book);
+      }
     }
 
 
     function deleteBook(book) {
+      console.log(book.title);
       if (!book._id) {
         return $q.resolve();
       }
       return $http.delete('/api/books/' + book._id).then(function() {
-        console.log("I deleted the " + book.name + " book!");
+        console.log("I deleted the " + book.title + " book!");
       });
     }
 
