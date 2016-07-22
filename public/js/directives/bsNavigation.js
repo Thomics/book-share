@@ -5,6 +5,6 @@ angular.module('bookApp')
     return {
       templateUrl: 'templates/bsNavigation.html',
       replace: true,
-      controller: 'navigationCtrl'
+      controller: 'NavController'
     }
 });
