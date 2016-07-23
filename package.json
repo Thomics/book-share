@@ -2,10 +2,10 @@
   "name": "book-share",
   "version": "1.0.0",
   "description": "Book sharing application",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js"
+    "start": "node src/app.js"
   },
   "author": "Thomas Conto",
   "license": "MIT",
