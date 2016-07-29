@@ -3,7 +3,7 @@
 angular.module('bookApp')
   .directive('bsNavigation', function(){
     return {
-      templateUrl: 'templates/bsNavigation.html',
+      templateUrl: 'app/navigation/bsNavigation.html',
       replace: true,
       controller: 'NavController'
     }

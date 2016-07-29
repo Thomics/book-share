@@ -1,10 +1,5 @@
 node_modules
-unused.txt
 .idea
 bower.json
-gulpfile.js
 .bowerrc
-self-notes.txt
-public/vendor/angular
-public/vendor/angular-animate
-public/vendor/jquery
+.gitignore

@@ -3,7 +3,7 @@
 angular.module('bookApp')
   .directive('bsDisplayBooks', function(){
     return {
-      templateUrl: 'templates/bsDisplayBooks.html',
+      templateUrl: 'app/bookDisplay/bsDisplayBooks.html',
       controller: 'DisplayBooksController',
       controllerAs: 'display'
     }
