@@ -13,6 +13,6 @@ var bookSchema = new mongoose.Schema({
 //This makes mongoose create a model called book, using the bookSchema.
 var model = mongoose.model('Book', bookSchema);
 
-require('./users');
+//require('./users');
 
 module.exports = model;
