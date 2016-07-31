@@ -2,7 +2,10 @@
 
 var express = require('express');
 var parser = require('body-parser');
+var path = require('path');
 var passport = require('passport');
+
+var console = require('console');
 
 
 
@@ -17,19 +20,16 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-
-app.use('/', express.static('public'));
-
 app.use(parser.json());
-
-//new
-require('./models/database');
-require('./config/passport');
+app.use('/', express.static('public'));
 app.use(passport.initialize());
-//end new
-
-
 app.use('/api', router);
+
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, '/../public', 'index.html'), function(err) {
+    console.log(err);
+  });
+});
 
 
 app.listen(port, function() {
@@ -46,3 +46,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
