@@ -26,25 +26,22 @@ var port = process.env.PORT || 3000;
 
 app.use(parser.json());
 
-//app.use('/', express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(passport.initialize());
 
 app.use('/api', router);
 
-//app.get('*', function(req, res) {
-//  console.log(path.join(__dirname, 'public', 'index.html'));
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+//app.use( function(req, res) {
+//  //console.log(path.join(__dirname, 'server', 'routes', 'index.js'));
+//  //res.sendFile(path.join(__dirname, 'public', 'index.html'));
 //
 //  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 //});
-
-app.use( function(req, res) {
-  //console.log(path.join(__dirname, 'server', 'routes', 'index.js'));
-  //res.sendFile(path.join(__dirname, 'public', 'index.html'));
-
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
 
 app.listen(port, function() {

@@ -10,14 +10,17 @@
 
 <body ng-app="bookApp">
 
-  <bs-navigation></bs-navigation>
+  <div ng-view></div>
 
-  <bs-display-books></bs-display-books>
+    <bs-navigation></bs-navigation>
+
+    <bs-display-books></bs-display-books>
+
 
   <script src="vendor/jquery.js"></script>
-  <script src="vendor/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
   <script src="vendor/angular-animate.js"></script>
-  <script src="vendor/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.js"></script>
   <script src="app/app.js"></script>
   <script src="app/bookDisplay/displayBooks.controller.js"></script>
   <script src="app/authorization/register/register.controller.js"></script>

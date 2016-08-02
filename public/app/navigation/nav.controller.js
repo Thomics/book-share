@@ -9,6 +9,8 @@
 
     var vm = this;
 
+    console.log('inside controller');
+
     vm.tab = 1;
 
   }
