@@ -7,14 +7,10 @@ angular.module("bookApp", ['ngRoute'])
 
     $routeProvider
       .when('/', {
-        //template: '<h1>noope</h1>',
-        templateUrl: 'app/bookDisplay/bsDisplayBooks.html',
-        controller: function() {
-          console.log("inside router");
-        }
+        templateUrl: 'app/home/home.html'
       })
-      .when('/home', {
-        template: '<h1>boop</h1>'
+      .when('/displayBooks', {
+        templateUrl: 'app/text.html'
       })
       .otherwise({redirectTo: '/'});
 

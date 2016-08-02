@@ -1,0 +1,29 @@
+.home-body {
+  background: #f1f5f6;
+  height: calc(90vh - 45px);
+  padding: 10vh 0 0 0;
+}
+
+.home-title-section {
+  background: #ffffff;
+  color: #333333;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10vh 0;
+  text-align: center;
+  width: 75%;
+}
+
+.log-in-btn {
+  background: #ffffff;
+  color: #333333;
+  float: right;
+  font-weight: 700;
+  padding: 16px;
+  margin-top: 5vh;
+  margin-right: 12.5%;
+  text-align: center;
+  text-decoration: none;
+  width: 15%;
+}

@@ -5,13 +5,23 @@
     .module('bookApp')
     .controller('NavController', NavController);
 
-  function NavController() {
+  NavController.$inject = ['$location'];
+
+  function NavController($location) {
 
     var vm = this;
 
-    console.log('inside controller');
-
+    vm.navigateHome = navigateHome;
+    vm.navigateBooks = navigateBooks;
     vm.tab = 1;
+
+    function navigateHome() {
+      $location.url('/');
+    }
+
+    function navigateBooks() {
+      $location.url('/displayBooks');
+    }
 
   }
 
