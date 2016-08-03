@@ -45,5 +45,5 @@ process.on('SIGTERM', function() {
   });
 });
 
-require('./users');
+require('./user');
 require('./books');

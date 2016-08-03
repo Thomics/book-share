@@ -7,12 +7,11 @@ var bookSchema = new mongoose.Schema({
   isbn: String,
   image: String,
   reviews: [String],
-  description: String
+  description: String,
+  owner: String
 });
 
 //This makes mongoose create a model called book, using the bookSchema.
 var model = mongoose.model('Book', bookSchema);
-
-//require('./users');
 
 module.exports = model;

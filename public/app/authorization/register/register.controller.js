@@ -4,9 +4,9 @@
     .module('bookApp')
     .controller('RegisterController', RegisterController);
 
-  RegisterController.$inject = ['$location', 'authentication'];
+  RegisterController.$inject = ['$location', 'AuthService'];
 
-  function RegisterController($location, authentication) {
+  function RegisterController($location, AuthService) {
 
     var vm = this;
 
@@ -21,7 +21,7 @@
     function onSubmit() {
 
       console.log('Submitting registration');
-      authentication
+      AuthService
         .register(vm.credentials)
         .error(function(err){
           alert(err);

@@ -45,7 +45,9 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-//Catch unauthorised errors
+// error handlers
+
+// [SH] Catch unauthorised errors
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
     res.status(401);
@@ -53,7 +55,8 @@ app.use(function (err, req, res, next) {
   }
 });
 
-//Development error handler
+// development error handler
+// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -64,7 +67,8 @@ if (app.get('env') === 'development') {
   });
 }
 
-//Production error handler
+// production error handler
+// no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {

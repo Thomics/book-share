@@ -1,21 +1,35 @@
 (function () {
+  'use strict';
 
   angular
     .module('bookApp')
-    .service('authentication', authentication);
+    .service('AuthService', AuthService);
 
-  authentication.$inject = ['$http', '$window'];
-  function authentication ($http, $window) {
+  AuthService.$inject = ['$http', '$window'];
 
-    var saveToken = function (token) {
+  function AuthService ($http, $window) {
+
+    var vm = this;
+
+    vm.currentUser = currentUser;
+    vm.getToken = getToken;
+    vm.isLoggedIn = isLoggedIn;
+    vm.login = login;
+    vm.logout = logout;
+    vm.register = register;
+    vm.saveToken = saveToken;
+
+
+
+    function saveToken(token) {
       $window.localStorage['mean-token'] = token;
-    };
+    }
 
-    var getToken = function () {
+    function getToken() {
       return $window.localStorage['mean-token'];
-    };
+    }
 
-    var isLoggedIn = function() {
+    function isLoggedIn() {
       var token = getToken();
       var payload;
 
@@ -28,9 +42,10 @@
       } else {
         return false;
       }
-    };
+    }
 
-    var currentUser = function() {
+
+    function currentUser() {
       if(isLoggedIn()){
         var token = getToken();
         var payload = token.split('.')[1];
@@ -41,33 +56,28 @@
           name : payload.name
         };
       }
-    };
+    }
 
-    register = function(user) {
+
+    function register(user) {
       return $http.post('/api/register', user).success(function(data){
         saveToken(data.token);
       });
-    };
+    }
 
-    login = function(user) {
+
+    function login(user) {
       return $http.post('/api/login', user).success(function(data) {
         saveToken(data.token);
       });
-    };
+    }
 
-    logout = function() {
+
+    function logout() {
       $window.localStorage.removeItem('mean-token');
-    };
+    }
 
-    return {
-      currentUser : currentUser,
-      saveToken : saveToken,
-      getToken : getToken,
-      isLoggedIn : isLoggedIn,
-      register : register,
-      login : login,
-      logout : logout
-    };
+
   }
 
 

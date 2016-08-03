@@ -4,9 +4,9 @@
   .module('bookApp')
   .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$location', 'authentication'];
+  LoginController.$inject = ['$location', 'AuthService'];
 
-  function LoginController($location, authentication) {
+  function LoginController($location, AuthService) {
 
     var vm = this;
 
@@ -22,7 +22,7 @@
     function onSubmit() {
 
       console.log('logging in');
-      authentication
+      AuthService
         .login(vm.credentials)
         .error(function(err){
           alert(err);

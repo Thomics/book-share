@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var crypto = require('crypto');
 
+
 var userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -14,9 +15,11 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  userName: String,
   hash: String,
   salt: String
 });
+
 
 //Code to save and obfuscate users password.
 userSchema.methods.setPassword = function(password) {
@@ -24,11 +27,13 @@ userSchema.methods.setPassword = function(password) {
   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 };
 
+
 //Code to validate users password.
 userSchema.methods.validPassword = function(password) {
   var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
   return this.hash === hash;
 };
+
 
 //Generates a json web token that follows the user from page to page.
 userSchema.methods.generateJwt = function() {
@@ -39,8 +44,9 @@ userSchema.methods.generateJwt = function() {
     _id: this._id,
     email: this.email,
     name: this.name,
-    exp: parseInt(expiry.getTime() / 1000),
-  }, "MY_SECRET");
+    exp: parseInt(expiry.getTime() / 1000)
+  }, "MY_SECRET");//Figure out how to set environment variables.
 };
+
 
 mongoose.model('User', userSchema);
