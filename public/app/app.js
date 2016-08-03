@@ -10,7 +10,13 @@ angular.module("bookApp", ['ngRoute'])
         templateUrl: 'app/home/home.html'
       })
       .when('/displayBooks', {
-        templateUrl: 'app/text.html'
+        templateUrl: 'app/bookDisplay/displayBook.html'
+      })
+      .when('/login', {
+        templateUrl: 'app/authorization/login/login.view.html'
+      })
+      .when('/register', {
+        templateUrl: 'app/authorization/register/register.view.html'
       })
       .otherwise({redirectTo: '/'});
 

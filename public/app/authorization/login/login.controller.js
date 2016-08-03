@@ -2,18 +2,30 @@
 
   angular
   .module('bookApp')
-  .controller('loginCtrl', loginCtrl);
+  .controller('LoginController', LoginController);
 
-  loginCtrl.$inject = ['$location', 'authentication'];
-  function loginCtrl($location, authentication) {
+  LoginController.$inject = ['$location', 'authentication'];
+
+  function LoginController($location, authentication) {
+
     var vm = this;
+
+    vm.onSubmit = onSubmit;
+    vm.navigationLogin = navigationLogin;
+
 
     vm.credentials = {
       email : "",
       password : ""
     };
 
-    vm.onSubmit = function () {
+
+    function navigationLogin() {
+      $location.url('/login');
+    }
+
+
+    function onSubmit() {
       authentication
         .login(vm.credentials)
         .error(function(err){
@@ -22,7 +34,7 @@
         .then(function(){
           $location.path('profile');
         });
-    };
+    }
 
   }
 
