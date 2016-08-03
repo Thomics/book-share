@@ -11,7 +11,6 @@
     var vm = this;
 
     vm.onSubmit = onSubmit;
-    vm.navigationLogin = navigationLogin;
 
 
     vm.credentials = {
@@ -20,19 +19,16 @@
     };
 
 
-    function navigationLogin() {
-      $location.url('/login');
-    }
-
-
     function onSubmit() {
+
+      console.log('logging in');
       authentication
         .login(vm.credentials)
         .error(function(err){
           alert(err);
         })
         .then(function(){
-          $location.path('profile');
+          $location.path('/displayBooks');
         });
     }
 

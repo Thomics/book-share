@@ -2,11 +2,15 @@
 
   angular
     .module('bookApp')
-    .controller('registerCtrl', registerCtrl);
+    .controller('RegisterController', RegisterController);
 
-  registerCtrl.$inject = ['$location', 'authentication'];
-  function registerCtrl($location, authentication) {
+  RegisterController.$inject = ['$location', 'authentication'];
+
+  function RegisterController($location, authentication) {
+
     var vm = this;
+
+    vm.onSubmit = onSubmit;
 
     vm.credentials = {
       name : "",
@@ -14,7 +18,8 @@
       password : ""
     };
 
-    vm.onSubmit = function () {
+    function onSubmit() {
+
       console.log('Submitting registration');
       authentication
         .register(vm.credentials)
@@ -24,7 +29,7 @@
         .then(function(){
           $location.path('profile');
         });
-    };
+    }
 
   }
 
