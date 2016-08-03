@@ -5,9 +5,9 @@
     .module('bookApp')
     .controller('DisplayBooksController', DisplayBooksController);
 
-  DisplayBooksController.$inject = ['DataService'];
+  DisplayBooksController.$inject = ['DataService', 'AuthService'];
 
-  function DisplayBooksController(DataService) {
+  function DisplayBooksController(DataService, AuthService) {
 
     var vm = this;
 
@@ -15,6 +15,7 @@
     vm.createBookObj = createBookObj;
     vm.deleteBook = deleteBook;
     vm.getUserBooks = getUserBooks;
+    vm.owner = AuthService.currentUser().email;
     vm.searchBook = searchBook;
 
 
@@ -30,14 +31,19 @@
     //Using data returned from openlibrary.org, generates an object for an individual book.
     function createBookObj(data) {
 
+      console.log(vm.owner);
+
       var bookObj = {
         title : data.docs[0].title_suggest,
         isbn : data.docs[0].isbn[0],
         image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
         reviews : ['No Reviews'],
         description : "No description. Write one.",
-        owner: {}
+        owner: vm.owner
       };
+
+      console.log(bookObj);
+
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);

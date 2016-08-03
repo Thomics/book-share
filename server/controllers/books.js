@@ -7,8 +7,11 @@ var Books = mongoose.model('Book');
 module.exports.getBooks = function(req, res) {
 
   Books.find({}, function(err, books) {
+
     if (err) { return res.status(500).json({ message: err.message }); }
+
     res.json({ books: books });
+
   });
 };
 

@@ -5,15 +5,16 @@
     .module('bookApp')
     .service('DataService', DataService);
 
-  DataService.$inject = ['$http', '$q'];
+  DataService.$inject = ['$http', '$q', 'AuthService'];
 
-  function DataService($http, $q) {
+  function DataService($http, $q, AuthService) {
 
     var vm = this;
 
     vm.deleteBook = deleteBook;
     vm.getBook = getBook;
     vm.getUserBooks = getUserBooks;
+    vm.owner = AuthService.currentUser().email;
     vm.saveBook = saveBook;
 
 
@@ -22,8 +23,14 @@
     }
 
 
+    //function getUserBooks() {
+    //  return $http.get('/api/books');
+    //}
+
+
+
     function getUserBooks() {
-      return $http.get('/api/books');
+      return $http.get('/api/books/' + vm.owner);//add book owner
     }
 
 
