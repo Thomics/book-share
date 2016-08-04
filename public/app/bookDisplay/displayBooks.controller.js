@@ -15,7 +15,7 @@
     vm.createBookObj = createBookObj;
     vm.deleteBook = deleteBook;
     vm.getUserBooks = getUserBooks;
-    vm.owner = AuthService.username;
+    //vm.owner = AuthService.username;
     vm.searchBook = searchBook;
 
 
@@ -32,15 +32,13 @@
     //Using data returned from openlibrary.org, generates an object for an individual book.
     function createBookObj(data) {
 
-      console.log(vm.owner);
-
       var bookObj = {
         title : data.docs[0].title_suggest,
         isbn : data.docs[0].isbn[0],
         image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
         reviews : ['No Reviews'],
         description : "No description. Write one.",
-        owner: vm.owner
+        owner: AuthService.owner
       };
 
       console.log(bookObj);

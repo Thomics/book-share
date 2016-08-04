@@ -53,7 +53,7 @@
         payload = $window.atob(payload);
         payload = JSON.parse(payload);
         console.log(payload.email);
-        vm.username = payload.email;
+        console.log(vm.username);
         return {
           email : payload.email,
           name : payload.name
@@ -71,6 +71,8 @@
 
     function login(user) {
       return $http.post('/api/login', user).success(function(data) {
+        vm.username = user.email;
+        console.log(vm.username);
         saveToken(data.token);
       });
     }
