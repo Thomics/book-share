@@ -4,9 +4,9 @@
   .module('bookApp')
   .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$location', '$window', 'AuthService'];
+  LoginController.$inject = ['$location', '$window', '$route', 'AuthService'];
 
-  function LoginController($location, $window, AuthService) {
+  function LoginController($location, $window, $route, AuthService) {
 
     var vm = this;
 
@@ -14,15 +14,16 @@
       email : "",
       password : ""
     };
-
     vm.logUserOut = logUserOut;
     vm.logUserOn = logUserOn;
     vm.sessionToken = $window.localStorage['mean-token'];
+    //vm.username = AuthService.getUsername();
 
 
     function logUserOut() {
       AuthService.logout();
       $location.path('/');
+      $route.reload();
     }
 
 
@@ -36,6 +37,7 @@
         })
         .then(function(){
           $location.path('/displayBooks');
+          $route.reload();
         });
     }
 

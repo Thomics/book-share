@@ -5,18 +5,16 @@
     .module('bookApp')
     .controller('DisplayBooksController', DisplayBooksController);
 
-  DisplayBooksController.$inject = ['DataService', 'AuthService'];
+  DisplayBooksController.$inject = ['$window', 'DataService', 'AuthService'];
 
-  function DisplayBooksController(DataService, AuthService) {
+  function DisplayBooksController($window, DataService, AuthService) {
 
     var vm = this;
 
     vm.books = [];
-    vm.shig = [];
     vm.createBookObj = createBookObj;
     vm.deleteBook = deleteBook;
     vm.getUserBooks = getUserBooks;
-    //vm.owner = AuthService.username;
     vm.searchBook = searchBook;
 
 
@@ -27,7 +25,10 @@
 
 
     function activate() {
-      vm.getUserBooks();
+
+      if ( $window.localStorage['mean-token'] ) {
+        vm.getUserBooks();
+      }
     }
 
     //Using data returned from openlibrary.org, generates an object for an individual book.
@@ -39,12 +40,8 @@
         image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
         reviews : ['No Reviews'],
         description : "No description. Write one.",
-        owner: AuthService.currentUser().email
+        owner: AuthService.getUsername()
       };
-
-      console.log(bookObj);
-      //console.log(vm.books);
-      //console.log(vm.shig);
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);

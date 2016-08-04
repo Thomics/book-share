@@ -13,12 +13,12 @@
 
     vm.currentUser = currentUser;
     vm.getToken = getToken;
+    vm.getUsername = getUsername;
     vm.isLoggedIn = isLoggedIn;
     vm.login = login;
     vm.logout = logout;
     vm.register = register;
     vm.saveToken = saveToken;
-    vm.username = currentUser().email;
 
 
 
@@ -53,11 +53,20 @@
         payload = $window.atob(payload);
         payload = JSON.parse(payload);
         console.log(payload.email);
-        console.log(vm.username);
         return {
           email : payload.email,
           name : payload.name
         };
+      }
+    }
+
+    function getUsername() {
+      var email = currentUser().email;
+      console.log(email);
+      if ( email ) {
+        return email
+      } else {
+        return '';
       }
     }
 
@@ -71,8 +80,6 @@
 
     function login(user) {
       return $http.post('/api/login', user).success(function(data) {
-        //vm.username = user.email;
-        //console.log(vm.username);
         saveToken(data.token);
       });
     }
