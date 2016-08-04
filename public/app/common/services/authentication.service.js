@@ -18,6 +18,7 @@
     vm.logout = logout;
     vm.register = register;
     vm.saveToken = saveToken;
+    vm.username = '';
 
 
 
@@ -51,6 +52,8 @@
         var payload = token.split('.')[1];
         payload = $window.atob(payload);
         payload = JSON.parse(payload);
+        console.log(payload.email);
+        vm.username = payload.email;
         return {
           email : payload.email,
           name : payload.name

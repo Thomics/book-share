@@ -14,7 +14,7 @@
     vm.deleteBook = deleteBook;
     vm.getBook = getBook;
     vm.getUserBooks = getUserBooks;
-    vm.owner = AuthService.currentUser().email;
+    vm.owner = AuthService.username;
     vm.saveBook = saveBook;
 
 
@@ -30,7 +30,7 @@
 
 
     function getUserBooks() {
-      return $http.get('/api/books/' + vm.owner);//add book owner
+      return $http.get('/api/books/' + vm.owner);
     }
 
 

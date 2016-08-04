@@ -15,13 +15,14 @@
     vm.createBookObj = createBookObj;
     vm.deleteBook = deleteBook;
     vm.getUserBooks = getUserBooks;
-    vm.owner = AuthService.currentUser().email;
+    vm.owner = AuthService.username;
     vm.searchBook = searchBook;
 
 
     activate();
 
     ///////////////////////////////////////////////////////////////
+
 
 
     function activate() {

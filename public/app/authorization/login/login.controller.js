@@ -4,22 +4,32 @@
   .module('bookApp')
   .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$location', 'AuthService'];
+  LoginController.$inject = ['$location', '$window', 'AuthService'];
 
-  function LoginController($location, AuthService) {
+  function LoginController($location, $window, AuthService) {
 
     var vm = this;
-
-    vm.onSubmit = onSubmit;
-
 
     vm.credentials = {
       email : "",
       password : ""
     };
+    vm.logUserOut = logUserOut;
+    vm.logUserOn = logUserOn;
+    vm.sessionToken = $window.localStorage['mean-token'];
 
 
-    function onSubmit() {
+    //function logUserOut() {
+    //  $window.localStorage.removeItem('mean-token');
+    //}
+
+    function logUserOut() {
+      AuthService.logout();
+      $location.path('/');
+    }
+
+
+    function logUserOn() {
 
       console.log('logging in');
       AuthService

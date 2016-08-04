@@ -22,7 +22,10 @@
   text-decoration: none;
 }
 
-
+.nav-login {
+  float: right;
+  margin-right: 10px;
+}
 
 
 .book-container {
