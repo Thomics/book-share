@@ -12,6 +12,7 @@
     var vm = this;
 
     vm.books = [];
+    vm.shig = [];
     vm.createBookObj = createBookObj;
     vm.deleteBook = deleteBook;
     vm.getUserBooks = getUserBooks;
@@ -38,11 +39,12 @@
         image : "http://covers.openlibrary.org/b/isbn/" + data.docs[0].isbn[0] + "-M.jpg",
         reviews : ['No Reviews'],
         description : "No description. Write one.",
-        owner: AuthService.owner
+        owner: AuthService.currentUser().email
       };
 
       console.log(bookObj);
-
+      //console.log(vm.books);
+      //console.log(vm.shig);
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);
@@ -65,7 +67,8 @@
     function getUserBooks() {
       DataService.getUserBooks()
         .success(function(data) {
-          vm.books = data.books;
+          vm.books = data.books || [];
+          console.log(vm.books);
         })
         .error(function(err) {
           console.log(err);

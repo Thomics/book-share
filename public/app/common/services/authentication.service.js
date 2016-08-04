@@ -18,7 +18,7 @@
     vm.logout = logout;
     vm.register = register;
     vm.saveToken = saveToken;
-    vm.username = '';
+    vm.username = currentUser().email;
 
 
 
@@ -71,8 +71,8 @@
 
     function login(user) {
       return $http.post('/api/login', user).success(function(data) {
-        vm.username = user.email;
-        console.log(vm.username);
+        //vm.username = user.email;
+        //console.log(vm.username);
         saveToken(data.token);
       });
     }

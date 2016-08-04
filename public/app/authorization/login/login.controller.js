@@ -20,10 +20,6 @@
     vm.sessionToken = $window.localStorage['mean-token'];
 
 
-    //function logUserOut() {
-    //  $window.localStorage.removeItem('mean-token');
-    //}
-
     function logUserOut() {
       AuthService.logout();
       $location.path('/');
