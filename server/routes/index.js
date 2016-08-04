@@ -25,7 +25,7 @@ router.post('/login', ctrlAuth.login);
 
 //get books
 //router.get('/books', ctrlBooks.getBooks);
-router.get('/books/:owner', ctrlBooks.getBooks);
+router.get('/books/:owner', ctrlBooks.getOwnerBooks);
 router.post('/books', ctrlBooks.addBooks);
 router.delete('/books/:id', ctrlBooks.deleteBook);
 
