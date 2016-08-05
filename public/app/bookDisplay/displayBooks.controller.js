@@ -5,9 +5,9 @@
     .module('bookApp')
     .controller('DisplayBooksController', DisplayBooksController);
 
-  DisplayBooksController.$inject = ['$window', 'DataService', 'AuthService'];
+  DisplayBooksController.$inject = ['$window', '$location', 'DataService', 'AuthService'];
 
-  function DisplayBooksController($window, DataService, AuthService) {
+  function DisplayBooksController($window, $location, DataService, AuthService) {
 
     var vm = this;
 
@@ -28,8 +28,13 @@
 
     function activate() {
 
-      if ( $window.localStorage['mean-token'] ) {
-        vm.getUserBooks();
+      if ($window.localStorage['mean-token']) {
+        if ($location.path() === '/displayBooks') {
+          vm.getUserBooks();
+        }
+        if ($location.path() === '/allBooks') {
+          vm.getAllBooks();
+        }
       }
     }
 

@@ -12,16 +12,21 @@
     var vm = this;
 
     vm.isLoggedIn = AuthService.isLoggedIn();
+    vm.navigateAllBooks = navigateAllBooks;
     vm.navigateHome = navigateHome;
-    vm.navigateBooks = navigateBooks;
+    vm.navigateUserBooks = navigateUserBooks;
     vm.tab = 1;
 
     function navigateHome() {
       $location.url('/');
     }
 
-    function navigateBooks() {
+    function navigateUserBooks() {
       $location.url('/displayBooks');
+    }
+
+    function navigateAllBooks() {
+      $location.url('/allBooks');
     }
 
   }
