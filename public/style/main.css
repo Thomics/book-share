@@ -30,9 +30,12 @@
 
 .book-container {
   width: 100%;
-  /*background: #f1f5f6;*/
   padding: 50px 0;
   float: left;
+}
+
+.book-container form {
+  margin-left: 5%;
 }
 
 .inner-book-container, .right-book-container {

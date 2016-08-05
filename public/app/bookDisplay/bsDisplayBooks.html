@@ -1,12 +1,11 @@
 <section class="book-container">
-  <form ng-submit="display.searchBook(newBook)" style="margin-left: 5%;">
+  <form ng-submit="display.searchBook(newBook)" ng-controller="LoginController as login" ng-show="login.sessionToken">
     Search Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
     <input  type="submit" value="Submit">
   </form>
 
   <br />
   <div class="inner-book-container" ng-repeat="book in display.books">
-
     <div class="photo-container">
       <img class="book-image" ng-src="{{book.image}}" />
     </div>

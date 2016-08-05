@@ -22,14 +22,13 @@
     }
 
 
-    //function getUserBooks() {
-    //  return $http.get('/api/books');
-    //}
+    function getAllBooks() {
+      return $http.get('/api/books');
+    }
 
 
 
     function getUserBooks() {
-
       return $http.get('/api/books/' + AuthService.getUsername());
     }
 

@@ -59,8 +59,18 @@
     }
 
 
-    //Implement functionality to be specific to the logged in user.
-    //Using the usernames object, generate an array of objects representing the users books.
+    function getAllBooks() {
+      DataService.getAllBooks()
+        .success(function(data) {
+          vm.books = data.books || [];
+          console.log(vm.books);
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+    }
+
+
     function getUserBooks() {
       DataService.getUserBooks()
         .success(function(data) {
