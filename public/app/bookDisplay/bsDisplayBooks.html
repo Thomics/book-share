@@ -1,8 +1,6 @@
 <section class="book-container">
-  <form ng-submit="display.searchBook(newBook)" ng-controller="LoginController as login" ng-show="login.sessionToken">
-    Search Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
-    <input  type="submit" value="Submit">
-  </form>
+
+  <bs-search-book></bs-search-book>
 
   <br />
   <div class="inner-book-container" ng-repeat="book in display.books">
@@ -33,7 +31,7 @@
       <img class="user-photo" src="img/user.jpg" />
 
       <form ng-submit="display.deleteBook(book)" class="delete-book-btn">
-        <input  type="submit" value="Delete">
+        <input type="submit" value="Delete">
       </form>
     </div>
   </div>

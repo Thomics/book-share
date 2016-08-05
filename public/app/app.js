@@ -11,7 +11,10 @@ angular.module("bookApp", ['ngRoute'])
       })
       .when('/displayBooks', {
         templateUrl: 'app/bookDisplay/displayBook.html'
+        //Controller is declared in the directive.
       })
+      //.when('/allBooks', {
+      //})
       .when('/login', {
         templateUrl: 'app/authorization/login/login.view.html',
         controller: 'LoginController',

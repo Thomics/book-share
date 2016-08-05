@@ -12,20 +12,20 @@
     var vm = this;
 
     vm.deleteBook = deleteBook;
+    vm.getAllBooks = getAllBooks;
     vm.getBook = getBook;
     vm.getUserBooks = getUserBooks;
     vm.saveBook = saveBook;
-
-
-    function getBook(title) {
-      return $http.get("https://openlibrary.org/search.json?&jscmd=details&q=" + title);
-    }
 
 
     function getAllBooks() {
       return $http.get('/api/books');
     }
 
+    
+    function getBook(title) {
+      return $http.get("https://openlibrary.org/search.json?&jscmd=details&q=" + title);
+    }
 
 
     function getUserBooks() {

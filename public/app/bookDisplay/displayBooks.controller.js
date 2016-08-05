@@ -14,14 +14,16 @@
     vm.books = [];
     vm.createBookObj = createBookObj;
     vm.deleteBook = deleteBook;
+    vm.getAllBooks = getAllBooks;
     vm.getUserBooks = getUserBooks;
+    vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
 
 
     activate();
 
-    ///////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////
 
 
     function activate() {
@@ -60,6 +62,7 @@
 
 
     function getAllBooks() {
+
       DataService.getAllBooks()
         .success(function(data) {
           vm.books = data.books || [];
@@ -68,10 +71,12 @@
         .error(function(err) {
           console.log(err);
         });
+
     }
 
 
     function getUserBooks() {
+
       DataService.getUserBooks()
         .success(function(data) {
           vm.books = data.books || [];
@@ -80,6 +85,7 @@
         .error(function(err) {
           console.log(err);
         });
+
     }
 
 
