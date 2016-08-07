@@ -27,7 +27,10 @@
       <p class="username">Thomas Conto</p>
       <img class="user-photo" src="img/user.jpg" />
 
-      <form ng-submit="display.deleteBook(book)" class="delete-book-btn">
+      <form
+        ng-submit="display.deleteBook(book)"
+        class="delete-book-btn"
+        ng-hide="display.currentPage === '/allBooks'">
         <input type="submit" value="Delete">
       </form>
     </div>

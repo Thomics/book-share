@@ -13,13 +13,14 @@
 
     vm.books = [];
     vm.createBookObj = createBookObj;
+    vm.currentPage = $location.path();
     vm.deleteBook = deleteBook;
     vm.getAllBooks = getAllBooks;
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
 
-
+console.log(vm.currentPage);
     activate();
 
 
@@ -29,10 +30,10 @@
     function activate() {
 
       if ($window.localStorage['mean-token']) {
-        if ($location.path() === '/displayBooks') {
+        if (vm.currentPage === '/displayBooks') {
           vm.getUserBooks();
         }
-        if ($location.path() === '/allBooks') {
+        if (vm.currentPage === '/allBooks') {
           vm.getAllBooks();
         }
       }
