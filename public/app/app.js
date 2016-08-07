@@ -1,7 +1,7 @@
-"use strict";
+angular.module('bookApp', ['ngRoute'])
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
-angular.module("bookApp", ['ngRoute'])
-.config(["$routeProvider", '$locationProvider', function($routeProvider, $locationProvider) {
+'use strict';
 
     $locationProvider.html5Mode(true);
 
@@ -9,9 +9,10 @@ angular.module("bookApp", ['ngRoute'])
       .when('/', {
         templateUrl: 'app/home/home.html'
       })
-      .when('/userBooks', {
-        templateUrl: 'app/bookDisplay/userBooks.html'
-        //Controller is declared in the directive.
+      .when('/account', {
+        templateUrl: 'app/account/account.html',
+        controller: 'AccountController',
+        controllerAs: 'account'
       })
       .when('/allBooks', {
         templateUrl: 'app/bookDisplay/allBooks.html'
@@ -25,6 +26,10 @@ angular.module("bookApp", ['ngRoute'])
         templateUrl: 'app/authorization/register/register.view.html',
         controller: 'RegisterController',
         controllerAs: 'register'
+      })
+      .when('/userBooks', {
+        templateUrl: 'app/bookDisplay/userBooks.html'
+        //Controller is declared in the directive.
       })
       .otherwise({redirectTo: '/'});
 

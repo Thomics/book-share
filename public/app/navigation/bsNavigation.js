@@ -6,5 +6,5 @@ angular.module('bookApp')
       templateUrl: 'app/navigation/bsNavigation.html',
       replace: true,
       controller: 'NavController'
-    }
+    };
 });

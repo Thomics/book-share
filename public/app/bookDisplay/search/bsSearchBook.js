@@ -6,5 +6,5 @@ angular.module('bookApp')
       templateUrl: 'app/bookDisplay/search/bsSearchBook.html',
       controller: 'DisplayBooksController',
       controllerAs: 'display'
-    }
+    };
   });

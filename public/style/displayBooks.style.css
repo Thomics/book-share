@@ -1,3 +1,10 @@
+.book-display-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin: 30px 0;
+}
+
 .book-container {
   width: 100%;
   padding: 50px 0;

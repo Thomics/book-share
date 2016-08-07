@@ -25,7 +25,7 @@
 
     
     function getBook(title) {
-      return $http.get("https://openlibrary.org/search.json?&jscmd=details&q=" + title);
+      return $http.get('https://openlibrary.org/search.json?&jscmd=details&q=' + title);
     }
 
 
@@ -48,7 +48,7 @@
         return $q.resolve();
       }
       return $http.delete('/api/books/' + book._id).then(function() {
-        console.log("I deleted the " + book.title + " book!");
+        console.log('I deleted the ' + book.title + ' book!');
       });
     }
 

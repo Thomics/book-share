@@ -64,7 +64,7 @@
       var email = currentUser().email;
       console.log(email);
       if ( email ) {
-        return email
+        return email;
       } else {
         return '';
       }

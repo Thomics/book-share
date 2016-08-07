@@ -11,8 +11,8 @@
     var vm = this;
 
     vm.credentials = {
-      email : "",
-      password : ""
+      email : '',
+      password : ''
     };
     vm.logUserOut = logUserOut;
     vm.logUserOn = logUserOn;
@@ -32,7 +32,7 @@
       AuthService
         .login(vm.credentials)
         .error(function(err){
-          alert(err);
+          console.log(err);
         })
         .then(function(){
           $location.path('/userBooks');

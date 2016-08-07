@@ -45,7 +45,7 @@ userSchema.methods.generateJwt = function() {
     email: this.email,
     name: this.name,
     exp: parseInt(expiry.getTime() / 1000)
-  }, "MY_SECRET");//Figure out how to set environment variables.
+  }, 'MY_SECRET');//Figure out how to set environment variables.
 };
 
 

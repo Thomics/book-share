@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var mongoose = require('mongoose');
 var Books = mongoose.model('Book');
 var User = mongoose.model('User');
