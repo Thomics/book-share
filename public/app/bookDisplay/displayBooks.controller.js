@@ -30,7 +30,7 @@ console.log(vm.currentPage);
     function activate() {
 
       if ($window.localStorage['mean-token']) {
-        if (vm.currentPage === '/displayBooks') {
+        if (vm.currentPage === '/userBooks') {
           vm.getUserBooks();
         }
         if (vm.currentPage === '/allBooks') {

@@ -22,7 +22,7 @@
     }
 
     function navigateUserBooks() {
-      $location.url('/displayBooks');
+      $location.url('/userBooks');
     }
 
     function navigateAllBooks() {

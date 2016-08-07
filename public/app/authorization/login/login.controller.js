@@ -35,7 +35,7 @@
           alert(err);
         })
         .then(function(){
-          $location.path('/displayBooks');
+          $location.path('/userBooks');
           $route.reload();
         });
     }

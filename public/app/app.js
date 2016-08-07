@@ -9,12 +9,12 @@ angular.module("bookApp", ['ngRoute'])
       .when('/', {
         templateUrl: 'app/home/home.html'
       })
-      .when('/displayBooks', {
-        templateUrl: 'app/bookDisplay/displayBook.html'
+      .when('/userBooks', {
+        templateUrl: 'app/bookDisplay/userBooks.html'
         //Controller is declared in the directive.
       })
       .when('/allBooks', {
-        templateUrl: 'app/bookDisplay/displayBook.html'
+        templateUrl: 'app/bookDisplay/allBooks.html'
       })
       .when('/login', {
         templateUrl: 'app/authorization/login/login.view.html',
