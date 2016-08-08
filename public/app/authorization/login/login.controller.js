@@ -1,3 +1,8 @@
+/**
+ * Controls the users login.
+ * @controller
+ **/
+
 (function () {
 
   angular

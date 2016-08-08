@@ -5,6 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack",
     "start": "node app.js"
   },
   "author": "Thomas Conto",
@@ -21,10 +22,9 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "jshint": "^2.9.2"
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "jshint": "^2.9.2",
+    "webpack": "^1.13.1"
   }
 }

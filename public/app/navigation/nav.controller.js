@@ -1,3 +1,8 @@
+/**
+ * Controls the navigation, and navigation routing.
+ * @controller
+ **/
+
 (function() {
   'use strict';
 

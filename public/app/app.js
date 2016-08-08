@@ -1,3 +1,8 @@
+/**
+ * Creates a framework for the bookshare application.
+ * @module
+ **/
+
 angular.module('bookApp', ['ngRoute'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

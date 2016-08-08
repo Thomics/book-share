@@ -1,5 +1,5 @@
 node_modules
+unused.txt
 .idea
-bower.json
 .bowerrc
 .gitignore

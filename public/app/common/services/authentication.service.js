@@ -1,3 +1,8 @@
+/**
+ * Deals with the authentication of the user, registration and logging in and out.
+ * @service
+ **/
+
 (function () {
   'use strict';
 

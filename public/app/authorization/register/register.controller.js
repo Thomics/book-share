@@ -1,3 +1,8 @@
+/**
+ * Controls the users registration.
+ * @controller
+ **/
+
 (function () {
 
   angular

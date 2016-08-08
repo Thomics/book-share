@@ -1,3 +1,8 @@
+/**
+ * Deals with retrieving, saving and modifying books.
+ * @service
+ **/
+
 (function() {
   'use strict';
 

@@ -1,3 +1,8 @@
+/**
+ * Controls the users account.
+ * @controller
+**/
+
 (function() {
   /* jshint strict: true */
   'use strict';
@@ -8,12 +13,14 @@
   
   AccountController.$inject = ['$window', '$location', 'DataService', 'AuthService'];
   
-  function AccountController($window, $location, DataService, AuthService) {
+  function AccountController(AuthService) {
 
     var vm = this;
 
-    vm.accountName = AuthService.currentUser().name;
-    vm.userName = AuthService.currentUser().email;
+    vm.currentUser = AuthService.currentUser()
+
+    vm.accountName = vm.currentUser.name;
+    vm.userName = vm.currentUser.email;
 
 
     activate();
