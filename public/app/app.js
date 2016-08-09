@@ -3,6 +3,8 @@
  * @module
  **/
 
+//var ngRoute = require('angular-route');
+
 angular.module('bookApp', ['ngRoute'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

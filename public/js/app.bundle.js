@@ -39,6 +39,8 @@ webpackJsonp([0],[
 	 * @module
 	 **/
 
+	//var ngRoute = require('angular-route');
+
 	angular.module('bookApp', ['ngRoute'])
 	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -275,8 +277,10 @@ webpackJsonp([0],[
 
 	    var vm = this;
 
-	    vm.accountName = AuthService.currentUser().name;
-	    vm.userName = AuthService.currentUser().email;
+	    vm.currentUser = AuthService.currentUser()
+
+	    vm.accountName = vm.currentUser.name;
+	    vm.userName = vm.currentUser.email;
 
 
 	    activate();

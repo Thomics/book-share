@@ -1,8 +1,3 @@
-require('jQuery');
-require('angular');
-require('angular-router');
-
-
 /**
  * App Module
  */
