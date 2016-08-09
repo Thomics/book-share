@@ -17,11 +17,12 @@
 
     var vm = this;
 
-    vm.currentUser = AuthService.currentUser()
+    //vm.currentUser = AuthService.currentUser();
 
-    vm.accountName = vm.currentUser.name;
-    vm.userName = vm.currentUser.email;
+    //vm.accountName = vm.currentUser.name;
+    //vm.userName = vm.currentUser.email;
 
+    console.log(vm.accountName);
 
     activate();
 

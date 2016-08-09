@@ -1,31 +1,31 @@
-<section class="header" ng-controller="NavController as nav">
+<section class='header' ng-controller='NavController as nav'>
   <ul>
     <li>
-      <a href="" ng-click="nav.navigateHome()">Home</a>
+      <a href='' ng-click='nav.navigateHome()'>Home</a>
     </li>
     <li>
-      <a href="" ng-click="nav.navigateUserBooks()" ng-show="nav.isLoggedIn">My Books</a>
+      <a href='' ng-click='nav.navigateUserBooks()' ng-show='nav.isLoggedIn'>My Books</a>
     </li>
     <li>
-      <a href="" ng-click="nav.navigateAllBooks()">All Books</a>
+      <a href='' ng-click='nav.navigateAllBooks()'>All Books</a>
     </li>
     <li>
-      <a href="" ng-click="nav.navigateAccount()">Account</a>
+      <a href='' ng-click='nav.navigateAccount()'>Account</a>
     </li>
   </ul>
 
-  <div class="nav-login" ng-controller="LoginController as login">
-    <form ng-submit="login.logUserOn()" ng-hide="login.sessionToken">
+  <div class='nav-login' ng-controller='LoginController as login'>
+    <form ng-submit='login.logUserOn()' ng-hide='login.sessionToken'>
 
       <div>
-        <input type="email" id="email" placeholder="Enter email" ng-model="login.credentials.email">
-        <input type="password"  id="password" placeholder="Password" ng-model="login.credentials.password">
-        <button type="submit">Sign in!</button>
+        <input type='email' id='email' placeholder='Enter email' ng-model='login.credentials.email'>
+        <input type='password'  id='password' placeholder='Password' ng-model='login.credentials.password'>
+        <button type='submit'>Sign in!</button>
       </div>
     </form>
 
-    <form ng-submit="login.logUserOut()" ng-show="login.sessionToken">
-      <button type="submit">Log Out</button>
+    <form ng-submit='login.logUserOut()' ng-show='login.sessionToken'>
+      <button type='submit'>Log Out</button>
     </form>
   </div>
 </section>

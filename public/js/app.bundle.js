@@ -277,11 +277,12 @@ webpackJsonp([0],[
 
 	    var vm = this;
 
-	    vm.currentUser = AuthService.currentUser()
+	    //vm.currentUser = AuthService.currentUser();
 
-	    vm.accountName = vm.currentUser.name;
-	    vm.userName = vm.currentUser.email;
+	    //vm.accountName = vm.currentUser.name;
+	    //vm.userName = vm.currentUser.email;
 
+	    console.log(vm.accountName);
 
 	    activate();
 
@@ -326,6 +327,7 @@ webpackJsonp([0],[
 	    vm.logUserOut = logUserOut;
 	    vm.logUserOn = logUserOn;
 	    vm.sessionToken = $window.localStorage['mean-token'];
+	    console.log(vm.sessionToken);
 
 
 	    function logUserOut() {
@@ -405,11 +407,6 @@ webpackJsonp([0],[
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
-
-	/**
-	 * Controls the books
-	 * @controller
-	 **/
 
 	(function() {
 	  'use strict';

@@ -1,8 +1,3 @@
-/**
- * Controls the books
- * @controller
- **/
-
 (function() {
   'use strict';
 
