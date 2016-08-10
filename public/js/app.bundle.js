@@ -1,4 +1,46 @@
-webpackJsonp([0],[
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20,6 +62,7 @@ webpackJsonp([0],[
 	__webpack_require__(5);
 	__webpack_require__(6);
 	__webpack_require__(7);
+	//require('./bookDisplay/search/searchBook.controller.js');
 	__webpack_require__(8);
 
 	/**
@@ -39,9 +82,7 @@ webpackJsonp([0],[
 	 * @module
 	 **/
 
-	//var ngRoute = require('angular-route');
-
-	angular.module('bookApp', ['ngRoute'])
+	angular.module('bookApp', ['ngRoute', 'angularModalService'])
 	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 	'use strict';
@@ -455,9 +496,9 @@ webpackJsonp([0],[
 	      var bookObj = {
 	        title : data.docs[0].title_suggest,
 	        isbn : data.docs[0].isbn[0],
-	        image : 'http://covers.openlibrary.org/b/isbn/' + data.docs[0].isbn[0] + '-M.jpg',
+	        image : 'http://covers.openlibrary.org/b/isbn/' + data.docs[0].isbn[0] + "-M.jpg",
 	        reviews : ['No Reviews'],
-	        description : 'No description. Write one.',
+	        description : "No description. Write one.",
 	        owner: AuthService.getUsername()
 	      };
 
@@ -645,4 +686,4 @@ webpackJsonp([0],[
 
 
 /***/ }
-]);
+/******/ ]);

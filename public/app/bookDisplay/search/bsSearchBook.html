@@ -1,4 +1,8 @@
 <form class="search-book" ng-submit="display.searchBook(newBook)" ng-show="display.isLoggedIn">
   Search Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
   <input  type="submit" value="Submit">
+
+  <!--<div ng-controller="SearchBookController as search"-->
+       <!--stlye="width: 100px; height: 100px; background: #333; color: #fff; position: absolute;"-->
+       <!--ng-click="search.searchModal()">Search Modal {{search.text}}</div>-->
 </form>

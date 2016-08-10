@@ -3,9 +3,7 @@
  * @module
  **/
 
-//var ngRoute = require('angular-route');
-
-angular.module('bookApp', ['ngRoute'])
+angular.module('bookApp', ['ngRoute', 'angularModalService'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 'use strict';

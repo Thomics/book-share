@@ -16,6 +16,7 @@ require('./account/account.controller.js');
 require('./authorization/login/login.controller.js');
 require('./authorization/register/register.controller.js');
 require('./bookDisplay/displayBooks.controller.js');
+//require('./bookDisplay/search/searchBook.controller.js');
 require('./navigation/nav.controller.js');
 
 /**

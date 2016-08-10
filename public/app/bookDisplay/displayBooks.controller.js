@@ -45,9 +45,9 @@ console.log(vm.currentPage);
       var bookObj = {
         title : data.docs[0].title_suggest,
         isbn : data.docs[0].isbn[0],
-        image : 'http://covers.openlibrary.org/b/isbn/' + data.docs[0].isbn[0] + '-M.jpg',
+        image : 'http://covers.openlibrary.org/b/isbn/' + data.docs[0].isbn[0] + "-M.jpg",
         reviews : ['No Reviews'],
-        description : 'No description. Write one.',
+        description : "No description. Write one.",
         owner: AuthService.getUsername()
       };
 
