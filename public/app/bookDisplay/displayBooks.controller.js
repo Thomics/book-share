@@ -20,7 +20,6 @@
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
 
-console.log(vm.currentPage);
     activate();
 
 
@@ -72,7 +71,6 @@ console.log(vm.currentPage);
       DataService.getAllBooks()
         .success(function(data) {
           vm.books = data.books || [];
-          console.log(vm.books);
         })
         .error(function(err) {
           console.log(err);
@@ -86,7 +84,6 @@ console.log(vm.currentPage);
       DataService.getUserBooks()
         .success(function(data) {
           vm.books = data.books || [];
-          console.log(vm.books);
         })
         .error(function(err) {
           console.log(err);
@@ -98,7 +95,6 @@ console.log(vm.currentPage);
     //Searches for a book by title by making a call to the open library api.
     function searchBook(book) {
 
-      console.log(book);
       DataService.getBook(book)
 
         .success(function(data) {

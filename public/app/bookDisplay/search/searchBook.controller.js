@@ -11,18 +11,20 @@
 
     var vm = this;
 
+    vm.modalActive = false;
     vm.searchModal = searchModal;
 
 
     function searchModal() {
 
       console.log('here');
+      vm.modalActive = true;
       ModalService.showModal({
         templateUrl: "app/bookDisplay/search/bsSearchModal.html",
         controller: "SearchBookController"
       }).then(function(modal) {
         modal.close.then(function(data) {
-          vm.result = "All good!";
+          console.log('in the then');
         });
       });
 

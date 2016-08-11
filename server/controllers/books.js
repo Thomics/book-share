@@ -20,7 +20,6 @@ module.exports.getBooks = function(req, res) {
 
 module.exports.getOwnerBooks = function(req, res) {
 
-  console.log(req.params);
   Books.find({owner: req.params.owner}, function(err, books) {
 
     checkError(res, err);

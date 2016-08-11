@@ -183,7 +183,6 @@
 	        var payload = token.split('.')[1];
 	        payload = $window.atob(payload);
 	        payload = JSON.parse(payload);
-	        console.log(payload.email);
 	        return {
 	          email : payload.email,
 	          name : payload.name
@@ -193,7 +192,6 @@
 
 	    function getUsername() {
 	      var email = currentUser().email;
-	      console.log(email);
 	      if ( email ) {
 	        return email;
 	      } else {
@@ -368,7 +366,6 @@
 	    vm.logUserOut = logUserOut;
 	    vm.logUserOn = logUserOn;
 	    vm.sessionToken = $window.localStorage['mean-token'];
-	    console.log(vm.sessionToken);
 
 
 	    function logUserOut() {
@@ -471,7 +468,6 @@
 	    vm.isLoggedIn = AuthService.isLoggedIn();
 	    vm.searchBook = searchBook;
 
-	console.log(vm.currentPage);
 	    activate();
 
 
@@ -523,7 +519,6 @@
 	      DataService.getAllBooks()
 	        .success(function(data) {
 	          vm.books = data.books || [];
-	          console.log(vm.books);
 	        })
 	        .error(function(err) {
 	          console.log(err);
@@ -537,7 +532,6 @@
 	      DataService.getUserBooks()
 	        .success(function(data) {
 	          vm.books = data.books || [];
-	          console.log(vm.books);
 	        })
 	        .error(function(err) {
 	          console.log(err);
@@ -549,7 +543,6 @@
 	    //Searches for a book by title by making a call to the open library api.
 	    function searchBook(book) {
 
-	      console.log(book);
 	      DataService.getBook(book)
 
 	        .success(function(data) {

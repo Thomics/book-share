@@ -7,6 +7,6 @@ heroku plan.
 
 <br />
 **Todo:** 
-Create modal for searching books.
+Create modal for searching books. WIP
 Set up more user authentication/security.
 Create homepage design/layout.

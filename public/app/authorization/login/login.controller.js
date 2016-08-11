@@ -22,7 +22,6 @@
     vm.logUserOut = logUserOut;
     vm.logUserOn = logUserOn;
     vm.sessionToken = $window.localStorage['mean-token'];
-    console.log(vm.sessionToken);
 
 
     function logUserOut() {
