@@ -3,7 +3,7 @@
  * @module
  **/
 
-angular.module('bookApp', ['ngRoute', 'angularModalService'])
+angular.module('bookApp', ['ngRoute', 'ui.bootstrap'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 'use strict';

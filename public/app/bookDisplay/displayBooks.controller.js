@@ -5,9 +5,9 @@
     .module('bookApp')
     .controller('DisplayBooksController', DisplayBooksController);
 
-  DisplayBooksController.$inject = ['$window', '$location', 'DataService', 'AuthService'];
+  DisplayBooksController.$inject = ['$window', '$location', '$uibModal', 'DataService', 'AuthService'];
 
-  function DisplayBooksController($window, $location, DataService, AuthService) {
+  function DisplayBooksController($window, $location, $uibModal, DataService, AuthService) {
 
     var vm = this;
 
@@ -19,6 +19,7 @@
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
+
 
     activate();
 
@@ -98,6 +99,10 @@
       DataService.getBook(book)
 
         .success(function(data) {
+          //console.log(data);
+          vm.datata = data;
+
+          //open(data);
           createBookObj(data);
         })
 
@@ -105,6 +110,32 @@
           console.log(err);
         });
 
+    }
+
+
+
+
+
+    function open(data) {
+      console.log('hi');
+      console.log(data);
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'app/bookDisplay/bookModal.html',
+        controller: 'DisplayBooksController',
+        controllerAs: 'modal',
+        resolve: {
+          items: function () {
+            return data;
+          }
+        }
+      });
+      modalInstance.result
+        .then(function (selectedItem) {
+        vm.selected = selectedItem;
+      }, function () {
+        console.log('exit');
+      });
     }
 
 
