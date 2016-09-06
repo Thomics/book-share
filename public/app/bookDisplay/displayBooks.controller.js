@@ -13,13 +13,13 @@
 
     vm.books = [];
     vm.createBookObj = createBookObj;
+    vm.createModule = createModule;
     vm.currentPage = $location.path();
     vm.deleteBook = deleteBook;
     vm.getAllBooks = getAllBooks;
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
-    vm.createModule = createModule;
 
     activate();
 
@@ -121,10 +121,7 @@
         controllerAs: 'modal',
         resolve: {
           data: function () {
-
-            console.log(data.docs);
             return data.docs;
-
           }
         }
       });
@@ -134,6 +131,8 @@
         .then(function (selectedItem) {
           vm.selected = selectedItem;
         }, function () {
+
+          console.log(vm.selected);
           console.log('leave');
         });
 
