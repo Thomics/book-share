@@ -12,8 +12,8 @@
     var vm = this;
 
     vm.books = [];
-    vm.createBookObj = createBookObj;
-    vm.createModule = createModule;
+    vm.createBook = createBook;
+    vm.createModal = createModal;
     vm.currentPage = $location.path();
     vm.deleteBook = deleteBook;
     vm.getAllBooks = getAllBooks;
@@ -39,20 +39,48 @@
       }
     }
 
+    
     //Using data returned from openlibrary.org, generates an object for an individual book.
-    function createBookObj(data) {
+    function createBook(bookData) {
 
+      console.log(bookData);
       var bookObj = {
-        title : data.docs[0].title_suggest,
-        isbn : data.docs[0].isbn[0],
-        image : 'http://covers.openlibrary.org/b/isbn/' + data.docs[0].isbn[0] + "-M.jpg",
+        title : bookData.title_suggest,
+        isbn : bookData.isbn[0],
+        image : 'http://covers.openlibrary.org/b/isbn/' + bookData.isbn[0] + "-M.jpg",
         reviews : ['No Reviews'],
         description : "No description. Write one.",
         owner: AuthService.getUsername()
       };
+      console.log(bookObj);
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);
+
+    }
+
+
+    function createModal(data) {
+
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'app/bookDisplay/bookModal.html',
+        controller: 'BookModalController',
+        controllerAs: 'modal',
+        resolve: {
+          data: function () {
+            return data.docs;
+          }
+        }
+      });
+
+      modalInstance.result
+        .then(function (selectedBook) {
+          createBook(selectedBook);
+        }, function () {
+
+          console.log('leave');
+        });
 
     }
 
@@ -100,40 +128,13 @@
 
         .success(function(data) {
 
-
-          vm.createModule(data);
-          createBookObj(data);
+          vm.createModal(data);
+          //createBook(data);
+          //createBookObj(data);
         })
 
         .error(function(err) {
           console.log(err);
-        });
-
-    }
-
-
-    function createModule(data) {
-
-      var modalInstance = $uibModal.open({
-        animation: true,
-        templateUrl: 'app/bookDisplay/bookModal.html',
-        controller: 'BookModalController',
-        controllerAs: 'modal',
-        resolve: {
-          data: function () {
-            return data.docs;
-          }
-        }
-      });
-
-
-      modalInstance.result
-        .then(function (selectedItem) {
-          vm.selected = selectedItem;
-        }, function () {
-
-          console.log(vm.selected);
-          console.log('leave');
         });
 
     }
