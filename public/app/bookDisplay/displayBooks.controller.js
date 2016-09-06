@@ -19,9 +19,7 @@
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
-
-
-    vm.open = open;
+    vm.createModule = createModule;
 
     activate();
 
@@ -103,7 +101,7 @@
         .success(function(data) {
 
 
-          //open(data);
+          vm.createModule(data);
           createBookObj(data);
         })
 
@@ -114,82 +112,34 @@
     }
 
 
+    function createModule(data) {
+
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'app/bookDisplay/bookModal.html',
+        controller: 'BookModalController',
+        controllerAs: 'modal',
+        resolve: {
+          data: function () {
+
+            console.log(data.docs);
+            return data.docs;
+
+          }
+        }
+      });
 
 
-    //function open(data) {
-    //  $scope.data = data;
-    //  var modalInstance = $uibModal.open({
-    //    animation: true,
-    //    templateUrl: 'app/bookDisplay/bookModal.html',
-    //    resolve: {
-    //      data: function () {
-    //        return $scope.data;
-    //      }
-    //    },
-    //    controller: function($scope, data) {
-    //      $scope.data = data;
-    //    }
-    //  });
-    //  modalInstance.result.then(function (data) {
-    //    $scope.data = data;
-    //  });
-    //}
+      modalInstance.result
+        .then(function (selectedItem) {
+          vm.selected = selectedItem;
+        }, function () {
+          console.log('leave');
+        });
+
+    }
 
 
   }
 
 })();
-
-
-
-//
-//// Please note that $uibModalInstance represents a modal window (instance) dependency.
-//// It is not the same as the $uibModal service used above.
-//
-//angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
-//  var $ctrl = this;
-//  $ctrl.items = items;
-//  $ctrl.selected = {
-//    item: $ctrl.items[0]
-//  };
-//
-//  $ctrl.ok = function () {
-//    $uibModalInstance.close($ctrl.selected.item);
-//  };
-//
-//  $ctrl.cancel = function () {
-//    $uibModalInstance.dismiss('cancel');
-//  };
-//});
-//
-//
-//
-//
-//// Please note that the close and dismiss bindings are from $uibModalInstance.
-//
-//angular.module('ui.bootstrap.demo').component('modalComponent', {
-//  templateUrl: 'myModalContent.html',
-//  bindings: {
-//    resolve: '<',
-//    close: '&',
-//    dismiss: '&'
-//  },
-//  controller: function () {
-//    var $ctrl = this;
-//
-//    $ctrl.$onInit = function () {
-//      $ctrl.items = $ctrl.resolve.items;
-//      $ctrl.selected = {
-//        item: $ctrl.items[0]
-//      };
-//    };
-//
-//    $ctrl.ok = function () {
-//      $ctrl.close({$value: $ctrl.selected.item});
-//    };
-//
-//    $ctrl.cancel = function () {
-//      $ctrl.dismiss({$value: 'cancel'});
-//    };
-//  }
-//});
