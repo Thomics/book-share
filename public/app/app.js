@@ -36,12 +36,6 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap'])
         templateUrl: 'app/bookDisplay/userBooks.html'
         //Controller is declared in the directive.
       })
-
-      .when('/test', {
-        templateUrl: 'app/bookDisplay/directive/bsBookDisplay.html'
-      })
-
-
       .otherwise({redirectTo: '/'});
 
 }]);

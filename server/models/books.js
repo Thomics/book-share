@@ -6,6 +6,7 @@ var bookSchema = new mongoose.Schema({
   title: String,
   isbn: String,
   image: String,
+  author: String,
   reviews: [String],
   description: String,
   owner: String

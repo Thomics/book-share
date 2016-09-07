@@ -1,4 +1,5 @@
 <form class="search-book" ng-submit="display.searchBook(newBook)" ng-show="display.isLoggedIn">
-  Search Book name: <input [ng-value="{{newBook}}"] ng-model="newBook" name="bookTitle">
-  <input  type="submit" value="Submit">
+
+  <input class="book-search-box" [ng-value="{{newBook}}"] placeholder="Add Book" ng-model="newBook" name="bookTitle">
+  <input class="book-search-submit" type="submit" value="🔎">
 </form>

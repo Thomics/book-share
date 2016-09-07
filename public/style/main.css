@@ -1,6 +1,10 @@
+body {
+  background: #f9fbf0;
+}
+
 
 .vert-book-container {
-  background: #f9fbf0;
+  background: #fffffe;
   width: 68%;
   font-family: 'Prompt', sans-serif;
   margin: 0% 4.5%;
@@ -8,7 +12,7 @@
   float: left;
 }
 
-.vert-book:nth-child(1) {
+.vert-book:nth-child(6n + 2) {
   margin-left: 4%;
 }
 
@@ -16,12 +20,14 @@
   width: 14.5%;
   min-height: 200px;
   background: #ececec;
-  margin: 0 1% 0 0;
+  margin: 1% 1% 0 0;
   float: left;
 }
 
 .vert-book-img {
   width: 100%;
+  min-height: 180px;
+  max-height: 180px;
   border: 1px solid #555;
 }
 
@@ -30,6 +36,8 @@
   font-size: 13px;
   margin-left: 2%;
   margin-top: 6px;
+  height: 26px;
+  overflow: hidden;
 }
 
 .vert-book-author {
@@ -43,4 +51,23 @@
   margin-top: 6px;
   margin-bottom: 6px;
   font-size: 11px;
+}
+
+
+
+.book-search-box {
+  background: #f9fbf0;
+  border: none;
+  width: 50%;
+}
+
+.book-search-submit {
+  background: #f9fbf0;
+  border: none;
+  margin-left: -5px;
+  padding: 5px;
+}
+
+input:-webkit-autofill {
+  background-color: #f9fbf0;
 }

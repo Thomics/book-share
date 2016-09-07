@@ -1,27 +1,11 @@
 <section class="vert-book-container">
 
-  <div class="vert-book">
-    <img class="vert-book-img" src="http://covers.openlibrary.org/b/isbn/9780684809007-M.jpg" />
+  <div class="vert-book" ng-repeat="book in display.books">
+    <img class="vert-book-img" ng-src="{{book.image}}" />
 
     <p class="vert-book-title">{{book.title}}</p>
     <p class="vert-book-author">{{book.author}}</p>
     <p class="vert-book-owner">Owner: {{book.owner}}</p>
-  </div>
-
-  <div class="vert-book">
-
-  </div>
-  <div class="vert-book">
-
-  </div>
-  <div class="vert-book">
-
-  </div>
-  <div class="vert-book">
-
-  </div>
-  <div class="vert-book">
-
   </div>
 
 </section>
