@@ -1,0 +1,46 @@
+
+.vert-book-container {
+  background: #f9fbf0;
+  width: 68%;
+  font-family: 'Prompt', sans-serif;
+  margin: 0% 4.5%;
+  padding: 1% 0;
+  float: left;
+}
+
+.vert-book:nth-child(1) {
+  margin-left: 4%;
+}
+
+.vert-book {
+  width: 14.5%;
+  min-height: 200px;
+  background: #ececec;
+  margin: 0 1% 0 0;
+  float: left;
+}
+
+.vert-book-img {
+  width: 100%;
+  border: 1px solid #555;
+}
+
+.vert-book-title {
+  font-weight: 700;
+  font-size: 13px;
+  margin-left: 2%;
+  margin-top: 6px;
+}
+
+.vert-book-author {
+  font-size: 12px;
+  margin-left: 2%;
+  margin-top: 6px;
+}
+
+.vert-book-owner {
+  margin-left: 2%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}

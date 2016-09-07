@@ -5,7 +5,8 @@
     <a href="#" ng-click="$event.preventDefault(); modal.bookSelected(bookData)">
 
       Title: {{bookData.title}}
-
+      <br />
+      Author: {{bookData.author_name[0]}}
       <img style="height: 100%;" ng-src="{{'http://covers.openlibrary.org/b/isbn/' + bookData.isbn[0] + '-M.jpg'}}" />
 
     </a>

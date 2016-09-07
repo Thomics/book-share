@@ -5,9 +5,9 @@
     .module('bookApp')
     .controller('DisplayBooksController', DisplayBooksController);
 
-  DisplayBooksController.$inject = ['$window', '$location', '$scope', '$uibModal', 'DataService', 'AuthService'];
+  DisplayBooksController.$inject = ['$window', '$location', '$uibModal', 'DataService', 'AuthService'];
 
-  function DisplayBooksController($window, $location, $scope, $uibModal, DataService, AuthService) {
+  function DisplayBooksController($window, $location, $uibModal, DataService, AuthService) {
 
     var vm = this;
 
@@ -48,6 +48,7 @@
         title : bookData.title_suggest,
         isbn : bookData.isbn[0],
         image : 'http://covers.openlibrary.org/b/isbn/' + bookData.isbn[0] + "-M.jpg",
+        author : bookData.author_name[0],
         reviews : ['No Reviews'],
         description : "No description. Write one.",
         owner: AuthService.getUsername()
@@ -129,8 +130,7 @@
         .success(function(data) {
 
           vm.createModal(data);
-          //createBook(data);
-          //createBookObj(data);
+
         })
 
         .error(function(err) {
