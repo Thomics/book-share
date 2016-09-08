@@ -1,20 +1,15 @@
-<!--<div class="menu"></div>-->
 
+<div class="btn-group" uib-dropdown >
 
+  <div class="menu" type="button" uib-dropdown-toggle ng-disabled="disabled"></div>
 
-<div>
-
-
-  <div class="btn-group" uib-dropdown is-open="status.isopen">
-    <div class="menu" type="button" uib-dropdown-toggle ng-disabled="disabled"></div>
-
-    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-      <li role="menuitem"><a href="#">Action</a></li>
-      <li role="menuitem"><a href="#">Another action</a></li>
-      <li role="menuitem"><a href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li role="menuitem"><a href="#">Separated link</a></li>
-    </ul>
-  </div>
+  <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+    <li role="menuitem"><a href="/">Home</a></li>
+    <li role="menuitem"><a href="#">Account</a></li>
+    <li role="menuitem"><a href="#">Create Invite</a></li>
+    <li class="divider"></li>
+    <li role="menuitem"><a href="/login">Log In</a></li>
+    <li role="menuitem"><a href="" ng-click='login.logUserOut()' ng-show='login.sessionToken'>Log Out</a></li>
+  </ul>
 
 </div>
