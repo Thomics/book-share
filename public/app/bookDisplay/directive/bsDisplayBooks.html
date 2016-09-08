@@ -1,67 +1,16 @@
-<!--<section class="book-container">-->
 
-  <!--<div class="inner-book-container" ng-repeat="book in display.books">-->
-    <!--<div class="photo-container">-->
-      <!--<img class="book-image" ng-src="{{book.image}}" />-->
-    <!--</div>-->
-    <!--<div class="info-container">-->
+<div class="vert-book" ng-repeat="book in display.books" >
+  <img class="vert-book-img" ng-src="{{book.image}}" title={{book.title}} />
 
-      <!--<h2 class="book-title">{{book.title}}</h2>-->
-      <!--<p class="book-description">-->
-        <!--{{book.description}}-->
-      <!--</p>-->
-      <!--<ul>-->
-        <!--<li>-->
-          <!--<a href="">Learn More</a>-->
-        <!--</li>-->
+  <p class="vert-book-title">{{book.title}}</p>
+  <p class="vert-book-author">{{book.author}}</p>
+  <p class="vert-book-owner">Owner: {{book.owner}}</p>
 
-        <!--<li>-->
-          <!--<a href="">Borrow</a>-->
-        <!--</li>-->
-      <!--</ul>-->
+  <form
+  ng-submit="display.deleteBook(book)"
+  class="delete-book-btn"
+  ng-hide="display.currentPage === '/allBooks'">
+  <input type="submit" value="Delete">
+  </form>
 
-      <!--<div class="endorsement-container">-->
-        <!--<img class="book-endorsements" src="img/heart.png" />-->
-        <!--<p>{{book.likes}}</p>-->
-      <!--</div>-->
-      <!--<p class="username">Thomas Conto</p>-->
-      <!--<img class="user-photo" src="img/user.jpg" />-->
-
-      <!--<form-->
-        <!--ng-submit="display.deleteBook(book)"-->
-        <!--class="delete-book-btn"-->
-        <!--ng-hide="display.currentPage === '/allBooks'">-->
-        <!--<input type="submit" value="Delete">-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</section>-->
-
-
-<!--<section class="vert-book-container">-->
-
-  <!--<bs-navigation></bs-navigation>-->
-
-
-  <!--<bs-search-book></bs-search-book>-->
-
-
-  <div class="vert-book" ng-repeat="book in display.books" >
-    <img class="vert-book-img" ng-src="{{book.image}}" title={{book.title}} />
-
-    <p class="vert-book-title">{{book.title}}</p>
-    <p class="vert-book-author">{{book.author}}</p>
-    <p class="vert-book-owner">Owner: {{book.owner}}</p>
-
-    <form
-    ng-submit="display.deleteBook(book)"
-    class="delete-book-btn"
-    ng-hide="display.currentPage === '/allBooks'">
-    <input type="submit" value="Delete">
-    </form>
-
-  </div>
-<!---->
-<!--</section>-->
-
-<!--<div style=" float: right; background: linear-gradient(to bottom, #000 0, #000 25%, transparent 25%, transparent 37.5%, #000 37.5%, #000 62.5%, transparent 62.5%, transparent 75%, #000 75%); height: 30px; width: 40px;"></div>-->
+</div>
