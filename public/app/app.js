@@ -32,6 +32,11 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap'])
         controller: 'RegisterController',
         controllerAs: 'register'
       })
+      .when('/groups', {
+        templateUrl: 'app/account/account.html',
+        controller: 'AccountController',
+        controllerAs: 'account'
+      })
       .when('/userBooks', {
         templateUrl: 'app/bookDisplay/userBooks.html'
         //Controller is declared in the directive.

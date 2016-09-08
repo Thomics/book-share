@@ -1,20 +1,23 @@
 .header {
   padding: 15px 0 30px 0;
   width: 100%;
-  background: #f1f5f6;
-  border-bottom: 2px solid #bbbbbb;
+  background: #f9fbf0;
+}
+
+.header ul {
+  margin-bottom: 10px;
+  padding-right: 4%;
 }
 
 .header ul li {
-  float: left;
-  margin-left: 10px;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom .3s linear;
+  float: right;
+  width: 16%;
+  line-height: 40px;
+  height: 40px;
+  background: #fff;
+  text-align: center;
 }
 
-.header ul li:hover {
-  border-bottom: 2px solid #bbbbbb;
-}
 
 .header ul li a{
   color: #555555;
@@ -25,3 +28,4 @@
   float: right;
   margin-right: 10px;
 }
+

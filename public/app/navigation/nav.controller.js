@@ -19,6 +19,7 @@
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.navigateAccount = navigateAccount;
     vm.navigateAllBooks = navigateAllBooks;
+    vm.navigateGroups = navigateGroups;
     vm.navigateHome = navigateHome;
     vm.navigateUserBooks = navigateUserBooks;
     vm.tab = 1;
@@ -26,6 +27,10 @@
 
     function navigateAccount() {
       $location.url('/account');
+    }
+
+    function navigateGroups() {
+      $location.url('/groups');
     }
 
     function navigateHome() {
