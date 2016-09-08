@@ -1,8 +1,4 @@
 node_modules
-unused.txt
 .idea
-.bowerrc
 .gitignore
-
-public/js/ui.bootstrap.tpls.2.0.1.js
 login.txt

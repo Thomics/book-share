@@ -6,7 +6,7 @@ The site takes a while to load, because it is hosted on the free
 heroku plan.
 
 <br />
-**Todo:** 
-Create modal for searching books. WIP
+<br />
+**Todo:**
 Set up more user authentication/security.
 Create homepage design/layout.

@@ -62,15 +62,16 @@
 	__webpack_require__(5);
 	__webpack_require__(6);
 	__webpack_require__(7);
-	//require('./bookDisplay/search/searchBook.controller.js');
 	__webpack_require__(8);
+	__webpack_require__(9);
 
 	/**
 	 * Directives
 	 */
-	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
+	__webpack_require__(12);
+	__webpack_require__(13);
 
 
 /***/ },
@@ -82,7 +83,7 @@
 	 * @module
 	 **/
 
-	angular.module('bookApp', ['ngRoute', 'angularModalService'])
+	angular.module('bookApp', ['ngRoute', 'ui.bootstrap'])
 	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 	'use strict';
@@ -110,6 +111,11 @@
 	        templateUrl: 'app/authorization/register/register.view.html',
 	        controller: 'RegisterController',
 	        controllerAs: 'register'
+	      })
+	      .when('/groups', {
+	        templateUrl: 'app/account/account.html',
+	        controller: 'AccountController',
+	        controllerAs: 'account'
 	      })
 	      .when('/userBooks', {
 	        templateUrl: 'app/bookDisplay/userBooks.html'
@@ -451,16 +457,57 @@
 
 	  angular
 	    .module('bookApp')
+	    .controller('BookModalController', BookModalController);
+
+	  BookModalController.$inject = ['$uibModalInstance', 'data'];
+
+	  function BookModalController($uibModalInstance, data) {
+
+	    var vm = this;
+
+	    vm.bookSelected = bookSelected;
+	    vm.cancel = cancel;
+	    vm.data = data.splice(0, 10);
+	    vm.selectedBook = {
+	      book: null
+	    };
+
+
+	    function bookSelected(book) {
+	      console.log(book);
+
+	      $uibModalInstance.close(book);
+	    }
+
+	    function cancel() {
+	      $uibModalInstance.dismiss('cancel');
+	    }
+
+	  }
+
+	})();
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	(function() {
+	  'use strict';
+
+	  angular
+	    .module('bookApp')
 	    .controller('DisplayBooksController', DisplayBooksController);
 
-	  DisplayBooksController.$inject = ['$window', '$location', 'DataService', 'AuthService'];
+	  DisplayBooksController.$inject = ['$window', '$location', '$uibModal', 'DataService', 'AuthService'];
 
-	  function DisplayBooksController($window, $location, DataService, AuthService) {
+	  function DisplayBooksController($window, $location, $uibModal, DataService, AuthService) {
 
 	    var vm = this;
 
 	    vm.books = [];
-	    vm.createBookObj = createBookObj;
+	    vm.createBook = createBook;
+	    vm.createModal = createModal;
 	    vm.currentPage = $location.path();
 	    vm.deleteBook = deleteBook;
 	    vm.getAllBooks = getAllBooks;
@@ -486,20 +533,49 @@
 	      }
 	    }
 
+	    
 	    //Using data returned from openlibrary.org, generates an object for an individual book.
-	    function createBookObj(data) {
+	    function createBook(bookData) {
 
+	      console.log(bookData);
 	      var bookObj = {
-	        title : data.docs[0].title_suggest,
-	        isbn : data.docs[0].isbn[0],
-	        image : 'http://covers.openlibrary.org/b/isbn/' + data.docs[0].isbn[0] + "-M.jpg",
+	        title : bookData.title_suggest,
+	        isbn : bookData.isbn[0],
+	        image : 'http://covers.openlibrary.org/b/isbn/' + bookData.isbn[0] + "-M.jpg",
+	        author : bookData.author_name[0],
 	        reviews : ['No Reviews'],
 	        description : "No description. Write one.",
 	        owner: AuthService.getUsername()
 	      };
+	      console.log(bookObj);
 
 	      vm.books.push(bookObj);
 	      DataService.saveBook(bookObj);
+
+	    }
+
+
+	    function createModal(data) {
+
+	      var modalInstance = $uibModal.open({
+	        animation: true,
+	        templateUrl: 'app/bookDisplay/bookModal.html',
+	        controller: 'BookModalController',
+	        controllerAs: 'modal',
+	        resolve: {
+	          data: function () {
+	            return data.docs;
+	          }
+	        }
+	      });
+
+	      modalInstance.result
+	        .then(function (selectedBook) {
+	          createBook(selectedBook);
+	        }, function () {
+
+	          console.log('leave');
+	        });
 
 	    }
 
@@ -546,7 +622,9 @@
 	      DataService.getBook(book)
 
 	        .success(function(data) {
-	          createBookObj(data);
+
+	          vm.createModal(data);
+
 	        })
 
 	        .error(function(err) {
@@ -562,7 +640,7 @@
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 	/**
@@ -577,36 +655,14 @@
 	    .module('bookApp')
 	    .controller('NavController', NavController);
 
-	  NavController.$inject = ['$location', 'AuthService'];
+	  NavController.$inject = ['AuthService'];
 
-	  function NavController($location, AuthService) {
+	  function NavController(AuthService) {
 
 	    var vm = this;
 
 	    vm.isLoggedIn = AuthService.isLoggedIn();
-	    vm.navigateAccount = navigateAccount;
-	    vm.navigateAllBooks = navigateAllBooks;
-	    vm.navigateHome = navigateHome;
-	    vm.navigateUserBooks = navigateUserBooks;
 	    vm.tab = 1;
-
-
-	    function navigateAccount() {
-	      $location.url('/account');
-	    }
-
-	    function navigateHome() {
-	      $location.url('/');
-	    }
-
-	    function navigateUserBooks() {
-	      $location.url('/userBooks');
-	    }
-
-	    function navigateAllBooks() {
-	      $location.url('/allBooks');
-	    }
-
 
 	  }
 
@@ -614,7 +670,7 @@
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -635,7 +691,28 @@
 
 
 /***/ },
-/* 10 */
+/* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Displays the menu flyout.
+	 * @directive
+	 **/
+
+	angular.module('bookApp')
+	  .directive('bsMenu', function(){
+	    return {
+	      templateUrl: 'app/navigation/menu/bsMenu.html',
+	      controller: 'LoginController',
+	      controllerAs: 'login'
+	    };
+	  });
+
+
+/***/ },
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -657,7 +734,7 @@
 
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';

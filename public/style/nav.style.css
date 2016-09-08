@@ -43,3 +43,24 @@
 .nav-logo:hover {
   color: #333;
 }
+
+
+/*******************
+  Sidebar Styles
+*******************/
+
+.sidebar-container {
+  width: 13%;
+  height: auto;
+  float: left;
+  padding-left: 10%;
+}
+
+
+.menu {
+  float: right;
+  background: linear-gradient(to bottom, #4e554f 0, #4e554f 25%, transparent 25%, transparent 37.5%, #4e554f 37.5%, #4e554f 62.5%, transparent 62.5%, transparent 75%, #4e554f 75%);
+  height: 30px;
+  width: 40px;
+  cursor: pointer;
+}
