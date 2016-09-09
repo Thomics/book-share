@@ -50,10 +50,10 @@
 *******************/
 
 .sidebar-container {
-  width: 13%;
+  width: 23%;
   height: auto;
   float: left;
-  padding-left: 10%;
+  /*padding: 0 4% 0 0;*/
 }
 
 

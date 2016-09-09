@@ -64,14 +64,16 @@
 	__webpack_require__(7);
 	__webpack_require__(8);
 	__webpack_require__(9);
+	__webpack_require__(10);
 
 	/**
 	 * Directives
 	 */
-	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
+	__webpack_require__(14);
+	__webpack_require__(15);
 
 
 /***/ },
@@ -537,7 +539,6 @@
 	    //Using data returned from openlibrary.org, generates an object for an individual book.
 	    function createBook(bookData) {
 
-	      console.log(bookData);
 	      var bookObj = {
 	        title : bookData.title_suggest,
 	        isbn : bookData.isbn[0],
@@ -545,9 +546,9 @@
 	        author : bookData.author_name[0],
 	        reviews : ['No Reviews'],
 	        description : "No description. Write one.",
+	        dateAdded: new Date(),
 	        owner: AuthService.getUsername()
 	      };
-	      console.log(bookObj);
 
 	      vm.books.push(bookObj);
 	      DataService.saveBook(bookObj);
@@ -608,6 +609,7 @@
 	      DataService.getUserBooks()
 	        .success(function(data) {
 	          vm.books = data.books || [];
+	          console.log(vm.books);
 	        })
 	        .error(function(err) {
 	          console.log(err);
@@ -673,6 +675,77 @@
 /* 10 */
 /***/ function(module, exports) {
 
+	(function() {
+	  'use strict';
+	  
+	  angular
+	    .module('bookApp')
+	    .controller('MonthsBooksController', MonthsBooksController);
+	  
+	  MonthsBooksController.$inject = ['DataService'];
+	  
+	  function MonthsBooksController(DataService) {
+
+	    var vm = this;
+
+	    vm.addedThisMonth = addedThisMonth;
+	    vm.booksThisMonth = 0;
+	    vm.getUserBooks = getUserBooks;
+
+
+	    activate();
+
+
+	    function activate() {
+
+	      getUserBooks();
+
+	    }
+
+	    function getUserBooks() {
+
+	      DataService.getUserBooks()
+	        .success(function(data) {
+	          vm.books = data.books || [];
+	          vm.booksThisMonth = vm.addedThisMonth(vm.books);
+	        })
+	        .error(function(err) {
+	          console.log(err);
+	        });
+
+	    }
+
+
+	    function addedThisMonth(bookList) {
+
+	      var currentMonth = new Date().getMonth(),
+	          booksAdded = 0;
+
+	      for (var i = 0; i < bookList.length; i++ ) {
+
+	        var bookAddedMonth = new Date(bookList[0].dateAdded).getMonth();
+
+	        if ( currentMonth === bookAddedMonth ) {
+	          booksAdded++;
+	        }
+
+	      }
+
+	      return booksAdded;
+
+	    }
+
+
+	  }
+
+
+	})();
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
 	'use strict';
 
 	/**
@@ -691,7 +764,7 @@
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -712,7 +785,7 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -734,7 +807,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -751,6 +824,28 @@
 	      templateUrl: 'app/bookDisplay/directive/bsDisplayBooks.html',
 	      controller: 'DisplayBooksController',
 	      controllerAs: 'display'
+	    };
+	  });
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Creates the display for component of how many books the user has added this month.
+	 * @directive
+	 **/
+
+
+	angular.module('bookApp')
+	  .directive('bsMonthsBooks', function(){
+	    return {
+	      templateUrl: 'app/components/bsMonthsBooks.html',
+	      controller: 'MonthsBooksController',
+	      controllerAs: 'monthsBooks'
 	    };
 	  });
 
