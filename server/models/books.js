@@ -9,7 +9,8 @@ var bookSchema = new mongoose.Schema({
   author: String,
   reviews: [String],
   description: String,
-  owner: String
+  owner: String,
+  dateAdded: Object
 });
 
 //This makes mongoose create a model called book, using the bookSchema.

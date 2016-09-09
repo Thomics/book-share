@@ -43,7 +43,6 @@
     //Using data returned from openlibrary.org, generates an object for an individual book.
     function createBook(bookData) {
 
-      console.log(bookData);
       var bookObj = {
         title : bookData.title_suggest,
         isbn : bookData.isbn[0],
@@ -51,9 +50,9 @@
         author : bookData.author_name[0],
         reviews : ['No Reviews'],
         description : "No description. Write one.",
+        dateAdded: new Date(),
         owner: AuthService.getUsername()
       };
-      console.log(bookObj);
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);
@@ -114,6 +113,7 @@
       DataService.getUserBooks()
         .success(function(data) {
           vm.books = data.books || [];
+          console.log(vm.books);
         })
         .error(function(err) {
           console.log(err);

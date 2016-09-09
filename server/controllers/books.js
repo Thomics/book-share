@@ -3,9 +3,11 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var Books = mongoose.model('Book');
 
+
 function checkError(res, err) {
   if (err) { return res.status(500).json({ message: err.message }); }
 }
+
 
 module.exports.getBooks = function(req, res) {
 
@@ -17,6 +19,7 @@ module.exports.getBooks = function(req, res) {
 
   });
 };
+
 
 module.exports.getOwnerBooks = function(req, res) {
 
