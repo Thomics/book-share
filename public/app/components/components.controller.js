@@ -12,12 +12,14 @@
     var vm = this;
 
     vm.addedThisMonth = addedThisMonth;
+    vm.books;
     vm.booksThisMonth = 0;
     vm.booksInGroup = booksInGroup;
     vm.getAllBooks = getAllBooks;
     vm.getUserBooks = getUserBooks;
     vm.numUsers = numUsers;
     vm.totalBooks = 0;
+    vm.totalUsers = 0;
 
 
     activate();
@@ -29,8 +31,6 @@
 
       vm.getUserBooks();
       vm.getAllBooks();
-
-
     }
 
 
@@ -70,10 +70,11 @@
 
       DataService.getAllBooks()
         .success(function(data) {
+
           vm.books = data.books || [];
           vm.totalBooks = vm.booksInGroup(vm.books);
+          vm.totalUsers = vm.numUsers(vm.books);
 
-          vm.numUsers(vm.books);
         })
         .error(function(err) {
           console.log(err);
@@ -100,8 +101,15 @@
 
 
     function numUsers(bookList) {
-      console.log(bookList);
 
+      var userArr = [];
+      for ( var i = 0; i < bookList.length; i++ ) {
+        if ( userArr.indexOf(bookList[i].owner) === -1 ) {
+          userArr.push(bookList[i].owner);
+        }
+      }
+
+      return userArr.length;
 
     }
 

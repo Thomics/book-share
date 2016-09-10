@@ -96,27 +96,32 @@ input:-webkit-autofill {
 
 
 .monthly-books-container,
+.number-users-container,
 .total-books-container {
   width: 100%;
   background: #fff;
-  height: 270px;
-  margin-top: 40px;
+  height: 254px;
+  margin-top: 10px;
 }
 
 .monthly-books-header,
+.number-users-header,
 .total-books-header {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 20px;
+  font-size: 12px;
 }
 
 .monthly-books-container hr,
+.number-users-container hr,
 .total-books-container hr {
   width: 70%;
   margin-top: 0;
 }
 
 .monthly-books-number,
+.number-users-number,
 .total-books-number {
   font-size: 32px;
   font-weight: 700;
@@ -124,12 +129,15 @@ input:-webkit-autofill {
 }
 
 .monthly-books-subhead,
+.number-users-subhead,
 .total-books-subhead {
   text-align: center;
   padding-top: 5px;
+  font-size: 13px;
 }
 
 .monthly-books-btn,
+.number-users-btn,
 .total-books-btn {
   width: 80%;
   padding: 15px 0;

@@ -9,7 +9,7 @@
 angular.module('bookApp')
   .directive('bsNumUsers', function(){
     return {
-      templateUrl: 'app/components/monthly-books/bsMonthlyBooks.html',
+      templateUrl: 'app/components/num-users/bsNumUsers.html',
       controller: 'ComponentsController',
       controllerAs: 'numUsers'
     };
