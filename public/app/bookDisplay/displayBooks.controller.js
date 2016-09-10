@@ -64,7 +64,7 @@
 
       var modalInstance = $uibModal.open({
         animation: true,
-        templateUrl: 'app/bookDisplay/bookModal.html',
+        templateUrl: 'app/bookDisplay/search-modal/bookModal.html',
         controller: 'BookModalController',
         controllerAs: 'modal',
         resolve: {
@@ -126,13 +126,9 @@
     function searchBook(book) {
 
       DataService.getBook(book)
-
         .success(function(data) {
-
           vm.createModal(data);
-
         })
-
         .error(function(err) {
           console.log(err);
         });

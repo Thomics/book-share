@@ -9,8 +9,8 @@
 angular.module('bookApp')
   .directive('bsMonthlyBooks', function(){
     return {
-      templateUrl: 'app/components/bsMonthlyBooks.html',
-      controller: 'NumBooksController',
+      templateUrl: 'app/components/monthly-books/bsMonthlyBooks.html',
+      controller: 'ComponentsController',
       controllerAs: 'monthlyBooks'
     };
   });

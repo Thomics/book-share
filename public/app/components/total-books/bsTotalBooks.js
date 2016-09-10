@@ -10,7 +10,7 @@ angular.module('bookApp')
   .directive('bsTotalBooks', function(){
     return {
       templateUrl: 'app/components/total-books/bsTotalBooks.html',
-      controller: 'NumBooksController',
+      controller: 'ComponentsController',
       controllerAs: 'totalBooks'
     };
   });

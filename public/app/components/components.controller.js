@@ -3,11 +3,11 @@
   
   angular
     .module('bookApp')
-    .controller('NumBooksController', NumBooksController);
+    .controller('ComponentsController', ComponentsController);
   
-  NumBooksController.$inject = ['DataService'];
+  ComponentsController.$inject = ['DataService'];
   
-  function NumBooksController(DataService) {
+  function ComponentsController(DataService) {
 
     var vm = this;
 

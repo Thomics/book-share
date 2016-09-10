@@ -26,14 +26,38 @@
     vm.saveToken = saveToken;
 
 
+    /****************************/
+    /****************************/
 
-    function saveToken(token) {
-      $window.localStorage['mean-token'] = token;
+
+    function currentUser() {
+      if(isLoggedIn()){
+        var token = getToken();
+        var payload = token.split('.')[1];
+        payload = $window.atob(payload);
+        payload = JSON.parse(payload);
+        return {
+          email : payload.email,
+          name : payload.name
+        };
+      }
     }
+
 
     function getToken() {
       return $window.localStorage['mean-token'];
     }
+
+
+    function getUsername() {
+      var email = currentUser().email;
+      if ( email ) {
+        return email;
+      } else {
+        return '';
+      }
+    }
+
 
     function isLoggedIn() {
       var token = getToken();
@@ -51,36 +75,6 @@
     }
 
 
-    function currentUser() {
-      if(isLoggedIn()){
-        var token = getToken();
-        var payload = token.split('.')[1];
-        payload = $window.atob(payload);
-        payload = JSON.parse(payload);
-        return {
-          email : payload.email,
-          name : payload.name
-        };
-      }
-    }
-
-    function getUsername() {
-      var email = currentUser().email;
-      if ( email ) {
-        return email;
-      } else {
-        return '';
-      }
-    }
-
-
-    function register(user) {
-      return $http.post('/api/register', user).success(function(data){
-        saveToken(data.token);
-      });
-    }
-
-
     function login(user) {
       return $http.post('/api/login', user).success(function(data) {
         saveToken(data.token);
@@ -92,6 +86,17 @@
       $window.localStorage.removeItem('mean-token');
     }
 
+
+    function register(user) {
+      return $http.post('/api/register', user).success(function(data){
+        saveToken(data.token);
+      });
+    }
+
+
+    function saveToken(token) {
+      $window.localStorage['mean-token'] = token;
+    }
 
   }
 
