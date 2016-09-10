@@ -16,6 +16,7 @@
     vm.booksInGroup = booksInGroup;
     vm.getAllBooks = getAllBooks;
     vm.getUserBooks = getUserBooks;
+    vm.numUsers = numUsers;
     vm.totalBooks = 0;
 
 
@@ -26,8 +27,9 @@
      */
     function activate() {
 
-      getUserBooks();
-      getAllBooks();
+      vm.getUserBooks();
+      vm.getAllBooks();
+
 
     }
 
@@ -70,6 +72,8 @@
         .success(function(data) {
           vm.books = data.books || [];
           vm.totalBooks = vm.booksInGroup(vm.books);
+
+          vm.numUsers(vm.books);
         })
         .error(function(err) {
           console.log(err);
@@ -91,6 +95,13 @@
         .error(function(err) {
           console.log(err);
         });
+
+    }
+
+
+    function numUsers(bookList) {
+      console.log(bookList);
+
 
     }
 

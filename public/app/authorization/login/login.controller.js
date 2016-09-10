@@ -22,6 +22,7 @@
     vm.logUserOut = logUserOut;
     vm.logUserOn = logUserOn;
     vm.sessionToken = $window.localStorage['mean-token'];
+    vm.getUsers = AuthService.getUsers;
 
 
     function logUserOut() {

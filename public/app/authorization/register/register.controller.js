@@ -11,6 +11,7 @@
 
   RegisterController.$inject = ['$location', '$route', 'AuthService'];
 
+
   function RegisterController($location, $route,  AuthService) {
 
     var vm = this;
@@ -22,6 +23,7 @@
       email : '',
       password : ''
     };
+
 
     function onSubmit() {
 
@@ -36,6 +38,7 @@
           $route.reload();
         });
     }
+
 
   }
 

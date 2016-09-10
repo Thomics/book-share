@@ -1,13 +1,13 @@
 <section class='header' ng-controller='NavController as nav'>
   <a class="nav-logo" href='/'>BookShare</a>
   <ul>
-    <li>
+    <li ng-class='{currentPage: nav.url === "userBooks" }'>
       <a href='/userBooks' ng-show='nav.isLoggedIn'>My Books</a>
     </li>
-    <li>
+    <li ng-class='{currentPage: nav.url === "allBooks" }'>
       <a href='/allBooks' >All Books</a>
     </li>
-    <li>
+    <li ng-class='{currentPage: nav.url === "groups" }'>
       <a>Groups</a>
     </li>
   </ul>

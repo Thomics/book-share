@@ -10,14 +10,16 @@
     .module('bookApp')
     .controller('NavController', NavController);
 
-  NavController.$inject = ['AuthService'];
+  NavController.$inject = ['AuthService', '$location'];
 
-  function NavController(AuthService) {
+  function NavController(AuthService, $location) {
 
     var vm = this;
 
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.tab = 1;
+    vm.url = $location.absUrl().split('/').pop();
+
 
   }
 
