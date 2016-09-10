@@ -94,36 +94,42 @@ input:-webkit-autofill {
 ***********************/
 
 
-.monthly-books-container {
+.monthly-books-container,
+.total-books-container {
   width: 100%;
   background: #fff;
   height: 270px;
   margin-top: 40px;
 }
 
-.monthly-books-header {
+.monthly-books-header,
+.total-books-header {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 20px;
 }
 
-.monthly-books-container hr {
+.monthly-books-container hr,
+.total-books-container hr {
   width: 70%;
   margin-top: 0;
 }
 
-.monthly-books-number {
+.monthly-books-number,
+.total-books-number {
   font-size: 32px;
   font-weight: 700;
   text-align: center;
 }
 
-.monthly-books-subhead {
+.monthly-books-subhead,
+.total-books-subhead {
   text-align: center;
   padding-top: 5px;
 }
 
-.monthly-books-btn {
+.monthly-books-btn,
+.total-books-btn {
   width: 80%;
   padding: 15px 0;
   text-align: center;

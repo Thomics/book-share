@@ -843,7 +843,7 @@
 	angular.module('bookApp')
 	  .directive('bsMonthsBooks', function(){
 	    return {
-	      templateUrl: 'app/components/bsMonthsBooks.html',
+	      templateUrl: 'app/components/bsMonthlyBooks.html',
 	      controller: 'MonthsBooksController',
 	      controllerAs: 'monthsBooks'
 	    };

@@ -7,10 +7,10 @@
 
 
 angular.module('bookApp')
-  .directive('bsMonthsBooks', function(){
+  .directive('bsMonthlyBooks', function(){
     return {
-      templateUrl: 'app/components/bsMonthsBooks.html',
-      controller: 'MonthsBooksController',
-      controllerAs: 'monthsBooks'
+      templateUrl: 'app/components/bsMonthlyBooks.html',
+      controller: 'NumBooksController',
+      controllerAs: 'monthlyBooks'
     };
   });
