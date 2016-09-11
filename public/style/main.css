@@ -2,6 +2,11 @@ body {
   background: #f9fbf0;
 }
 
+
+/*****************************
+  Start vertical Book Styles
+******************************/
+
 .vert-book-container {
   background: #fffffe;
   width: 68%;
@@ -53,6 +58,41 @@ body {
   height: 25px;
 }
 
+.book-hover {
+  width: 100%;
+  height: 180px;
+  background: rgba(0,0,0,.33);
+  margin-top: -183px;
+  margin-bottom: 9px;
+  position: relative;
+  opacity: 0;
+  transition: opacity .3s linear;
+  -webkit-transition-delay: .2s;
+  -moz-transition-delay: .2s;
+  -ms-transition-delay: .2s;
+  -o-transition-delay: .2s;
+  transition-delay: .2s;
+}
+
+.vert-book-img:hover + .book-hover,
+.book-hover:hover {
+  opacity: 1;
+}
+
+/*.book-hover:hover {*/
+  /*width: 100%;*/
+  /*height: 180px;*/
+  /*background: #333;*/
+  /*margin-top: -183px;*/
+  /*position: relative;*/
+  /*display: inherit;*/
+/*}*/
+
+/***************************
+  End Vertical Book Styles
+****************************/
+
+
 .book-search-box {
   background: #f9fbf0;
   border: none;
@@ -102,6 +142,7 @@ input:-webkit-autofill {
   background: #fff;
   height: 254px;
   margin-top: 10px;
+  color: #4c554f;
 }
 
 .monthly-books-header,
