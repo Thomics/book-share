@@ -2,17 +2,24 @@
 <div class="vert-book" ng-repeat="book in display.books" >
   <img class="vert-book-img" ng-src="{{book.image}}" title={{book.title}} />
 
-  <div class="book-hover"></div>
+  <div class="book-hover">
+
+    <!-- Creates a drop down menu -->
+    <div uib-dropdown>
+      <i class="fa fa-bars" aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled"></i>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+        <li role="menuitem"><a href="/">Book Details</a></li>
+        <li role="menuitem"><a href="#">Request Book</a></li>
+        <li role="menuitem"><a href="#">Write Owner</a></li>
+      </ul>
+    </div>
+
+    <i class="fa fa-times-circle" ng-click='display.deleteBook(book)' aria-hidden="true" alt="Delete" title="Delete"></i>
+
+  </div>
 
   <p class="vert-book-title">{{book.title}}</p>
   <p class="vert-book-author">{{book.author}}</p>
   <p class="vert-book-owner">Owner: {{book.owner}}</p>
-
-  <form
-  ng-submit="display.deleteBook(book)"
-  class="delete-book-btn"
-  ng-hide="display.currentPage === '/allBooks'">
-  <input type="submit" value="Delete">
-  </form>
 
 </div>
