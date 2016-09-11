@@ -3,7 +3,7 @@
  * @module
  **/
 
-angular.module('bookApp', ['ngRoute', 'ui.bootstrap'])
+angular.module('bookApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 'use strict';
@@ -32,14 +32,15 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap'])
         controller: 'RegisterController',
         controllerAs: 'register'
       })
-      .when('/groups', {
-        templateUrl: 'app/account/account.html',
-        controller: 'AccountController',
-        controllerAs: 'account'
+      .when('/group', {
+        templateUrl: 'app/group/bsGroup.html',
+        controller: 'GroupController',
+        controllerAs: 'group'
       })
       .when('/userBooks', {
-        templateUrl: 'app/bookDisplay/userBooks.html'
-        //Controller is declared in the directive.
+        templateUrl: 'app/bookDisplay/userBooks.html',
+        controller: 'DisplayBooksController',
+        controllerAs: 'display'
       })
       .otherwise({redirectTo: '/'});
 

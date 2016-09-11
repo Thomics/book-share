@@ -6,7 +6,16 @@
 
     <!-- Creates a drop down menu -->
     <div uib-dropdown>
-      <i class="fa fa-bars" aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled"></i>
+
+      <i class="fa fa-bars"
+         aria-hidden="true"
+         type="button"
+         uib-dropdown-toggle
+         ng-disabled="disabled"
+         alt="Learn More"
+         title="Learn More">
+      </i>
+
       <ul class="dropdown-menu" uib-dropdown-menu role="menu">
         <li role="menuitem"><a href="/">Book Details</a></li>
 
@@ -18,11 +27,16 @@
           <a href="#">Write Owner</a>
         </li>
 
-
       </ul>
+
     </div>
 
-    <i class="fa fa-times-circle" ng-click='display.deleteBook(book)' aria-hidden="true" alt="Delete" title="Delete"></i>
+    <i class="fa fa-times-circle"
+       ng-click='display.deleteBook(book)'
+       ng-show="display.currentPage === '/userBooks'"
+       aria-hidden="true"
+       alt="Delete"
+       title="Delete"></i>
 
   </div>
 

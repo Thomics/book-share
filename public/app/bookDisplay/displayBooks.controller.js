@@ -20,6 +20,7 @@
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
+    vm.sortTitleAZ = sortTitleAZ;
 
     activate();
 
@@ -35,6 +36,10 @@
           vm.getUserBooks();
         }
         if (vm.currentPage === '/allBooks') {
+          vm.getAllBooks();
+        }
+        if (vm.currentPage === '/group') {
+          console.log('group');
           vm.getAllBooks();
         }
       }
@@ -135,6 +140,17 @@
 
     }
 
+
+    function sortTitleAZ(isReversed) {
+
+      vm.books.sort(function(a,b) {
+        return a.title.charCodeAt(0) < b.title.charCodeAt(0);
+      });
+
+      if(isReversed) {
+        vm.books.reverse();
+      }
+    }
 
   }
 

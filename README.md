@@ -7,6 +7,10 @@ heroku plan.
 
 <br />
 <br />
-**Todo:**
+**Todo:** <br />
 Set up more user authentication/security.
-Create homepage design/layout.
+Create homepage design/layout.<br />
+Work on animation <br />
+Implement homepage design <br />
+Work on group page <br />
+Add testing<br />
