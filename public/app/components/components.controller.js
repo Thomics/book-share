@@ -57,8 +57,6 @@
     }
 
     function booksInGroup(bookList) {
-      console.log(bookList);
-      console.log(bookList.length);
       return bookList.length;
     }
 

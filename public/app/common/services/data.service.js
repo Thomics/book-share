@@ -24,7 +24,6 @@
 
 
     function getAllBooks() {
-      console.log('get all books');
       return $http.get('/api/books');
     }
 

@@ -28,6 +28,7 @@
 
 
     function activate() {
+      console.log(vm.currentPage);
 
       if ($window.localStorage['mean-token']) {
         if (vm.currentPage === '/userBooks') {
@@ -113,7 +114,6 @@
       DataService.getUserBooks()
         .success(function(data) {
           vm.books = data.books || [];
-          console.log(vm.books);
         })
         .error(function(err) {
           console.log(err);

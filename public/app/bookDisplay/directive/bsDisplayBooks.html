@@ -9,8 +9,16 @@
       <i class="fa fa-bars" aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled"></i>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu">
         <li role="menuitem"><a href="/">Book Details</a></li>
-        <li role="menuitem"><a href="#">Request Book</a></li>
-        <li role="menuitem"><a href="#">Write Owner</a></li>
+
+        <!-- Show these options when on the groups general profile. -->
+        <li role="menuitem" ng-show="display.currentPage === '/allBooks'">
+          <a href="#">Request Book</a>
+        </li>
+        <li role="menuitem" ng-show="display.currentPage === '/allBooks'">
+          <a href="#">Write Owner</a>
+        </li>
+
+
       </ul>
     </div>
 
