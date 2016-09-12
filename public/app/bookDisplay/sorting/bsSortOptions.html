@@ -1,27 +1,36 @@
 <section class="sorting-container">
 
   <!-- Title sort drop down menu -->
-  <div uib-dropdown class="sort-title">
+  <div uib-dropdown class="sort">
     <p aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled" title="Sort Books">
       Title <i class="fa fa-caret-down" aria-hidden="true"></i>
     </p>
     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-      <li role="menuitem" ng-click="sort.sortTitle(true)"><a href="">Sort A - Z</a></li>
-      <li role="menuitem" ng-click="sort.sortTitle(false)"><a href="">Sort Z - A</a></li>
+      <li role="menuitem" ng-click="sort.sortBooks('title', true)"><a href="">Sort A - Z</a></li>
+      <li role="menuitem" ng-click="sort.sortBooks('title', false)"><a href="">Sort Z - A</a></li>
     </ul>
   </div>
 
   <!-- Author sort drop down menu -->
-  <div uib-dropdown class="sort-author">
+  <div uib-dropdown class="sort">
     <p aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled" title="Sort Author">
       Author <i class="fa fa-caret-down" aria-hidden="true"></i>
     </p>
     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-      <li role="menuitem" ng-click="sort.sortAuthor(true)"><a href="">Author A - Z</a></li>
-      <li role="menuitem" ng-click="sort.sortAuthor(false)"><a href="">Author Z - A</a></li>
+      <li role="menuitem" ng-click="sort.sortBooks('author', true)"><a href="">Author A - Z</a></li>
+      <li role="menuitem" ng-click="sort.sortBooks('author', false)"><a href="">Author Z - A</a></li>
     </ul>
   </div>
 
-
+  <!-- Owner sort drop down menu -->
+  <div uib-dropdown class="sort">
+    <p aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled" title="Sort Author">
+      Owner <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </p>
+    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+      <li role="menuitem" ng-click="sort.sortBooks('ownerName', true)"><a href="">Owner A - Z</a></li>
+      <li role="menuitem" ng-click="sort.sortBooks('ownerName', false)"><a href="">Owner Z - A</a></li>
+    </ul>
+  </div>
 
 </section>

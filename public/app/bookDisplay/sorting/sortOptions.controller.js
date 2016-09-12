@@ -17,33 +17,21 @@
     var vm = this;
 
 
-    vm.sortAuthor = sortAuthor;
-    vm.sortTitle = sortTitle;
+    vm.sortBooks = sortBooks;
 
 
-    function sortTitle(isReversed) {
+    function sortBooks(sortBy, isReversed) {
 
       DataService.books.sort(function(a,b) {
-        return a.title.charCodeAt(0) < b.title.charCodeAt(0);
+        if(a[sortBy] > b[sortBy]) { return -1; }
+        if(a[sortBy] < b[sortBy]) { return 1;  }
+        return 0;
       });
 
       if(isReversed) {
         DataService.books.reverse();
       }
     }
-
-    function sortAuthor(isReversed) {
-
-      DataService.books.sort(function(a,b) {
-        return a.author.charCodeAt(0) < b.author.charCodeAt(0);
-      });
-
-      console.log(DataService.books);
-      if(isReversed) {
-        DataService.books.reverse();
-      }
-    }
-
 
     
   }

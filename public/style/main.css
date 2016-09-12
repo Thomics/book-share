@@ -221,8 +221,7 @@ input:-webkit-autofill {
   color: #4c554f;
 }
 
-.sort-title,
-.sort-author {
+.sort {
   float: left;
   margin-left: 8%;
 }

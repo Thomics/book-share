@@ -29,7 +29,6 @@
 
 
     function activate() {
-      console.log(vm.currentPage);
 
       if ($window.localStorage['mean-token']) {
         if (vm.currentPage === '/userBooks') {
