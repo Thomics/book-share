@@ -14,3 +14,4 @@ Work on animation <br />
 Implement homepage design <br />
 Work on group page <br />
 Add testing<br />
+Add ability for members to communicate<br />

@@ -204,3 +204,19 @@ input:-webkit-autofill {
   color: #fff;
   font-size: 11px;
 }
+
+
+
+/******************
+  Sorting Options
+*******************/
+
+.sorting-container {
+  height: 30px;
+  width: 100%;
+  padding: 0 10%;
+  line-height: 30px;
+  font-size: 12px;
+  color: #4c554f;
+}
+
