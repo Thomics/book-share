@@ -16,6 +16,7 @@
 
     var vm = this;
 
+    vm.books = [];
     vm.deleteBook = deleteBook;
     vm.getAllBooks = getAllBooks;
     vm.getBook = getBook;

@@ -10,6 +10,7 @@ var bookSchema = new mongoose.Schema({
   reviews: [String],
   description: String,
   owner: String,
+  ownerName: String,
   dateAdded: Object
 });
 

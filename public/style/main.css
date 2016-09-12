@@ -123,9 +123,10 @@ body {
 .book-search-submit {
   background: #f9fbf0;
   border: none;
-  margin-left: -5px;
+  margin-left: -30px;
   padding: 5px;
-  height: 36px;
+  height: 20px;
+  color: #4c554f;
 }
 
 input:-webkit-autofill {
@@ -220,3 +221,8 @@ input:-webkit-autofill {
   color: #4c554f;
 }
 
+.sort-title,
+.sort-author {
+  float: left;
+  margin-left: 8%;
+}

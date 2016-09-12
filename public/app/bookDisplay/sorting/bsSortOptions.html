@@ -1,14 +1,27 @@
 <section class="sorting-container">
 
   <!-- Title sort drop down menu -->
-  <div uib-dropdown>
+  <div uib-dropdown class="sort-title">
     <p aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled" title="Sort Books">
-      Sort Title <i class="fa fa-caret-down" aria-hidden="true"></i>
+      Title <i class="fa fa-caret-down" aria-hidden="true"></i>
     </p>
     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-      <li role="menuitem" ng-click="display.sortTitleAZ(true)"><a href="">Sort A - Z</a></li>
-      <li role="menuitem" ng-click="display.sortTitleAZ(false)"><a href="">Sort Z - A</a></li>
+      <li role="menuitem" ng-click="sort.sortTitle(true)"><a href="">Sort A - Z</a></li>
+      <li role="menuitem" ng-click="sort.sortTitle(false)"><a href="">Sort Z - A</a></li>
     </ul>
   </div>
+
+  <!-- Author sort drop down menu -->
+  <div uib-dropdown class="sort-author">
+    <p aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled" title="Sort Author">
+      Author <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </p>
+    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+      <li role="menuitem" ng-click="sort.sortAuthor(true)"><a href="">Author A - Z</a></li>
+      <li role="menuitem" ng-click="sort.sortAuthor(false)"><a href="">Author Z - A</a></li>
+    </ul>
+  </div>
+
+
 
 </section>

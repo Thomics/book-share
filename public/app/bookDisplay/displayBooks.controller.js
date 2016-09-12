@@ -57,7 +57,8 @@
         reviews : ['No Reviews'],
         description : "No description. Write one.",
         dateAdded: new Date(),
-        owner: AuthService.getUsername()
+        owner: AuthService.getUsername(),
+        ownerName: AuthService.currentUser().name
       };
 
       vm.books.push(bookObj);
@@ -106,6 +107,7 @@
       DataService.getAllBooks()
         .success(function(data) {
           vm.books = data.books || [];
+          DataService.books = vm.books;
         })
         .error(function(err) {
           console.log(err);
@@ -119,6 +121,7 @@
       DataService.getUserBooks()
         .success(function(data) {
           vm.books = data.books || [];
+          DataService.books = vm.books;
         })
         .error(function(err) {
           console.log(err);
