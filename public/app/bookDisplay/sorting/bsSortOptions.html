@@ -1,5 +1,14 @@
 <section class="sorting-container">
 
+  <h4 class="sort">Sort by:</h4>
+
+  <!-- Recently added sort drop down menu -->
+  <div class="sort">
+    <p type="button" title="Sort Author" ng-click="sort.sortBooks('dateAdded', false)">
+      Recently Added <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </p>
+  </div>
+
   <!-- Title sort drop down menu -->
   <div uib-dropdown class="sort">
     <p aria-hidden="true" type="button" uib-dropdown-toggle ng-disabled="disabled" title="Sort Books">

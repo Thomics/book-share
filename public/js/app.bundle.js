@@ -121,7 +121,7 @@
 	      })
 	      .when('/userBooks', {
 	        templateUrl: 'app/bookDisplay/userBooks.html'
-	        //Controller is declared in the directive.
+	        //Controller is declared in the display.
 	      })
 	      .otherwise({redirectTo: '/'});
 
@@ -750,7 +750,7 @@
 
 	/**
 	 * Displays the navigation.
-	 * @directive
+	 * @display
 	 **/
 
 	angular.module('bookApp')
@@ -771,7 +771,7 @@
 
 	/**
 	 * Displays the menu flyout.
-	 * @directive
+	 * @display
 	 **/
 
 	angular.module('bookApp')
@@ -792,7 +792,7 @@
 
 	/**
 	 * Creates the display form for searching for a book.
-	 * @directive
+	 * @display
 	 **/
 
 
@@ -814,14 +814,14 @@
 
 	/**
 	 * Creates the display for users books and all books.
-	 * @directive
+	 * @display
 	 **/
 
 
 	angular.module('bookApp')
 	  .directive('bsDisplayBooks', function(){
 	    return {
-	      templateUrl: 'app/bookDisplay/directive/bsDisplayBooks.html',
+	      templateUrl: 'app/bookDisplay/display/bsDisplayBooks.html',
 	      controller: 'DisplayBooksController',
 	      controllerAs: 'display'
 	    };
@@ -836,7 +836,7 @@
 
 	/**
 	 * Creates the display for component of how many books the user has added this month.
-	 * @directive
+	 * @display
 	 **/
 
 

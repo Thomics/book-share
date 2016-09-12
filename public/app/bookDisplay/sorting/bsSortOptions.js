@@ -2,7 +2,7 @@
 
 /**
  * Displays the sorting options.
- * @directive
+ * @display
  **/
 
 angular.module('bookApp')

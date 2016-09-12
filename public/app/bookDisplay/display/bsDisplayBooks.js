@@ -2,14 +2,14 @@
 
 /**
  * Creates the display for users books and all books.
- * @directive
+ * @display
  **/
 
 
 angular.module('bookApp')
   .directive('bsDisplayBooks', function(){
     return {
-      templateUrl: 'app/bookDisplay/directive/bsDisplayBooks.html',
+      templateUrl: 'app/bookDisplay/display/bsDisplayBooks.html',
       controller: 'DisplayBooksController',
       controllerAs: 'display'
     };

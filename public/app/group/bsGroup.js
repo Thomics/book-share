@@ -2,7 +2,7 @@
 
 /**
  * Displays the navigation.
- * @directive
+ * @display
  **/
 
 angular.module('bookApp')

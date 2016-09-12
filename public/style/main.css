@@ -215,13 +215,22 @@ input:-webkit-autofill {
 .sorting-container {
   height: 30px;
   width: 100%;
-  padding: 0 10%;
   line-height: 30px;
+  padding: 0 10%;
   font-size: 12px;
   color: #4c554f;
 }
 
 .sort {
   float: left;
-  margin-left: 8%;
+  margin-left: 10%;
+  cursor: pointer;
 }
+
+h4.sort {
+  cursor: text;
+}
+
+/**********************
+  End Sorting Options
+***********************/

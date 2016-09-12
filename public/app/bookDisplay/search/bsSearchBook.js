@@ -2,7 +2,7 @@
 
 /**
  * Creates the display form for searching for a book.
- * @directive
+ * @display
  **/
 
 

@@ -2,7 +2,7 @@
 
 /**
  * Displays the menu flyout.
- * @directive
+ * @display
  **/
 
 angular.module('bookApp')

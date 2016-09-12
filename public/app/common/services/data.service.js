@@ -16,12 +16,14 @@
 
     var vm = this;
 
+    vm.allBooks = [];
     vm.books = [];
     vm.deleteBook = deleteBook;
     vm.getAllBooks = getAllBooks;
     vm.getBook = getBook;
     vm.getUserBooks = getUserBooks;
     vm.saveBook = saveBook;
+    vm.userBooks = [];
 
 
     function getAllBooks() {

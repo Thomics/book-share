@@ -2,7 +2,7 @@
 
 /**
  * Creates the display for component of how many books the group has total.
- * @directive
+ * @display
  **/
 
 

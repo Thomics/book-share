@@ -20,7 +20,6 @@
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
     vm.searchBook = searchBook;
-    vm.sortTitleAZ = sortTitleAZ;
 
     activate();
 
@@ -82,9 +81,8 @@
 
       modalInstance.result
         .then(function (selectedBook) {
-          createBook(selectedBook);
+          vm.createBook(selectedBook);
         }, function () {
-
           console.log('leave');
         });
 
@@ -121,6 +119,7 @@
         .success(function(data) {
           vm.books = data.books || [];
           DataService.books = vm.books;
+          DataService.userBooks = vm.books;
         })
         .error(function(err) {
           console.log(err);
@@ -142,17 +141,6 @@
 
     }
 
-
-    function sortTitleAZ(isReversed) {
-
-      vm.books.sort(function(a,b) {
-        return a.title.charCodeAt(0) < b.title.charCodeAt(0);
-      });
-
-      if(isReversed) {
-        vm.books.reverse();
-      }
-    }
 
   }
 
