@@ -9,11 +9,11 @@ body {
 
 .vert-book-container {
   background: #fffffe;
-  width: 68%;
+  float: left;
   font-family: 'Prompt', sans-serif;
   margin: 0 .5% 0 4.5%;
   padding: 0 0 1% 0;
-  float: left;
+  width: 68%;
 }
 
 .vert-book:nth-child(6n + 1) {
@@ -21,26 +21,26 @@ body {
 }
 
 .vert-book {
-  width: 14.5%;
-  min-height: 200px;
   background: #ececec;
-  margin: 1% 1% 0 0;
   float: left;
+  margin: 1% 1% 0 0;
+  min-height: 200px;
+  width: 14.5%;
 }
 
 .vert-book-img {
-  width: 100%;
-  min-height: 180px;
-  max-height: 180px;
   border: 1px solid #555;
+  max-height: 180px;
+  min-height: 180px;
+  width: 100%;
 }
 
 .vert-book-title {
   font-weight: 700;
   font-size: 13px;
+  height: 26px;
   margin-left: 2%;
   margin-top: 6px;
-  height: 26px;
   overflow: hidden;
 }
 
@@ -51,24 +51,24 @@ body {
 }
 
 .vert-book-owner {
-  margin-left: 2%;
-  margin-top: 6px;
-  margin-bottom: 6px;
   font-size: 11px;
   height: 25px;
+  margin-bottom: 6px;
+  margin-left: 2%;
+  margin-top: 6px;
 }
 
 .book-hover {
-  width: 100%;
-  height: 180px;
   background: rgba(0,0,0,.33);
+  height: 180px;
   margin-top: -183px;
   margin-bottom: 9px;
-  position: relative;
   opacity: 0;
+  position: relative;
   transition: opacity .6s cubic-bezier(0.35, 1.68, 1, 1);
   -webkit-transition-delay: .15s;
   transition-delay: .15s;
+  width: 100%;
 }
 
 .vert-book-img:hover + .book-hover,
@@ -79,22 +79,22 @@ body {
 .book-hover .fa-times-circle,
 .book-hover .fa-bars {
   color: #fff;
+  cursor: pointer;
   margin: 10px;
   opacity: 0;
-  cursor: pointer;
   transition: opacity 1.5s cubic-bezier(0.35, 1.68, 1, 1);
   -webkit-transition-delay: .5s;
   transition-delay: .4s;
 }
 
 .book-hover .fa-times-circle {
-  font-size: 25px;
   float: right;
+  font-size: 25px;
 }
 
 .book-hover .fa-bars {
-  font-size: 20px;
   float: left;
+  font-size: 20px;
 }
 
 
@@ -112,21 +112,21 @@ body {
 .book-search-box {
   background: #f9fbf0;
   border: none;
-  width: 50%;
-  margin: 20px 0 15px 0;
-  height: 36px;
-  padding: 0 1%;
   font-size: 12px;
   font-weight: 400;
+  height: 36px;
+  margin: 20px 0 15px 0;
+  padding: 0 1%;
+  width: 50%;
 }
 
 .book-search-submit {
   background: #f9fbf0;
   border: none;
+  color: #4c554f;
+  height: 20px;
   margin-left: -30px;
   padding: 5px;
-  height: 20px;
-  color: #4c554f;
 }
 
 input:-webkit-autofill {
@@ -134,14 +134,14 @@ input:-webkit-autofill {
 }
 
 .section-divider {
-  width: 100%;
   height: 15px;
+  width: 100%;
 }
 
 .top-section-spacer {
-  width: 100%;
-  height: 50px;
   float: left;
+  height: 50px;
+  width: 100%;
 }
 
 
@@ -155,27 +155,27 @@ input:-webkit-autofill {
 .monthly-books-container,
 .number-users-container,
 .total-books-container {
-  width: 100%;
   background: #fff;
+  color: #4c554f;
   height: 254px;
   margin-top: 10px;
-  color: #4c554f;
+  width: 100%;
 }
 
 .monthly-books-header,
 .number-users-header,
 .total-books-header {
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 20px;
   font-size: 12px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+  text-align: center;
 }
 
 .monthly-books-container hr,
 .number-users-container hr,
 .total-books-container hr {
-  width: 70%;
   margin-top: 0;
+  width: 70%;
 }
 
 .monthly-books-number,
@@ -189,21 +189,21 @@ input:-webkit-autofill {
 .monthly-books-subhead,
 .number-users-subhead,
 .total-books-subhead {
-  text-align: center;
-  padding-top: 5px;
   font-size: 13px;
+  padding-top: 5px;
+  text-align: center;
 }
 
 .monthly-books-btn,
 .number-users-btn,
 .total-books-btn {
-  width: 80%;
+  color: #fff;
+  background: #c5c5c5;
+  font-size: 11px;
+  margin: 20px auto 0 auto;
   padding: 15px 0;
   text-align: center;
-  margin: 20px auto 0 auto;
-  background: #c5c5c5;
-  color: #fff;
-  font-size: 11px;
+  width: 80%;
 }
 
 
@@ -213,18 +213,18 @@ input:-webkit-autofill {
 *******************/
 
 .sorting-container {
+  color: #4c554f;
+  font-size: 12px;
   height: 30px;
-  width: 100%;
   line-height: 30px;
   padding: 0 10%;
-  font-size: 12px;
-  color: #4c554f;
+  width: 100%;
 }
 
 .sort {
+  cursor: pointer;
   float: left;
   margin-left: 10%;
-  cursor: pointer;
 }
 
 h4.sort {

@@ -1,7 +1,7 @@
 .header {
+  background: #f9fbf0;
   padding: 1px 0 30px 0;
   width: 100%;
-  background: #f9fbf0;
 }
 
 .header ul {
@@ -11,18 +11,17 @@
 
 .header ul li {
   float: right;
-  width: 16%;
-  line-height: 40px;
   height: 40px;
-  /*background: #fff;*/
+  line-height: 40px;
   text-align: center;
+  width: 16%;
 }
 
 
 .header ul li a{
   color: #4c554f;
-  text-decoration: none;
   font-size: 12px;
+  text-decoration: none;
 }
 
 .nav-login {
@@ -31,13 +30,13 @@
 }
 
 .nav-logo {
-  float: left;
-  font-weight: 700;
-  margin-top: 12px;
-  font-size: 16px;
-  margin-left: 4%;
   color: #4c554f;
   cursor: pointer;
+  float: left;
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 4%;
+  margin-top: 12px;
 }
 
 .nav-logo:hover {
@@ -55,21 +54,20 @@
 *******************/
 
 .sidebar-container {
-  width: 23%;
-  height: auto;
   float: left;
-  /*padding: 0 4% 0 0;*/
+  height: auto;
+  width: 23%;
 }
 
 
 .menu {
-  float: right;
   background: linear-gradient(to bottom, #4e554f 0, #4e554f 25%, transparent 25%, transparent 37.5%, #4e554f 37.5%, #4e554f 62.5%, transparent 62.5%, transparent 75%, #4e554f 75%);
-  height: 20px;
-  width: 30px;
   cursor: pointer;
+  float: right;
+  height: 20px;
   margin-top: 8px;
   margin-bottom: 3px;
+  width: 30px;
 }
 
 .dropdown-menu>li>a {
