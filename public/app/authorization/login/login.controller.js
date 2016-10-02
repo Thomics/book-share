@@ -15,10 +15,12 @@
 
     var vm = this;
 
+    vm.checkLoggedIn = checkLoggedIn;
     vm.credentials = {
       email : '',
       password : ''
     };
+    vm.isLoggedIn = AuthService.isLoggedIn();
     vm.logInPopup = logInPopup;
     vm.logUserOut = logUserOut;
     vm.logUserOn = logUserOn;
@@ -47,11 +49,6 @@
         });
     }
 
-    function checker() {
-      vm.createModal();
-    }
-
-    vm.checker = checker;
 
     function logInPopup() {
 
@@ -62,6 +59,13 @@
         controllerAs: 'modal'
       });
 
+    }
+
+    function checkLoggedIn() {
+      if (vm.isLoggedIn ) {
+        $location.path('/userBooks');
+        $route.reload();
+      }
     }
 
 

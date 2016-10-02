@@ -270,26 +270,15 @@ h4.sort {
   Log In
 ****************/
 
-/*.login-input-box {*/
-  /*margin: 10px 0;*/
-/*}*/
+.login-input-box {
+  margin: 10px 0;
+}
 
-
-/*.login-input-box input {*/
-  /*font-weight: 400;*/
-  /*padding: 8px 0 8px 1%;*/
-  /*width: 90%;*/
-/*}*/
-
-/*.login-submit-button {*/
-  /*width: 90%;*/
-  /*padding: 12px 0;*/
-  /*background: #c5c5c5;*/
-  /*color: #fff;*/
-  /*border: none;*/
-  /*font-size: 14px;*/
-  /*font-weight: 400;*/
-/*}*/
+.login-input-box input {
+  font-weight: 400;
+  padding: 8px 0 8px 1%;
+  width: 100%;
+}
 
 .login-container {
   margin: 0 auto;
@@ -300,6 +289,17 @@ h4.sort {
   margin-bottom: 20px;
   font-size: 14px;
   font-weight: 700;
+}
+
+.login-submit-button {
+  width: 100%;
+  padding: 12px 0;
+  background: #c5c5c5;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+
 }
 
 /******************

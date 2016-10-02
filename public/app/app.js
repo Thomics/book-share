@@ -8,6 +8,7 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
 'use strict';
 
+
     $locationProvider.html5Mode(true);
 
     $routeProvider
