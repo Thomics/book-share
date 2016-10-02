@@ -1,14 +1,14 @@
-<form ng-submit="login.logUserOn()">
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="login.credentials.email">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="login.credentials.password">
-  </div>
-  <button type="submit" class="btn btn-default">Sign in!</button>
-</form>
-
-<!--{{login.getUsers()}}-->
-
+<section class="login-container" ng-controller="LoginController as login">
+  <p>Welcome back, log in</p>
+  <form ng-submit="login.logUserOn()">
+    <div class="form-group">
+      <!--<label for="email">Email address</label>-->
+      <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="login.credentials.email">
+    </div>
+    <div class="form-group">
+      <!--<label for="password">Password</label>-->
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="login.credentials.password">
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="modal.signedIn()">Sign in!</button>
+  </form>
+</section>

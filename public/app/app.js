@@ -23,9 +23,9 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         templateUrl: 'app/bookDisplay/allBooks.html'
       })
       .when('/login', {
-        templateUrl: 'app/authorization/login/login.view.html',
-        controller: 'LoginController',
-        controllerAs: 'login'
+        templateUrl: 'app/authorization/login/login.view.html'
+        //controller: 'LoginController',
+        //controllerAs: 'login'
       })
       .when('/register', {
         templateUrl: 'app/authorization/register/register.view.html',

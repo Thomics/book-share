@@ -1,15 +1,13 @@
 
 <section class="home-bg">
 
-<section class="home-nav">
+<section class="home-nav" ng-controller="LoginController as login">
   <a href='/' class="home-nav-logo">Bookshare</a>
-  <a href="/login" class="home-sign-in">Sign in</a>
+  <a  ng-click='login.logInPopup()' class="home-sign-in">Sign in</a>
 </section>
 
-
-
   <div class="home-container">
-    <img src="../img/home-library-example.jpg" style="float: left; width: 50%;" />
+    <img src="../img/home-library-example.jpg" />
 
     <div class="home-sign-up-container">
       <h1>Share, Borrow, Read!</h1>
