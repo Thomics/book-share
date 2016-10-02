@@ -25,6 +25,7 @@ require('./navigation/nav.controller.js');
 /**************
  * Directives
  **************/
+require('./authorization/register/bsRegister.js');
 require('./bookDisplay/display/bsDisplayBooks.js');
 require('./bookDisplay/search/bsSearchBook.js');
 require('./bookDisplay/sorting/bsSortOptions.js');
