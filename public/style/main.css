@@ -234,3 +234,34 @@ h4.sort {
 /**********************
   End Sorting Options
 ***********************/
+
+
+/***************
+  Registration
+****************/
+
+.registration-input-box {
+  margin: 10px 0;
+}
+
+
+.registration-input-box input {
+  font-weight: 400;
+  padding: 8px 0 8px 1%;
+  width: 90%;
+}
+
+.registration-submit-button {
+  width: 90%;
+  padding: 12px 0;
+  background: #c5c5c5;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/******************
+  End Registration
+*******************/
+

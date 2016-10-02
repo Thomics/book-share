@@ -2,45 +2,6 @@
   background: #f9fbf0;
 }
 
-.home-container {
-  background: #ffffff;
-  color: #333333;
-  font-weight: bold;
-  height: calc(84vh - 40px);
-  margin: 0 auto;
-  padding: 20px 5%;
-  text-align: center;
-  width: 90%;
-
-}
-
-
-.log-in-btn, .sign-up-btn {
-  background: #2c2c2c;
-  color: #ffffff;
-  float: right;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 16px;
-  margin-top: 10vh;
-  margin-right: 12.5%;
-  text-align: center;
-  text-decoration: none;
-  transition: .4s background linear;
-  width: 15%;
-
-}
-
-.sign-up-btn {
-  margin-right: 7.5%;
-}
-
-.log-in-btn:hover, .sign-up-btn:hover {
-  background: #363A3B;
-}
-
-
-
 /*Navigation Styling*/
 .home-nav {
   width: 100%;
@@ -64,10 +25,46 @@
   color: #444;
 }
 
-
 .home-nav .home-sign-in {
   float: right;
   margin: 0 5% 0 0;
   color: #4e554f;
 }
 /*End Navigation Styling*/
+
+
+
+/*Main Container Styling*/
+.home-container {
+  background: #ffffff;
+  color: #333333;
+  font-weight: bold;
+  height: calc(84vh - 40px);
+  margin: 0 auto;
+  padding: 20px 5%;
+  width: 90%;
+}
+
+.home-sign-up-container {
+  width: 46%;
+  float: right;
+  padding-left: 5%;
+  text-align: left;
+  color: #4e554f;
+}
+
+.home-sign-up-container h1 {
+  font-size: 34px;
+  margin-top: 40px;
+}
+
+.home-sign-up-container p {
+  margin: 10px 0 40px 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+/*END Main Container Styling*/
+
+
