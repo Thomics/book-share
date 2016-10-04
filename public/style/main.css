@@ -121,7 +121,7 @@ body {
 }
 
 .book-search-submit {
-  background: #f9fbf0;
+  background: transparent;
   border: none;
   color: #4c554f;
   height: 20px;

@@ -5,7 +5,8 @@
     <a href="#" ng-click="$event.preventDefault(); modal.bookSelected(book)">
 
       <img class="modal-book-img"
-           ng-src="{{'http://covers.openlibrary.org/b/isbn/' + book.isbn[0] + '-M.jpg'}}"
+           ng-src="{{'http://covers.openlibrary.org/b/isbn/' + book.isbn[0] + '-M.jpg?default=false'}}"
+           onerror="this.onerror=null;this.src='../img/cover-404.jpg'"
            title={{book.title}} />
 
       <p class="modal-book-title">{{book.title}}</p>

@@ -1,6 +1,6 @@
-<form class="search-book" ng-submit="display.searchBook(newBook)" ng-show="display.isLoggedIn">
+<form class="search-book" ng-submit="display.searchBook(newBook)" ng-show="display.isLoggedIn" autocomplete="off">
   <input class="book-search-box" [ng-value="{{newBook}}"] placeholder="Add Book" ng-model="newBook" name="bookTitle">
-  <button class="book-search-submit" type="submit" title="Search Book" onSubmit="">
+  <button class="book-search-submit" type="submit" title="Search Book" onSubmit="this.reset();">
     <i class="fa fa-search" aria-hidden="true"></i>
   </button>
 </form>
