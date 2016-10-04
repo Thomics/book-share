@@ -17,7 +17,7 @@
       </i>
 
       <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-        <li role="menuitem"><a href="/">Book Details</a></li>
+        <li role="menuitem"><a ng-href="http://openlibrary.org/isbn/{{book.isbn}}" target="_blank">Book Details</a></li>
 
         <!-- Show these options when on the groups general profile. -->
         <li role="menuitem" ng-show="display.currentPage === '/allBooks'">

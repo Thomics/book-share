@@ -8,13 +8,14 @@
            ng-src="{{'http://covers.openlibrary.org/b/isbn/' + book.isbn[0] + '-M.jpg?default=false'}}"
            onerror="this.onerror=null;this.src='../img/cover-404.jpg'"
            title={{book.title}} />
+    </a>
+
+
 
       <p class="modal-book-title">{{book.title}}</p>
       <p class="modal-book-author">{{book.author_name[0]}}</p>
-
-    </a>
+      <a class="modal-book-about" ng-href="http://openlibrary.org/isbn/{{book.isbn[0]}}" target="_blank">Book Details</a>
 
   </div>
 
 </div>
-

@@ -14,10 +14,6 @@
     vm.bookSelected = bookSelected;
     vm.cancel = cancel;
     vm.data = data.splice(0, 10);
-    //vm.selectedBook = {
-    //  book: null
-    //};
-    vm.bookList = [];
 
     function bookSelected(book) {
       console.log(book);

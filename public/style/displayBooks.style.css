@@ -173,7 +173,7 @@ Modal Style
 .modal-book-title {
   font-weight: 700;
   font-size: 13px;
-  height: 26px;
+  height: 15px;
   margin-left: 2%;
   margin-top: 6px;
   overflow: hidden;
@@ -181,8 +181,13 @@ Modal Style
 
 .modal-book-author {
   font-size: 12px;
+  margin: 6px 0 3px 2%;
+}
+
+.modal-book-about {
+  font-size: 12px;
   margin-left: 2%;
-  margin-top: 6px;
+  text-decoration: underline;
 }
 
 .modal-book-owner {
