@@ -66,6 +66,7 @@
 
 
     function createModal(data) {
+      console.log(data.docs);
 
       var modalInstance = $uibModal.open({
         animation: true,

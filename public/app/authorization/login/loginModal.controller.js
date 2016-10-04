@@ -15,7 +15,6 @@
     vm.signedIn = signedIn;
 
     function signedIn() {
-      console.log('ss');
       $uibModalInstance.close('success');
     }
 

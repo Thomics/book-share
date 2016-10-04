@@ -58,10 +58,6 @@
       }
     }
 
-    //function getName() {
-    //  return currentUser().name;
-    //}
-
 
     function isLoggedIn() {
       var token = getToken();

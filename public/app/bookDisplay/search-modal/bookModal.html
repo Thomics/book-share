@@ -1,16 +1,19 @@
 <div class='modal-container'>
 
-  <div class="modal-book" ng-repeat="bookData in modal.data">
+  <div class="modal-book" ng-repeat="book in modal.data">
 
-    <a href="#" ng-click="$event.preventDefault(); modal.bookSelected(bookData)">
+    <a href="#" ng-click="$event.preventDefault(); modal.bookSelected(book)">
 
-      Title: {{bookData.title}}
-      <br />
-      Author: {{bookData.author_name[0]}}
-      <img style="height: 100%;" ng-src="{{'http://covers.openlibrary.org/b/isbn/' + bookData.isbn[0] + '-M.jpg'}}" />
+      <img class="modal-book-img"
+           ng-src="{{'http://covers.openlibrary.org/b/isbn/' + book.isbn[0] + '-M.jpg'}}"
+           title={{book.title}} />
+
+      <p class="modal-book-title">{{book.title}}</p>
+      <p class="modal-book-author">{{book.author_name[0]}}</p>
 
     </a>
 
   </div>
 
 </div>
+
