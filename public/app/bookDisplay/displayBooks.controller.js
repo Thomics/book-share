@@ -12,6 +12,7 @@
     var vm = this;
 
     vm.books = [];
+    vm.checkBookCover = checkBookCover;
     vm.createBook = createBook;
     vm.createModal = createModal;
     vm.currentPage = $location.path();
@@ -43,6 +44,14 @@
       }
     }
 
+    //Gets the height of the book cover image. If there is no image, Open Library will return a 1px by 1px image.
+    function checkBookCover(img) {
+      var img = document.createElement('img');
+      img.src = img;
+
+      return img.naturalHeight <= 1;
+    }
+
     
     //Using data returned from openlibrary.org, generates an object for an individual book.
     function createBook(bookData) {
@@ -58,6 +67,11 @@
         owner: AuthService.getUsername(),
         ownerName: AuthService.currentUser().name
       };
+
+
+      if ( vm.checkBookCover(bookObj.image) ) {
+        bookObj.image = '../img/cover-404.jpg';
+      }
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);

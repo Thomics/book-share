@@ -48,6 +48,8 @@ body {
   font-size: 12px;
   margin-left: 2%;
   margin-top: 6px;
+  height: 12px;
+  overflow: hidden;
 }
 
 .vert-book-owner {
