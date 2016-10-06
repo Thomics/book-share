@@ -1,9 +1,9 @@
+//http routing framework
 var express = require('express');
+//A Router instance is a complete middleware and routing system
 var router = express.Router();
+//Middleware that validates JsonWebTokens and sets req.user.
 var jwt = require('express-jwt');
-
-var console = require('console');
-
 
 
 var auth = jwt({

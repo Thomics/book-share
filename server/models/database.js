@@ -1,7 +1,13 @@
+//Schema modeling tool
 var mongoose = require('mongoose');
-var gracefulShutdown;
+//The URI of our database.
 var dbURI = 'mongodb://tomc:Bookshare1@ds027175.mlab.com:27175/book-share';
 
+//Mongoose schemas, gets registered as a model.
+require('./user');
+require('./books');
+
+//Connect to the Mongo DB
 mongoose.connect(dbURI);
 
 //CONNECTION EVENTS
@@ -17,7 +23,7 @@ mongoose.connection.on('disconnected', function() {
 
 
 //To be called when process is restarted or terminated
-gracefulShutdown = function(msg, callback) {
+var gracefulShutdown = function(msg, callback) {
   mongoose.connection.close(function() {
     console.log('Mongoose disconnected through ' + msg);
     callback();
@@ -44,6 +50,3 @@ process.on('SIGTERM', function() {
     process.exit(0);
   });
 });
-
-require('./user');
-require('./books');

@@ -1,14 +1,21 @@
 'use strict';
 
-var console = require('console');
+//http routing framework
 var express = require('express');
+//Parses the incoming request bodies before my handlers.
 var parser = require('body-parser');
+//I think it normalizes the path, removes slashes, and periods, and gives the path.
 var path = require('path');
+//Authentication of requests,
 var passport = require('passport');
 
-
+//Gets the database model file. Contains the connection to the database, and mongoose.
+//In this file, books.js is required which gives a model.
 require('./server/models/database');
+//Authentication.
 require('./server/config/passport');
+
+
 
 //API routes
 var router = require('./server/routes/index');
@@ -16,26 +23,35 @@ var router = require('./server/routes/index');
 //Express app
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
+//Sets the local host to 3000, or if it is on heroku sets it to process.env.PORT
 var port = process.env.PORT || 3000;
 
+//Uses the body parser's json middleware parser, to parse incoming requests before the handlers.
 app.use(parser.json());
+
+//Sets the default path the be the public folder.
 app.use(express.static(path.join(__dirname, '/public')));
+
+//Required middleware to initialize passport.
 app.use(passport.initialize());
+
+//If the route is prefixed with api, serve up ./server/routes/index.
 app.use('/api', router);
 
-app.get('*', function(req, res) {
+//Default path, will return index.html for all paths that aren't prefixed with an /api.
+app.all('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+//Server will listen to the port (either 3000, or on Heroku, process.env.PORT)
 app.listen(port, function() {
   console.log('Server on port:' + port);
 });
 
 
+//**************
+//Error handlers
+//**************
 
 
 //Catch 404 and forward to error handler
@@ -45,9 +61,8 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
 
-// [SH] Catch unauthorised errors
+//[SH] Catch unauthorised errors
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
     res.status(401);
@@ -55,8 +70,9 @@ app.use(function (err, req, res, next) {
   }
 });
 
-// development error handler
-// will print stacktrace
+
+//Development error handler
+//Will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -67,8 +83,9 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
+
+//Production error handler
+//No stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -77,5 +94,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
+//*******************
+//End Error handlers
+//*******************
 
 module.exports = app;
