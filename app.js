@@ -17,8 +17,9 @@ require('./server/config/passport');
 
 
 
-//API routes
+//API routes, gets the route file with all routing.
 var router = require('./server/routes/index');
+
 
 //Express app
 var app = express();
@@ -38,10 +39,17 @@ app.use(passport.initialize());
 //If the route is prefixed with api, serve up ./server/routes/index.
 app.use('/api', router);
 
+
+//Sets up the route for the user chat.
+app.get('/chat', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'app', 'home', 'home.html'));
+});
+
 //Default path, will return index.html for all paths that aren't prefixed with an /api.
 app.all('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
 
 //Server will listen to the port (either 3000, or on Heroku, process.env.PORT)
 app.listen(port, function() {
@@ -52,7 +60,6 @@ app.listen(port, function() {
 //**************
 //Error handlers
 //**************
-
 
 //Catch 404 and forward to error handler
 app.use(function(req, res, next) {

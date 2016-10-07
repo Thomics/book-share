@@ -43,6 +43,9 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         controller: 'DisplayBooksController',
         controllerAs: 'display'
       })
+      .when('/chat', {
+        templateUrl: 'app/home/home.html'
+      })
       .otherwise({redirectTo: '/'});
 
 }]);
