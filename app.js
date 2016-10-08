@@ -9,6 +9,7 @@ var path = require('path');
 //Authentication of requests,
 var passport = require('passport');
 
+
 //Gets the database model file. Contains the connection to the database, and mongoose.
 //In this file, books.js is required which gives a model.
 require('./server/models/database');
@@ -40,10 +41,11 @@ app.use(passport.initialize());
 app.use('/api', router);
 
 
-//Sets up the route for the user chat.
-app.get('/chat', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'app', 'home', 'home.html'));
-});
+////Sets up the route for the user chat.
+//app.get('/chat', function(req, res) {
+//  res.sendFile(path.join(__dirname, 'public', 'app', 'chat', 'bsChat.html'));
+//});
+
 
 //Default path, will return index.html for all paths that aren't prefixed with an /api.
 app.all('*', function(req, res) {

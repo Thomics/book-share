@@ -73,7 +73,7 @@
         ownerName: AuthService.currentUser().name
       };
 
-      //console.log(vm.checkBookCover(bookObj.image));
+      console.log(vm.checkBookCover(bookObj.image));
       //if ( vm.checkBookCover(bookObj.image) ) {
       //  console.log('image here');
       //

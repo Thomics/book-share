@@ -1,0 +1,20 @@
+
+
+.vert-book.ng-move,
+.vert-book.ng-enter,
+.vert-book.ng-leave {
+  -webkit-transition:all linear 0.1s;
+  transition:all linear 0.1s;
+}
+
+.vert-book.ng-leave.ng-leave-active,
+.vert-book.ng-move,
+.vert-book.ng-enter {
+  opacity:0;
+}
+
+.vert-book.ng-leave,
+.vert-book.ng-move.ng-move-active,
+.vert-book.ng-enter.ng-enter-active {
+  opacity:1;
+}

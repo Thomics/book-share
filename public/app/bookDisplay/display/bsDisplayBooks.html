@@ -1,5 +1,5 @@
 
-<div class="vert-book" ng-repeat="book in display.books" >
+<div class="vert-book" ng-repeat="book in display.books" style="transition-delay: {{$index * 50}}ms">
   <img class="vert-book-img" ng-src="{{book.image}}" title={{book.title}} />
 
   <div class="book-hover">
