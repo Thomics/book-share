@@ -3,8 +3,8 @@
 .vert-book.ng-move,
 .vert-book.ng-enter,
 .vert-book.ng-leave {
-  -webkit-transition:all linear 0.1s;
-  transition:all linear 0.1s;
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
 }
 
 .vert-book.ng-leave.ng-leave-active,

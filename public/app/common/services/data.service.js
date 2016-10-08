@@ -10,9 +10,9 @@
     .module('bookApp')
     .service('DataService', DataService);
 
-  DataService.$inject = ['$http', '$q', 'AuthService'];
+  DataService.$inject = ['$http', '$q', '$route', 'AuthService'];
 
-  function DataService($http, $q, AuthService) {
+  function DataService($http, $q, $route, AuthService) {
 
     var vm = this;
 
@@ -22,6 +22,7 @@
     vm.getAllBooks = getAllBooks;
     vm.getBook = getBook;
     vm.getUserBooks = getUserBooks;
+    vm.reloadRoute = reloadRoute;
     vm.saveBook = saveBook;
     vm.userBooks = [];
 
@@ -57,6 +58,12 @@
       return $http.delete('/api/books/' + book._id).then(function() {
         console.log('I deleted the ' + book.title + ' book!');
       });
+    }
+
+    function reloadRoute() {
+      setTimeout(function(){
+        $route.reload();
+      }, 300);
     }
 
 

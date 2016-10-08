@@ -12,7 +12,6 @@
     var vm = this;
 
     vm.books = [];
-    //vm.checkBookCover = checkBookCover;
     vm.createBook = createBook;
     vm.createModal = createModal;
     vm.currentPage = $location.path();
@@ -20,6 +19,7 @@
     vm.getAllBooks = getAllBooks;
     vm.getUserBooks = getUserBooks;
     vm.isLoggedIn = AuthService.isLoggedIn();
+    vm.reloadRoute = DataService.reloadRoute;
     vm.searchBook = searchBook;
 
     activate();
@@ -73,7 +73,6 @@
         ownerName: AuthService.currentUser().name
       };
 
-      console.log(vm.checkBookCover(bookObj.image));
       //if ( vm.checkBookCover(bookObj.image) ) {
       //  console.log('image here');
       //
@@ -82,7 +81,7 @@
 
       vm.books.push(bookObj);
       DataService.saveBook(bookObj);
-
+      vm.reloadRoute();
     }
 
 
