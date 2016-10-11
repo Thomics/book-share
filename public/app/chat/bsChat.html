@@ -1,5 +1,7 @@
+<!doctype html>
+<html>
 <head>
-  <title>Socket.IO chat</title>
+  <title>Chat</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font: 13px Helvetica, Arial; }
@@ -17,4 +19,26 @@
   <input id="m" autocomplete="off" /><button>Send</button>
 </form>
 
+
+
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+
+  var socket = io();
+  console.log(socket);
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').text(msg));
+  });
+</script>
+
+
+
+
 </body>
+</html>
