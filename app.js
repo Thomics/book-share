@@ -4,7 +4,7 @@
 var express = require('express');
 //Parses the incoming request bodies before my handlers.
 var parser = require('body-parser');
-//I think it normalizes the path, removes slashes, and periods, and gives the path.
+//Normalizes the path, removes slashes, and periods, and gives the path.
 var path = require('path');
 //Authentication of requests,
 var passport = require('passport');
@@ -20,6 +20,7 @@ require('./server/config/passport');
 
 //API routes, gets the route file with all routing.
 var router = require('./server/routes/index');
+var chatRouter = require('./server/routes/chatRouter');
 
 
 //Express app
@@ -39,29 +40,28 @@ app.use(passport.initialize());
 
 //If the route is prefixed with api, serve up ./server/routes/index.
 app.use('/api', router);
+app.use('/chat', chatRouter);
 
 
 
 
 
+//var app = require('express').createServer();
+//var io = require('socket.io')(app);
+//
+//app.listen(80);
+//
+//app.get('/', function (req, res) {
+//  res.sendfile(__dirname + '/index.html');
+//});
+//
+//io.on('connection', function (socket) {
+//  socket.emit('news', { hello: 'world' });
+//  socket.on('my other event', function (data) {
+//    console.log(data);
+//  });
+//});
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
-console.log('here');
-
-//Sets up the route for the user chat.
-app.get('/chat', function(req, res) {
-  console.log('hire');
-  console.log(path.join(__dirname, 'public', 'app', 'chat', 'bsChat.html'));
-  res.sendFile(path.join(__dirname, 'public', 'app', 'chat', 'bsChat.html'));
-});
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
 
 
 

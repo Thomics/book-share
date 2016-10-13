@@ -13,9 +13,9 @@ var auth = jwt({
 });
 
 
-var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
 var ctrlBooks = require('../controllers/books');
+var ctrlProfile = require('../controllers/profile');
 
 //profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -29,6 +29,8 @@ router.get('/books', ctrlBooks.getBooks);
 router.get('/books/:owner', ctrlBooks.getOwnerBooks);
 router.post('/books', ctrlBooks.addBooks);
 router.delete('/books/:id', ctrlBooks.deleteBook);
+
+
 
 
 module.exports = router;
