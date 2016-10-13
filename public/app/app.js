@@ -44,7 +44,9 @@ angular.module('bookApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         controllerAs: 'display'
       })
       .when('/chat', {
-        templateUrl: 'app/chat/bsChat.html'
+        templateUrl: 'app/chat/bsChat.html',
+        controller: 'ChatController',
+        controllerAs: 'chat'
       })
       .otherwise({redirectTo: '/'});
 

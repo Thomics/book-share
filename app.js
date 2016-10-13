@@ -25,6 +25,15 @@ var chatRouter = require('./server/routes/chatRouter');
 
 //Express app
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+//Connects the socket io.
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
 
 //Sets the local host to 3000, or if it is on heroku sets it to process.env.PORT
 var port = process.env.PORT || 3000;
@@ -40,30 +49,8 @@ app.use(passport.initialize());
 
 //If the route is prefixed with api, serve up ./server/routes/index.
 app.use('/api', router);
-//app.use('/chat', chatRouter);
-
-
-
-
-
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-
-
-
-app.get('/chat', function (req, res) {
-  console.log('chat');
-  res.sendFile(path.join(__dirname, 'public', 'app', 'chat', 'bsChat.html'));
-
-});
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
-
-
+//Sets the chat route.
+app.use('/chat', chatRouter);
 
 //Default path, will return index.html for all paths that aren't prefixed with an /api.
 app.all('*', function(req, res) {
@@ -71,20 +58,10 @@ app.all('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-
-////Server will listen to the port (either 3000, or on Heroku, process.env.PORT)
-//app.listen(port, function() {
-//  console.log('Server on port:' + port);
-//});
-
+//Server will listen to the port (either 3000, or on Heroku, process.env.PORT)
 server.listen(port, function(){
   console.log('Server on port:' + port);
 });
-
-
-
-
-
 
 
 //**************

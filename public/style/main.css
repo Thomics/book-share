@@ -307,3 +307,8 @@ h4.sort {
 /******************
   End Log In
 *******************/
+
+
+.chat-container {
+  background: red;
+}
