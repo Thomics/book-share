@@ -14,19 +14,41 @@
   background: #fff;
   width: 80%;
   margin: 10vh auto;
+  padding: 2.5%;
   height: 80vh;
+  position: relative;
 }
 
-#messages {
+.message-container {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-#messages li {
+.message-container div {
   padding: 5px 10px;
+  border-bottom: 1px solid #eee;
 }
 
-#messages li:nth-child(odd) {
-  background: #eee;
+.chat-form {
+  position: absolute;
+  bottom: 2%;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.chat-input {
+  float: left;
+  height: 50px;
+  width: 85%;
+}
+
+.chat-form button {
+  width: 9%;
+  height: 50px;
+}
+
+.chat-input.break {
+  word-wrap: break-word;
+  word-break: break-all;
 }

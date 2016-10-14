@@ -5,23 +5,38 @@
     .module('bookApp')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = [];
+  ChatController.$inject = ['$scope', 'AuthService'];
 
-  function ChatController() {
+  function ChatController($scope, AuthService) {
 
     var vm = this;
 
+    vm.userEmail = AuthService.getUsername();
+    vm.userName = AuthService.getName();
+    vm.socket = io();
+    vm.checkSubmit = checkSubmit;
+    vm.submitMessage = submitMessage;
 
-    var socket = io();
-    $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
+
+
+    function checkSubmit($event) {
+      if ( $event.key === 'Enter' ) {
+
+        vm.submitMessage();
+      }
+    }
+
+
+    function submitMessage() {
+      vm.socket.emit('chat message', $('#m').val());
       $('#m').val('');
       return false;
-    });
+    }
 
 
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
+
+    vm.socket.on('chat message', function(msg){
+      $('.message-container').append($('<div>').text(msg));
     });
 
 

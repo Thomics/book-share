@@ -17,6 +17,7 @@
     var vm = this;
 
     vm.currentUser = currentUser;
+    vm.getName = getName;
     vm.getToken = getToken;
     vm.getUsername = getUsername;
     vm.isLoggedIn = isLoggedIn;
@@ -43,6 +44,10 @@
       }
     }
 
+    function getName() {
+      var name = currentUser().name;
+      return name ? name : '';
+    }
 
     function getToken() {
       return $window.localStorage['mean-token'];
@@ -51,11 +56,12 @@
 
     function getUsername() {
       var email = currentUser().email;
-      if ( email ) {
-        return email;
-      } else {
-        return '';
-      }
+      return email ? email : '';
+      //if ( email ) {
+      //  return email;
+      //} else {
+      //  return '';
+      //}
     }
 
 

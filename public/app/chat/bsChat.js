@@ -10,6 +10,7 @@ angular.module('bookApp')
     return {
       templateUrl: 'app/chat/bsChat.html',
       replace: true,
-      controller: 'ChatController'
+      controller: 'ChatController',
+      controllerAs: 'chat'
     };
   });
