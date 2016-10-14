@@ -28,6 +28,8 @@
 .message-container div {
   padding: 5px 10px;
   border-bottom: 1px solid #eee;
+  float: left;
+  width: 100%;
 }
 
 .chat-form {
@@ -41,6 +43,7 @@
   float: left;
   height: 50px;
   width: 85%;
+  resize: none;
 }
 
 .chat-form button {
@@ -51,4 +54,27 @@
 .chat-input.break {
   word-wrap: break-word;
   word-break: break-all;
+}
+
+.chat-username {
+  font-size: 18px;
+  font-weight: 700;
+  float: left;
+  line-height: 18px;
+  color: #4c554f;
+}
+
+
+.chat-message {
+  margin-left: 2%;
+  float: left;
+  line-height: 18px;
+  width: 73%;
+  color: #4c554f;
+}
+
+.chat-message-time {
+  float: right;
+  line-height: 18px;
+  color: #ddd;
 }
