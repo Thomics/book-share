@@ -43,16 +43,18 @@
       vm.socket.emit('chat message', $('#m').val());
       vm.chatMessage = $('#m').val();
       vm.logMessage();
-      console.log(vm.chatMessage);
       $('#m').val('');
-      return false;
+      return vm.chatMessage;
+      //return false;
     }
 
     function logMessage() {
+      console.log('emit');
       vm.socket.on('chat message', function(msg){
         //$('.message-container').append($('<div>').text(msg));
+        console.log(vm.chatMessage);
 
-        $('.message-container').append($compile('<bs-message>')($scope));
+        $('.message-container').append($compile('<bs-message chatMessage=vm.chatMessage></bs-message>')($scope));
 
       });
     }

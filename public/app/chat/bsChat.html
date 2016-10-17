@@ -9,7 +9,8 @@
   </div>
 
   <form class="chat-form" ng-submit="chat.submitMessage()">
-    <textarea class="chat-input" id="m" autocomplete="off" ng-keydown="chat.checkSubmit($event)"></textarea>
+    <textarea class="chat-input" id="m" autocomplete="off" ng-keydown="chat.checkSubmit($event)" ng-model="chat.chatMessage"></textarea>
     <button>Send</button>
   </form>
+
 </section>
