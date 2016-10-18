@@ -1,7 +1,6 @@
   <div class="message">
-    <p class="chat-username">{{message.userName}}: </p>
-    <!--<p class="chat-message">{{message.chatMessage}}</p>-->
-    <!--<p class="chat-message">{{chatMessage}}</p>-->
-    <p class="chat-message">{{chatMessage}}</p>
+    <p class="chat-username">{{message.userName}}:</p>
+    <!-- This is where the chat message goes.-->
+    <ng-transclude class="chat-message"></ng-transclude>
     <p class="chat-message-time">{{message.time}}</p>
   </div>

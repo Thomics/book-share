@@ -11,14 +11,16 @@
 
     var vm = this;
 
-    vm.logMessage = logMessage;
+    //vm.logMessage = logMessage;
     vm.userEmail = AuthService.getUsername();
     vm.userName = AuthService.getName();
+    //Add url
     vm.socket = io();
+    //vm.socket = io('http://localhost');
     vm.checkSubmit = checkSubmit;
     vm.submitMessage = submitMessage;
     vm.time = getTime();
-    vm.chatMessage;
+
 
 
     function checkSubmit($event) {
@@ -39,33 +41,23 @@
     }
 
 
-    function submitMessage() {
-      vm.socket.emit('chat message', $('#m').val());
-      vm.chatMessage = $('#m').val();
-      vm.logMessage();
-      $('#m').val('');
-      return vm.chatMessage;
-      //return false;
-    }
-
-    function logMessage() {
-      console.log('emit');
-      vm.socket.on('chat message', function(msg){
-        //$('.message-container').append($('<div>').text(msg));
-        console.log(vm.chatMessage);
-
-        $('.message-container').append($compile('<bs-message chatMessage=vm.chatMessage></bs-message>')($scope));
-
-      });
-    }
-
-
-    //vm.socket.on('chat message', function(msg){
-    //  //$('.message-container').append($('<div>').text(msg));
-    //
-    //  $('.message-container').append($compile('<bs-message>')($scope));
-    //
+    //socket.on('chat message', function(msg){
+    //  $('#messages').append($('<li>').text(msg));
     //});
+
+    function submitMessage() {
+      console.log('times');
+      vm.socket.emit('chat message', vm.chatMessage);
+      vm.chatMessage = '';
+      return false;
+    }
+
+
+    vm.socket.on('new message', function(msg){
+      console.log(msg);
+      $('.message-container').append($compile('<bs-message>' + msg + '</bs-message>')($scope));
+      vm.socket.removeAllListeners('new message');
+    });
 
 
 
