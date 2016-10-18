@@ -30,14 +30,11 @@ var io = require('socket.io')(server);
 
 //Connects the socket io.
 io.on('connection', function(socket){
-
   socket.on('chat message', function(msg){
     console.log(msg);
-    //io.emit('chat message', msg)//working
-    io.emit('new message', msg);//test
+    io.emit('new message', msg);
   });
 });
-
 
 
 //Sets the local host to 3000, or if it is on heroku sets it to process.env.PORT

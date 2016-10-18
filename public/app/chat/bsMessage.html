@@ -2,5 +2,5 @@
     <p class="chat-username">{{message.userName}}:</p>
     <!-- This is where the chat message goes.-->
     <ng-transclude class="chat-message"></ng-transclude>
-    <p class="chat-message-time">{{message.time}}</p>
+    <p class="chat-message-time">{{message.time | date : "short"}}</p>
   </div>
